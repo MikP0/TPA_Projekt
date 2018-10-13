@@ -24,6 +24,13 @@ namespace Projekt.ViewModel
             get { return isExpanded; }
             set
             {
+                if (logger.IsInfoEnabled)
+                {
+                    if (isExpanded == false)
+                        logger.Info("Expanding node " + Name);
+                    else
+                        logger.Info("Hiding node " + Name);
+                }
                 isExpanded = value;
                 if (wasBuilt)
                     return;
@@ -38,7 +45,8 @@ namespace Projekt.ViewModel
             Children = new ObservableCollection<TreeViewItem>();
             Children.Add(null);
             this.wasBuilt = false;
-            logger.Info("TreeViewItem CREATED");
+            if (logger.IsDebugEnabled)
+                logger.Debug("TreeViewItem created");
         }
 
 
