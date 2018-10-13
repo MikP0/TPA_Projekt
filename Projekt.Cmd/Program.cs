@@ -49,23 +49,29 @@ namespace Projekt.Cmd
         {
             
             Console.WriteLine("Listed values\n");
-            if (obj.Length != 1)
+            if (obj.Length != 2)
             {
                 foreach (var item in workspaceViewModel.HierarchicalAreas)
                 {
                     Console.WriteLine(item.Name);
                 }
             }
-            else if(obj[0] == "child")
+            else if(obj[0] == "--depth")
             {
-                foreach (var item in workspaceViewModel.HierarchicalAreas)
+                int depthSize = 0;
+                var next = workspaceViewModel.HierarchicalAreas;
+                Int32.TryParse(obj[1], out depthSize);
+                for (int i = 0; i < depthSize; i++)
                 {
-                    Console.WriteLine(item.Name);
-                    item.IsExpanded = true;
-                    foreach(var children in item.Children)
+                    foreach (TreeViewItem item in next)
                     {
-                        children.IsExpanded = true;
-                        Console.WriteLine(children.Name);
+                        Console.WriteLine(item.Name);
+                        item.IsExpanded = true;
+                        foreach(TreeViewItem nextItem in item.Children)
+                        {
+                            nextItem.IsExpanded = true;
+                            Console.WriteLine(nextItem.Name);
+                        }
                     }
                 }
             }
@@ -74,11 +80,6 @@ namespace Projekt.Cmd
 
             }
             
-        }
-        private static void CopyFunc(string[] obj)
-        {
-            if (obj.Length != 2) return;
-            Console.WriteLine("Copying " + obj[0] + " to " + obj[1]);
         }
         private static void ReadFunc(string[] obj)
         {
