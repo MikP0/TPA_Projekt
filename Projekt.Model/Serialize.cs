@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,6 +17,9 @@ namespace Projekt.Model
         {
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
 
+            Trace.Listeners.Add(new TextWriterTraceListener("ModelLog.log", "modelListener"));
+            Trace.TraceInformation("Model Log test");
+            Trace.Flush();
             XmlWriterSettings settings = new XmlWriterSettings
             {
                 Indent = true,

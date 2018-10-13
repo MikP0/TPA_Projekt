@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -10,7 +11,8 @@ namespace Projekt.Data
     [DataContract(IsReference = true)]
     public class A
     {
-        public A() { }
+        public A() {
+        }
 
         [DataMember]
         public string _FieldString { get; set; }
@@ -24,6 +26,7 @@ namespace Projekt.Data
             _FieldString = FieldString;
             _FieldInt = FieldInt;
             _refToB = refToB;
+            Trace.WriteLine("A Type object CREATED", "A");
         }
 
         public override string ToString()
