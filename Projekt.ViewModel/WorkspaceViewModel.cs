@@ -19,7 +19,7 @@ using System.Windows;
 
 namespace Projekt.ViewModel
 {
-    internal class WorkspaceViewModel : ViewModelBase
+    internal class workspaceViewModel : ViewModelBase
     {
         public ObservableCollection<TreeViewItem> HierarchicalAreas { get; set; }
 
@@ -51,7 +51,7 @@ namespace Projekt.ViewModel
             }
         }
 
-        public WorkspaceViewModel()
+        public workspaceViewModel()
         {
             HierarchicalAreas = new ObservableCollection<TreeViewItem>();
             SaveDataCommand = new RelayCommand(param => ChangeButtonSave());
@@ -155,9 +155,9 @@ namespace Projekt.ViewModel
         public void ChangeButtonLoadFromFile()
         {
             ButtonLoadFromFile = "Load from file Clicked";
-            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                this.FileName = openFileDialog.FileName;
+            //System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            //if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //    this.FileName = openFileDialog.FileName;
             ChangeControlButtonReadVisibility = Visibility.Visible;
 
         }
