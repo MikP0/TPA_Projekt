@@ -29,6 +29,9 @@ namespace Projekt.Model
             };
             try
             {
+                if (logger.IsInfoEnabled)
+                    logger.Info("Trying to create XmlWriter");
+
                 using (XmlWriter w = XmlWriter.Create(sourcePath, settings))
                 {
                     serializer.WriteObject(w, obj);
@@ -41,7 +44,7 @@ namespace Projekt.Model
                     if(sourcePath == null || sourcePath.Length == 0)
                         logger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
                     if (settings == null)
-                        logger.Error("Error occured when creating XmlWriter! Settings bot specified\n" + e);
+                        logger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
                 }
             }
         }
