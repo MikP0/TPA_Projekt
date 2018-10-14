@@ -12,7 +12,7 @@ namespace Projekt.ViewModel
 {
     public class TreeViewItem
     {
-        private static readonly ILog logger = LogManager.GetLogger("ViewModelAppender");
+        private static readonly ILog logger = LogManager.GetLogger("ViewModelLogger");
         public ObservableCollection<TreeViewItem> Children { get; set; }
         public string Name { get; set; }
         public IBuildable HierarchyReference { get; set; }
