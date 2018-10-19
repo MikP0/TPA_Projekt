@@ -85,10 +85,10 @@ namespace Projekt.Cmd
         {
             if (obj.Length != 1) return;
             Console.WriteLine("Reading object...:" + obj[0]);
-            workspaceViewModel.FileName = obj[0];
+            workspaceViewModel.ReadFileName = obj[0];
             workspaceViewModel.LoadFromFileDataCommand.Execute("Load");
             workspaceViewModel.ReadDataCommand.Execute("Read");
-            Console.WriteLine("Read: " + workspaceViewModel.FileName);
+            Console.WriteLine("Read: " + workspaceViewModel.ReadFileName);
         }
 
         public static void HelpFunc(string[] args)

@@ -90,9 +90,8 @@ namespace Projekt.ViewModel
         {
             if (logger.IsInfoEnabled)
                 logger.Info("Trying to save to XML");
-            System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            saveFileDialog.ShowDialog();
-            Serialize.XmlSerialize<AssemblyMetadata>(assemblyMetadata, saveFileDialog.FileName);
+
+            Serialize.XmlSerialize<AssemblyMetadata>(assemblyMetadata, SaveFileName);
         }
 
         public RelayCommand SaveDataCommand
@@ -141,19 +140,19 @@ namespace Projekt.ViewModel
 
             ButtonRead = "Read Clicked";
 
-            if (FileName.Contains(".dll"))
+            if (ReadFileName.Contains(".dll"))
             {
                 if (logger.IsInfoEnabled)
                     logger.Info("Trying to read .dll file");
 
-                assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(FileName));
+                assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(ReadFileName));
             }
-            else if (FileName.Contains(".xml"))
+            else if (ReadFileName.Contains(".xml"))
             {
                 if (logger.IsInfoEnabled)
                     logger.Info("Trying to read .xml file");
 
-                assemblyMetadata = Deserialize.XmlDeserialize<AssemblyMetadata>(FileName);
+                assemblyMetadata = Deserialize.XmlDeserialize<AssemblyMetadata>(ReadFileName);
                 foreach (NamespaceMetadata n in assemblyMetadata.Namespaces)
                 {
                     foreach (TypeMetadata type in n.Types)
@@ -166,7 +165,7 @@ namespace Projekt.ViewModel
             {
                 if (logger.IsErrorEnabled)
                 {
-                    logger.Error("Error reading file: " + FileName);
+                    logger.Error("Error reading file: " + ReadFileName);
                     logger.Error("File type not supported!");
                 }
                 return;
@@ -203,7 +202,7 @@ namespace Projekt.ViewModel
                 logger.Info("LoadFromFile button clicked");
                 logger.Info("Opening file dialog");
             }
-            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+//            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
 //            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 //            {
 //                if (logger.IsInfoEnabled)
@@ -228,16 +227,31 @@ namespace Projekt.ViewModel
         }
         #endregion
 
-        #region FileName;
-        private String _FileName;
-        public String FileName
+        #region ReadFileName;
+        private String _ReadFileName;
+        public String ReadFileName
         {
-            get { return _FileName ?? (_FileName = "Nie wybrano pliku"); }
+            get { return _ReadFileName ?? (_ReadFileName = "Nie wybrano pliku"); }
             set
             {
                 if (logger.IsInfoEnabled)
                     logger.Info("Changing status of FileName property");
-                _FileName = value;
+                _ReadFileName = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+        #region SaveFileName;
+        private String _SaveFileName;
+        public String SaveFileName
+        {
+            get { return _SaveFileName ?? (_SaveFileName = "Nie wybrano pliku"); }
+            set
+            {
+                if (logger.IsInfoEnabled)
+                    logger.Info("Changing status of FileName property");
+                _SaveFileName = value;
                 OnPropertyChanged();
             }
         }
