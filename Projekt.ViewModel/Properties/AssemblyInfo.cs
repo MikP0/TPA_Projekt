@@ -37,6 +37,8 @@ using System.Runtime.InteropServices;
 
 [assembly: InternalsVisibleTo("Projekt_Ver_2_0")]
 
+
+[assembly: InternalsVisibleTo("Projekt.Cmd")]
 [assembly: InternalsVisibleTo("Projekt.UnitTest")]
 
 

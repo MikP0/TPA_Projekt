@@ -20,7 +20,7 @@ using log4net;
 
 namespace Projekt.ViewModel
 {
-    internal class WorkspaceViewModel : ViewModelBase
+    internal class workspaceViewModel : ViewModelBase
     {
 
         private static readonly ILog logger = LogManager.GetLogger("ViewModelLogger");
@@ -59,7 +59,7 @@ namespace Projekt.ViewModel
             }
         }
 
-        public WorkspaceViewModel()
+        public workspaceViewModel()
         {
             HierarchicalAreas = new ObservableCollection<TreeViewItem>();
             SaveDataCommand = new RelayCommand(param => ChangeButtonSave());
@@ -204,12 +204,12 @@ namespace Projekt.ViewModel
                 logger.Info("Opening file dialog");
             }
             System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (logger.IsInfoEnabled)
-                    logger.Info("File dialog status is OK");
-                this.FileName = openFileDialog.FileName;
-            }
+//            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+//            {
+//                if (logger.IsInfoEnabled)
+//                    logger.Info("File dialog status is OK");
+//                this.FileName = openFileDialog.FileName;
+//            }
             ChangeControlButtonReadVisibility = Visibility.Visible;
             if (logger.IsInfoEnabled)
                 logger.Info("Read button is now visible");
