@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Projekt.ViewModel;
 
 namespace Projekt_Ver_2_0
 {
@@ -22,28 +21,24 @@ namespace Projekt_Ver_2_0
     /// </summary>
     public partial class MainWindow : Window
     {
-        Projekt.ViewModel.workspaceViewModel vm;
         public MainWindow()
         {
-            Projekt.ViewModel.workspaceViewModel vm = DataContext as workspaceViewModel;
             InitializeComponent();
         }
 
         private void ButtonClickLoadFromFile(object sender, RoutedEventArgs e)
         {
-
             System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
-                vm.ReadFileName = openFileDialog.FileName;
+                ReadPath.Content = openFileDialog.FileName;
             }
         }
         private void ButtonClickSaveToFile(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog.ShowDialog();
-            vm.SaveFileName = saveFileDialog.FileName;
+            SavePath.Content = saveFileDialog.FileName;
         }
     }
 }

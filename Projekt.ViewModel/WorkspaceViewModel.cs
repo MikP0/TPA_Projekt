@@ -20,7 +20,7 @@ using log4net;
 
 namespace Projekt.ViewModel
 {
-    internal class workspaceViewModel : ViewModelBase
+    internal class WorkspaceViewModel : ViewModelBase
     {
 
         private static readonly ILog logger = LogManager.GetLogger("ViewModelLogger");
@@ -34,6 +34,16 @@ namespace Projekt.ViewModel
 
         private AssemblyMetadata assemblyMetadata;
         private TreeViewAssemblyMetadata treeViewAssemblyMetadata;
+
+        public WorkspaceViewModel()
+        {
+            HierarchicalAreas = new ObservableCollection<TreeViewItem>();
+            SaveDataCommand = new RelayCommand(param => ChangeButtonSave());
+            ReadDataCommand = new RelayCommand(param => ChangeButtonRead());
+            LoadFromFileDataCommand = new RelayCommand(param => ChangeButtonLoadFromFile());
+            if (logger.IsInfoEnabled)
+                logger.Info("WorkspaceViewModel created");
+        }
 
         public Visibility ChangeControlButtonReadVisibility
         {
@@ -58,17 +68,6 @@ namespace Projekt.ViewModel
                 OnPropertyChanged();
             }
         }
-
-        public workspaceViewModel()
-        {
-            HierarchicalAreas = new ObservableCollection<TreeViewItem>();
-            SaveDataCommand = new RelayCommand(param => ChangeButtonSave());
-            ReadDataCommand = new RelayCommand(param => ChangeButtonRead());
-            LoadFromFileDataCommand = new RelayCommand(param => ChangeButtonLoadFromFile());
-            if (logger.IsInfoEnabled)
-                logger.Info("WorkspaceViewModel created");
-        }
-
 
         public void InitializeData(IDataFiller dataFiller)
         {
@@ -202,13 +201,6 @@ namespace Projekt.ViewModel
                 logger.Info("LoadFromFile button clicked");
                 logger.Info("Opening file dialog");
             }
-//            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
-//            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-//            {
-//                if (logger.IsInfoEnabled)
-//                    logger.Info("File dialog status is OK");
-//                this.FileName = openFileDialog.FileName;
-//            }
             ChangeControlButtonReadVisibility = Visibility.Visible;
             if (logger.IsInfoEnabled)
                 logger.Info("Read button is now visible");

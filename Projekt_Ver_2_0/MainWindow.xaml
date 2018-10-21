@@ -19,11 +19,13 @@
 
             </Button>
             <Button Content="{Binding ButtonLoadFromFile}" Command="{Binding LoadFromFileDataCommand}" Click="ButtonClickLoadFromFile">
-                
+
             </Button>
             <TextBox Name="itemTextBox" Text="{Binding FileName}">
-                
+
             </TextBox>
+            <Label Name="ReadPath" Content="{Binding ReadFileName, Mode=TwoWay}" Width="255"/>
+            <Label Name="SavePath" Content="{Binding SaveFileName, Mode=TwoWay}" Width="255"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                 DockPanel.Dock="Bottom"
@@ -31,7 +33,11 @@
                 Height="25">
         </StackPanel>
         <Grid>
-            <TreeView Name="ObjectTreeView" ItemsSource="{Binding HierarchicalAreas}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="294*"/>
+                <ColumnDefinition Width="223*"/>
+            </Grid.ColumnDefinitions>
+            <TreeView Name="ObjectTreeView" ItemsSource="{Binding HierarchicalAreas}" Grid.ColumnSpan="2">
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate DataType="{x:Type vm:TreeViewItem}" ItemsSource="{Binding Path=Children}">
                         <TreeViewItem>
@@ -46,7 +52,7 @@
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>
                 <TreeView.ItemContainerStyle>
-                    <Style TargetType="TreeViewItem"> 
+                    <Style TargetType="TreeViewItem">
                         <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
                     </Style>
                 </TreeView.ItemContainerStyle>

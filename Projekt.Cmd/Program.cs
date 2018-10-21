@@ -10,7 +10,7 @@ namespace Projekt.Cmd
 {
     class Program
     {
-        private static readonly workspaceViewModel workspaceViewModel = new workspaceViewModel();
+        private static readonly WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
         [STAThread]
         static void Main(string[] args)
         {

@@ -13,7 +13,7 @@ namespace Projekt.UnitTest.ViewModelTest
         [TestMethod]
         public void TestWVMConstructor()
         {
-            workspaceViewModel workspaceViewModel = new workspaceViewModel();
+            WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
             Assert.IsNotNull(workspaceViewModel.HierarchicalAreas);
             Assert.IsNotNull(workspaceViewModel.ReadDataCommand);
             Assert.IsNotNull(workspaceViewModel.SaveDataCommand);
@@ -23,14 +23,14 @@ namespace Projekt.UnitTest.ViewModelTest
         [TestMethod]
         public void TestChangeButtonSave()
         {
-            workspaceViewModel workspaceViewModel = new workspaceViewModel();
+            WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
             Assert.IsTrue(workspaceViewModel.SaveDataCommand.CanExecute(null));
         }
 
         [TestMethod]
         public void TestChangeButtonRead()
         {
-            workspaceViewModel workspaceViewModel = new workspaceViewModel();
+            WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
             Assert.IsTrue(workspaceViewModel.ReadDataCommand.CanExecute(null));
         }
     }
