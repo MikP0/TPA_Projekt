@@ -5,16 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using Projekt.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace Projekt.Cmd
 {
     class Program
     {
         private static readonly WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
+        private static TreeViewItem rootItem;
+        private static Dictionary<int, TreeViewItem> itemChildren = new Dictionary<int, TreeViewItem>();
+        private static Stack<TreeViewItem> previousItems = new Stack<TreeViewItem>();
+
         [STAThread]
         static void Main(string[] args)
         {
-            
+
             Console.WriteLine("Welcome to TPA_Projekt. Type in a command.");
 
             while (true)
@@ -42,45 +47,76 @@ namespace Projekt.Cmd
                 { "list", ListFunc },
                 { "help" , HelpFunc },
                 { "read", ReadFunc},
-                { "exit", ExitFunc}, 
+                { "save", SaveFunc},
+                { "exit", ExitFunc},
+                { "clear", ClearFunc },
             };
+
+
+        private static void ClearFunc(string[] obj)
+        {
+            Console.Clear();
+        }
 
         private static void ListFunc(string[] obj)
         {
-            
-            Console.WriteLine("Listed values\n");
-            if (obj.Length != 2)
-            {
-                foreach (var item in workspaceViewModel.HierarchicalAreas)
-                {
-                    Console.WriteLine(item.Name);
-                }
+            if(rootItem == null) {
+                Console.WriteLine("You have to read object first.");
+                Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
+                return;
             }
-            else if(obj[0] == "--depth")
+            int option1 = 0;
+            Console.WriteLine("Listed values\n");
+            if (obj.Length != 1)
             {
-                int depthSize = 0;
-                var next = workspaceViewModel.HierarchicalAreas;
-                Int32.TryParse(obj[1], out depthSize);
-                for (int i = 0; i < depthSize; i++)
+                PrintAndUpdate();
+            }
+            else if (Int32.TryParse(obj[0], out option1))
+            {
+                if (itemChildren.ContainsKey(option1))
                 {
-                    foreach (TreeViewItem item in next)
-                    {
-                        Console.WriteLine(item.Name);
-                        item.IsExpanded = true;
-                        foreach(TreeViewItem nextItem in item.Children)
-                        {
-                            nextItem.IsExpanded = true;
-                            Console.WriteLine(nextItem.Name);
-                        }
-                    }
+                    previousItems.Push(rootItem);
+                    rootItem = itemChildren[option1];
+                    PrintAndUpdate();
                 }
+                else if (option1 == 0)
+                {
+                    if (previousItems.Count() != 0)
+                        rootItem = previousItems.Pop();
+                    PrintAndUpdate();
+                }
+                else {
+                    Console.WriteLine("Wrong argument!");
+                }
+                
             }
             else
             {
 
             }
-            
+
         }
+
+        private static void PrintAndUpdate()
+        {
+            Console.WriteLine(rootItem.Name);
+            if (rootItem.IsExpanded == false)
+                rootItem.IsExpanded = true;
+
+            int counter = 0;
+            itemChildren.Clear();
+            foreach (TreeViewItem item in rootItem.Children)
+            {
+                itemChildren.Add(++counter, item);
+            }
+            foreach (KeyValuePair<int, TreeViewItem> item in itemChildren)
+            {
+                Console.WriteLine("\t[{0}]\t{1}", item.Key, item.Value.Name);
+            }
+            if (previousItems.Count() != 0)
+                Console.WriteLine("\t[0]\t{0}", previousItems.Peek().Name);
+        }
+
         private static void ReadFunc(string[] obj)
         {
             if (obj.Length != 1) return;
@@ -89,6 +125,24 @@ namespace Projekt.Cmd
             workspaceViewModel.LoadFromFileDataCommand.Execute("Load");
             workspaceViewModel.ReadDataCommand.Execute("Read");
             Console.WriteLine("Read: " + workspaceViewModel.ReadFileName);
+            rootItem = workspaceViewModel.HierarchicalAreas[0];
+        }
+
+        private static void SaveFunc(string[] obj)
+        {
+            if (rootItem == null)
+            {
+                Console.WriteLine("You have to read object first.");
+                Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
+                return;
+            }
+
+            if (obj.Length != 1) return;
+            Console.WriteLine("Saving object...:" + obj[0]);
+            workspaceViewModel.SaveFileName = obj[0];
+            workspaceViewModel.SaveDataCommand.Execute("Save");
+            Console.WriteLine("Save: " + workspaceViewModel.SaveFileName);
+
         }
 
         public static void HelpFunc(string[] args)
