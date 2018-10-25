@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using Projekt.ViewModel;
-using System.Collections.ObjectModel;
 
 namespace Projekt.Cmd
 {
@@ -119,7 +115,12 @@ namespace Projekt.Cmd
 
         private static void ReadFunc(string[] obj)
         {
-            if (obj.Length != 1) return;
+            if (obj.Length != 1)
+            {
+                Console.WriteLine("You have to provide PATH to .dll file");
+                Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
+                return;
+            }
             Console.WriteLine("Reading object...:" + obj[0]);
             workspaceViewModel.ReadFileName = obj[0];
             workspaceViewModel.LoadFromFileDataCommand.Execute("Load");
@@ -147,7 +148,15 @@ namespace Projekt.Cmd
 
         public static void HelpFunc(string[] args)
         {
-            Console.WriteLine("===== SOME MEANINGFULL HELP ==== ");
+            Console.WriteLine("============================= HELP =============================");
+            Console.WriteLine("\nUsage:\t[OPTION] ARGUMENT\n");
+            Console.WriteLine("Options:");
+            Console.WriteLine("\thelp            - show help");
+            Console.WriteLine("\texit            - exit program");
+            Console.WriteLine("\tclear           - clear terminal");
+            Console.WriteLine("\tread <PATH>     - read object model from chosen .dll");
+            Console.WriteLine("\tsave <PATH>     - save object model to file");
+            Console.WriteLine("\tlist <ARGUMENT> - list objects from loaded .dll");
         }
         public static void ExitFunc(string[] args)
         {
