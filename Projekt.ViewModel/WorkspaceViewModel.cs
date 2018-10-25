@@ -113,7 +113,7 @@ namespace Projekt.ViewModel
         public void ChangeButtonSave()
         {
             if (logger.IsInfoEnabled)
-                logger.Info("Save Button clicked");
+                logger.Info("Saving started");
             ButtonSave = "Save Clicked";
             SaveToXmlFile();
         }
@@ -195,11 +195,10 @@ namespace Projekt.ViewModel
         #region ButtonLoadFromFile
         public void ChangeButtonLoadFromFile()
         {
-            ButtonLoadFromFile = "Load from file Clicked";
+            ButtonLoadFromFile = "Loaded from file";
             if (logger.IsInfoEnabled)
             {
-                logger.Info("LoadFromFile button clicked");
-                logger.Info("Opening file dialog");
+                logger.Info("LoadFromFile invoked");
             }
             ChangeControlButtonReadVisibility = Visibility.Visible;
             if (logger.IsInfoEnabled)

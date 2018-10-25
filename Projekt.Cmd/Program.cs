@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net;
 using Projekt.ViewModel;
 
 namespace Projekt.Cmd
@@ -11,6 +12,7 @@ namespace Projekt.Cmd
         private static TreeViewItem rootItem;
         private static Dictionary<int, TreeViewItem> itemChildren = new Dictionary<int, TreeViewItem>();
         private static Stack<TreeViewItem> previousItems = new Stack<TreeViewItem>();
+        private static readonly ILog logger = LogManager.GetLogger("CmdLogger");
 
         [STAThread]
         static void Main(string[] args)
@@ -56,7 +58,13 @@ namespace Projekt.Cmd
 
         private static void ListFunc(string[] obj)
         {
+            if (logger.IsInfoEnabled) {
+                logger.Info("List function invoked for item " + rootItem.Name);
+            }
             if(rootItem == null) {
+                if (logger.IsErrorEnabled) {
+                    logger.Warn("List function invoked but no rootItem is specified.");
+                }
                 Console.WriteLine("You have to read object first.");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
@@ -82,6 +90,10 @@ namespace Projekt.Cmd
                     PrintAndUpdate();
                 }
                 else {
+                    if (logger.IsWarnEnabled)
+                    {
+                        logger.Warn("User provided wrong argument for list function.");
+                    }
                     Console.WriteLine("Wrong argument!");
                 }
                 
@@ -115,8 +127,16 @@ namespace Projekt.Cmd
 
         private static void ReadFunc(string[] obj)
         {
+            if(logger.IsInfoEnabled)
+            {
+                logger.Info("Read function invoked.");
+            }
             if (obj.Length != 1)
             {
+                if(logger.IsWarnEnabled)
+                {
+                    logger.Warn("No PATH argument provided to Read function");
+                }
                 Console.WriteLine("You have to provide PATH to .dll file");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
@@ -126,13 +146,38 @@ namespace Projekt.Cmd
             workspaceViewModel.LoadFromFileDataCommand.Execute("Load");
             workspaceViewModel.ReadDataCommand.Execute("Read");
             Console.WriteLine("Read: " + workspaceViewModel.ReadFileName);
-            rootItem = workspaceViewModel.HierarchicalAreas[0];
+            try
+            {
+                rootItem = workspaceViewModel.HierarchicalAreas[0];
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                if (logger.IsWarnEnabled)
+                {
+                    logger.Warn("Wrong PATH argument provided to Read function\n" + e);
+                }
+                Console.WriteLine("You have to provide correct PATH to .dll file. Your PATH is wrong or file doesn't exist.");
+                Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
+                return;
+            }
+            if(logger.IsInfoEnabled)
+            {
+                logger.Info("Correctly read " + rootItem.Name);
+            }
         }
 
         private static void SaveFunc(string[] obj)
         {
+            if(logger.IsInfoEnabled)
+            {
+                logger.Info("Save function invoked");
+            }
             if (rootItem == null)
             {
+                if(logger.IsWarnEnabled)
+                {
+                    logger.Warn("Save function invoked but no object has been read");
+                }
                 Console.WriteLine("You have to read object first.");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
@@ -140,14 +185,35 @@ namespace Projekt.Cmd
 
             if (obj.Length != 1) return;
             Console.WriteLine("Saving object...:" + obj[0]);
-            workspaceViewModel.SaveFileName = obj[0];
-            workspaceViewModel.SaveDataCommand.Execute("Save");
+            try
+            {
+                workspaceViewModel.SaveFileName = obj[0];
+                workspaceViewModel.SaveDataCommand.Execute("Save");
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                if (logger.IsErrorEnabled)
+                {
+                    logger.Error("Unauthorized access !! \n" + e);
+                }
+                Console.WriteLine("Unauthorized access! Probably wrong PATH or you don't have enough privilages to save it in desired destination");
+                return;
+            }
+
             Console.WriteLine("Save: " + workspaceViewModel.SaveFileName);
+            if (logger.IsInfoEnabled)
+            {
+                logger.Info("Correctly saved to file:\n" + workspaceViewModel.SaveFileName);
+            }
 
         }
 
         public static void HelpFunc(string[] args)
         {
+            if (logger.IsDebugEnabled)
+            {
+                logger.Debug("Help function invoked");
+            }
             Console.WriteLine("============================= HELP =============================");
             Console.WriteLine("\nUsage:\t[OPTION] ARGUMENT\n");
             Console.WriteLine("Options:");
@@ -160,6 +226,10 @@ namespace Projekt.Cmd
         }
         public static void ExitFunc(string[] args)
         {
+            if (logger.IsInfoEnabled)
+            {
+                logger.Debug("Exit function enabled. Program will shut down....");
+            }
             System.Environment.Exit(1);
         }
     }

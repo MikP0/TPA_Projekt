@@ -34,7 +34,7 @@ namespace Projekt.Model
             {
                 if (logger.IsErrorEnabled)
                 {
-                    if(sourcePath == null || sourcePath.Length == 0)
+                    if (sourcePath == null || sourcePath.Length == 0)
                         logger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
                     if (settings == null)
                         logger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
