@@ -1,5 +1,5 @@
 # TPA_Projekt
 
-## Szymon Koziarski
+### Szymon Koziarski - 210231
 
-## Mikołaj Popieluch
+### Mikołaj Popieluch - 210298
