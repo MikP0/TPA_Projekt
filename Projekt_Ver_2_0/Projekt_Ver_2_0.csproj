@@ -102,6 +102,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Projekt.Fillers\Projekt.Fillers.csproj">
+      <Project>{4144e44c-8ba3-403f-a7c3-98195a922414}</Project>
+      <Name>Projekt.Fillers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
       <Name>Projekt.Model</Name>

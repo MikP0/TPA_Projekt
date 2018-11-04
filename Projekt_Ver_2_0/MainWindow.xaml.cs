@@ -28,28 +28,5 @@ namespace Projekt_Ver_2_0
         {
             InitializeComponent();
         }
-
-        private void ButtonClickLoadFromFile(object sender, RoutedEventArgs e)
-        {
-            if(logger.IsInfoEnabled)
-            {
-                logger.Info("Button load from file clicked");
-            }
-            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                ReadPath.Content = openFileDialog.FileName;
-            }
-        }
-        private void ButtonClickSaveToFile(object sender, RoutedEventArgs e)
-        {
-            if (logger.IsInfoEnabled)
-            {
-                logger.Info("Button save to file clicked");
-            }
-            System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            saveFileDialog.ShowDialog();
-            SavePath.Content = saveFileDialog.FileName;
-        }
     }
 }

@@ -4,11 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_Ver_2_0"
+        xmlns:Fillers="clr-namespace:Projekt.Fillers"
         xmlns:vm="clr-namespace:Projekt.ViewModel;assembly=Projekt.ViewModel"
         mc:Ignorable="d"
         Title="Projekt" Height="350" Width="525">
     <Window.Resources>
         <vm:WorkspaceViewModel x:Key="UserViewModel" />
+        <ObjectDataProvider x:Key="InjectFilePathService" 
+        MethodName="InjectFilePathService">
+            <ObjectDataProvider.MethodParameters>
+                <Fillers:GraphicalFilePathService>"GraphicalFilePathService"</Fillers:GraphicalFilePathService>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </Window.Resources>
     <DockPanel DataContext="{StaticResource UserViewModel}">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Lightblue">
@@ -24,8 +31,6 @@
             <TextBox Name="itemTextBox" Text="{Binding FileName}">
 
             </TextBox>
-            <Label Name="ReadPath" Content="{Binding ReadFileName, Mode=TwoWay}" Width="255"/>
-            <Label Name="SavePath" Content="{Binding SaveFileName, Mode=TwoWay}" Width="255"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                 DockPanel.Dock="Bottom"
