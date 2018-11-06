@@ -12,8 +12,8 @@ namespace Projekt_Ver_2_0
         private void On_Startup(object sender, StartupEventArgs e)
         {
             ServicesRegister.Setup();
-            ServicesRegister.Kernel.Bind<IOpenFilePathService>().ToConstant(new GraphicalOpenFilePathService());
-            ServicesRegister.Kernel.Bind<ISaveFilePathService>().ToConstant(new GraphicalSaveFilePathService());
+            ServicesRegister.Kernel.Bind<IOpenFilePathService>().ToConstant(GraphicalOpenFilePathService.Create());
+            ServicesRegister.Kernel.Bind<ISaveFilePathService>().ToConstant(GraphicalSaveFilePathService.Create());
         }
     }
 }
