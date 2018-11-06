@@ -66,6 +66,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GraphicalOpenFilePathService.cs" />
+    <Compile Include="GraphicalSaveFilePathService.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -102,9 +104,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.Fillers\Projekt.Fillers.csproj">
-      <Project>{4144e44c-8ba3-403f-a7c3-98195a922414}</Project>
-      <Name>Projekt.Fillers</Name>
+    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
+      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
+      <Name>Projekt.CommonInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>

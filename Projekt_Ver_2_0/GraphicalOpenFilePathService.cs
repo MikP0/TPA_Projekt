@@ -5,10 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projekt.Fillers
+namespace Projekt_Ver_2_0
 {
-    class GraphicalFilePathService : IFilePathService
+    class GraphicalOpenFilePathService : IOpenFilePathService
     {
+        public static GraphicalOpenFilePathService Create()
+        {
+            return new GraphicalOpenFilePathService();
+        }
         public string FilePath(string defaultPath)
         {
             System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();

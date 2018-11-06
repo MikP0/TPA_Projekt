@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataFiller.cs" />
-    <Compile Include="IFilePathService.cs" />
+    <Compile Include="IOpenFilePathService.cs" />
+    <Compile Include="ISaveFilePathService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

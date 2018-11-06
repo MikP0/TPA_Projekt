@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandLineOpenFilePathService.cs" />
+    <Compile Include="CommandLineSaveFilePathService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
+      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
+      <Name>Projekt.CommonInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projekt.ViewModel\Projekt.ViewModel.csproj">
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>
       <Name>Projekt.ViewModel</Name>

@@ -31,7 +31,8 @@ namespace Projekt.ViewModel
         private Visibility visibilitySave = Visibility.Hidden;
 
         internal DataLayer DataLayer;
-        IFilePathService _filePathService;
+        IOpenFilePathService _openFilePathService;
+        ISaveFilePathService _saveFilePathService;
         private AssemblyMetadata assemblyMetadata;
         private TreeViewAssemblyMetadata treeViewAssemblyMetadata;
 
@@ -46,9 +47,14 @@ namespace Projekt.ViewModel
                 logger.Info("WorkspaceViewModel created");
         }
 
-        public void InjectFilePathService(IFilePathService filePathService)
+        public void InjectOpenFilePathService(IOpenFilePathService openFilePathService)
         {
-            _filePathService = filePathService;
+            _openFilePathService = openFilePathService;
+        }
+
+        public void InjectSaveFilePathService(ISaveFilePathService saveFilePathService)
+        {
+            _saveFilePathService = saveFilePathService;
         }
 
         public Visibility ChangeControlButtonReadVisibility
@@ -121,7 +127,7 @@ namespace Projekt.ViewModel
             if (logger.IsInfoEnabled)
                 logger.Info("Saving started");
             ButtonSave = "Save Clicked";
-            _SaveFileName = _filePathService.FilePath("");
+            _SaveFileName = _saveFilePathService.FilePath("");
             SaveToXmlFile();
         }
         private string _ButtonSave;
@@ -143,7 +149,7 @@ namespace Projekt.ViewModel
         {
             if (logger.IsInfoEnabled)
                 logger.Info("Read Button clicked");
-            _ReadFileName = _filePathService.FilePath("");
+            _ReadFileName = _openFilePathService.FilePath("");
             ButtonRead = "Read Clicked";
 
             if (ReadFileName.Contains(".dll"))

@@ -141,8 +141,7 @@ namespace Projekt.Cmd
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
             }
-            Console.WriteLine("Reading object...:" + obj[0]);
-            workspaceViewModel.ReadFileName = obj[0];
+            workspaceViewModel.InjectOpenFilePathService(CommandLineOpenFilePathService.Create(obj[0]));
             workspaceViewModel.LoadFromFileDataCommand.Execute("Load");
             workspaceViewModel.ReadDataCommand.Execute("Read");
             Console.WriteLine("Read: " + workspaceViewModel.ReadFileName);
@@ -184,10 +183,9 @@ namespace Projekt.Cmd
             }
 
             if (obj.Length != 1) return;
-            Console.WriteLine("Saving object...:" + obj[0]);
             try
             {
-                workspaceViewModel.SaveFileName = obj[0];
+                workspaceViewModel.InjectSaveFilePathService(CommandLineSaveFilePathService.Create(obj[0]));
                 workspaceViewModel.SaveDataCommand.Execute("Save");
             }
             catch (UnauthorizedAccessException e)
