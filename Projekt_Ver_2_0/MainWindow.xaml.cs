@@ -1,5 +1,6 @@
-﻿using Projekt.ViewModel;
-using System;
+﻿using Projekt.CommonInterfaces;
+using Projekt.IoC;
+using Projekt.ViewModel;
 using System.Windows;
 
 namespace Projekt_Ver_2_0
@@ -12,6 +13,7 @@ namespace Projekt_Ver_2_0
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = ServicesRegister.Get<WorkspaceViewModel>();
         }
     }
 }

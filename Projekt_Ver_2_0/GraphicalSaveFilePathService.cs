@@ -9,9 +9,15 @@ namespace Projekt_Ver_2_0
 {
     class GraphicalSaveFilePathService : ISaveFilePathService
     {
+        public static GraphicalSaveFilePathService Create()
+        {
+            return new GraphicalSaveFilePathService();
+        }
         public string FilePath(string defaultPath)
         {
-            throw new NotImplementedException();
+            System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            saveFileDialog.ShowDialog();
+            return saveFileDialog.FileName ?? defaultPath;
         }
     }
 }

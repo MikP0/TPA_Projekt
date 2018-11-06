@@ -17,6 +17,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Windows;
 using log4net;
+using Ninject;
 
 namespace Projekt.ViewModel
 {
@@ -38,7 +39,6 @@ namespace Projekt.ViewModel
 
         public WorkspaceViewModel()
         {
-
             HierarchicalAreas = new ObservableCollection<TreeViewItem>();
             SaveDataCommand = new RelayCommand(param => ChangeButtonSave());
             ReadDataCommand = new RelayCommand(param => ChangeButtonRead());
@@ -46,12 +46,12 @@ namespace Projekt.ViewModel
             if (logger.IsInfoEnabled)
                 logger.Info("WorkspaceViewModel created");
         }
-
+        [Inject]
         public void InjectOpenFilePathService(IOpenFilePathService openFilePathService)
         {
             _openFilePathService = openFilePathService;
         }
-
+        [Inject]
         public void InjectSaveFilePathService(ISaveFilePathService saveFilePathService)
         {
             _saveFilePathService = saveFilePathService;

@@ -7,10 +7,7 @@
         xmlns:vm="clr-namespace:Projekt.ViewModel;assembly=Projekt.ViewModel"
         mc:Ignorable="d"
         Title="Projekt" Height="350" Width="525">
-    <Window.Resources>
-        <vm:WorkspaceViewModel x:Key="UserViewModel" />
-    </Window.Resources>
-    <DockPanel DataContext="{StaticResource UserViewModel}">
+    <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Lightblue">
             <Button Content="{Binding ButtonRead}" Command="{Binding ReadDataCommand}" Margin="1 1 10 1" Visibility="{Binding ChangeControlButtonReadVisibility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
 

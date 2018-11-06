@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92D5DF6D-7B1E-41E3-9DEF-F25A12EB265E}</ProjectGuid>
+    <ProjectGuid>{026257CF-4CE4-41D4-8339-ED6D28E7A563}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Projekt.ViewModel</RootNamespace>
-    <AssemblyName>Projekt.ViewModel</AssemblyName>
+    <RootNamespace>Projekt.IoC</RootNamespace>
+    <AssemblyName>Projekt.IoC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,16 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,43 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBuildable.cs" />
+    <Compile Include="ServicesRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelayCommand.cs" />
-    <Compile Include="TreeViewItem.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewAssemblyMetadata.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewMethodMetadata.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewNamespaceMetadata.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewNode.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewParameterMetadata.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewPropertyMetadata.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewTypeMetadata.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="WorkspaceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
-      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
-      <Name>Projekt.CommonInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Data\Projekt.Data.csproj">
-      <Project>{d96d7681-7b66-4439-8934-ee5af90962b5}</Project>
-      <Name>Projekt.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Fillers\Projekt.Fillers.csproj">
-      <Project>{4144e44c-8ba3-403f-a7c3-98195a922414}</Project>
-      <Name>Projekt.Fillers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
-      <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
-      <Name>Projekt.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt.ViewModel\Projekt.ViewModel.csproj">
+      <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>
+      <Name>Projekt.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

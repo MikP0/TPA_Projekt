@@ -3,5 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Projekt_Ver_2_0"
              xmlns:vm="clr-namespace:Projekt.ViewModel;assembly=Projekt.ViewModel"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml" Startup="On_Startup">
 </Application>

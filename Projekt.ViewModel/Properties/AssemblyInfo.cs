@@ -35,13 +35,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: InternalsVisibleTo("Projekt_Ver_2_0")]
-
+[assembly: InternalsVisibleTo("Projekt.IoC")]
 
 [assembly: InternalsVisibleTo("Projekt.Cmd")]
 [assembly: InternalsVisibleTo("Projekt.UnitTest")]
-
-
+[assembly: InternalsVisibleTo("Projekt_Ver_2_0")]
 
 //Log4net load config
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]

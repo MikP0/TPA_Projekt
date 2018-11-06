@@ -20,7 +20,7 @@ namespace Projekt_Ver_2_0
             {
                 return openFileDialog.FileName;
             }
-            return "";
+            return defaultPath;
         }
     }
 }
