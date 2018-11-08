@@ -12,7 +12,7 @@ namespace Projekt.UnitTest.ModelTest
         [TestMethod]
         public void ReflectionInitTest()
         {
-            Assembly assembly = Assembly.Load("Projekt.Data");
+            Assembly assembly = Assembly.Load("Projekt.Model");
             Reflector reflector = new Reflector();
             reflector.Reflect(assembly);
             Assert.IsNotNull(reflector);
@@ -20,38 +20,33 @@ namespace Projekt.UnitTest.ModelTest
         [TestMethod]
         public void ReflectionAssemblyMetadataTest()
         {
-            Assembly assembly = Assembly.Load("Projekt.Data");
+            Assembly assembly = Assembly.Load("Projekt.Model");
             Reflector reflector = new Reflector();
             reflector.Reflect(assembly);
-            StringAssert.Contains("Projekt.Data.dll", reflector.AssemblyModel.Name);
-            StringAssert.Contains("Projekt.Data.dll", reflector.AssemblyModel.ToString());
+            StringAssert.Contains("Projekt.Model.dll", reflector.AssemblyModel.Name);
+            StringAssert.Contains("Projekt.Model.dll", reflector.AssemblyModel.ToString());
         }
         [TestMethod]
         public void ReflectionNamespaceMetadataTest()
         {
-            Assembly assembly = Assembly.Load("Projekt.Data");
+            Assembly assembly = Assembly.Load("Projekt.Model");
             Reflector reflector = new Reflector();
             reflector.Reflect(assembly);
             Assert.IsNotNull(reflector.AssemblyModel.Namespaces);
-            foreach(NamespaceMetadata namespaceMetadata in reflector.AssemblyModel.Namespaces)
-            {
-                Trace.WriteLine(namespaceMetadata.Name);
-                StringAssert.Contains("Projekt.Data", namespaceMetadata.Name);
-            }
         }
         [TestMethod]
         public void ReflectionTypeMetadataTest()
         {
-            Assembly assembly = Assembly.Load("Projekt.Data");
-            String[] neededString = new string[] { "A", "B", "C", "DataLayer" };
+            Assembly assembly = Assembly.Load("Projekt.Model");
             Reflector reflector = new Reflector();
             reflector.Reflect(assembly);
+            Assert.IsNotNull(reflector.AssemblyModel);
             foreach (NamespaceMetadata namespaceMetadata in reflector.AssemblyModel.Namespaces)
             {
                 foreach(TypeMetadata typeMetadata in namespaceMetadata.Types)
                 {
                     Trace.WriteLine(typeMetadata.Name);
-                    Assert.IsTrue(CheckStringContains.ContainsAny(typeMetadata.Name, neededString));
+                    Assert.IsNotNull(typeMetadata.Name);
                 }
             }
         }

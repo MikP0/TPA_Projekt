@@ -1,13 +1,9 @@
 ﻿using Projekt.CommonInterfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projekt.Cmd
 {
-    class CommandLineSaveFilePathService : ISaveFilePathService
+    internal class CommandLineSaveFilePathService : ISaveFilePathService
     {
         private string _filePath;
         public static CommandLineSaveFilePathService Create(string filePath)

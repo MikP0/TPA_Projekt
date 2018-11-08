@@ -51,10 +51,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTest\AUnitTest.cs" />
-    <Compile Include="DataTest\BUnitTest.cs" />
-    <Compile Include="DataTest\CUnitTest.cs" />
-    <Compile Include="DataTest\DataLayerUnitTest.cs" />
     <Compile Include="ModelTest\CheckStringContains.cs" />
     <Compile Include="ModelTest\ReflectionUnitTest.cs" />
     <Compile Include="ModelTest\SerializeUnitTest.cs" />
@@ -67,17 +63,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Projekt.Cmd\Projekt.Cmd.csproj">
+      <Project>{098a4db8-480b-4f6f-b45f-d4071d0aacce}</Project>
+      <Name>Projekt.Cmd</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
       <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
       <Name>Projekt.CommonInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Data\Projekt.Data.csproj">
-      <Project>{d96d7681-7b66-4439-8934-ee5af90962b5}</Project>
-      <Name>Projekt.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Fillers\Projekt.Fillers.csproj">
-      <Project>{4144e44c-8ba3-403f-a7c3-98195a922414}</Project>
-      <Name>Projekt.Fillers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>

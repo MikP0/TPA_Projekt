@@ -3,7 +3,7 @@ using System;
 
 namespace Projekt.Cmd
 {
-    class CommandLineOpenFilePathService : IOpenFilePathService
+    internal class CommandLineOpenFilePathService : IOpenFilePathService
     {
         private string _filePath;
         public static CommandLineOpenFilePathService Create(string filePath)

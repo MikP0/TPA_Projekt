@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Projekt.Model;
-using Projekt.Data;
 using Projekt.CommonInterfaces;
-using Projekt.Fillers;
-using System.Xml;
-using System.Xml.Linq;
-using System.IO;
 using Projekt.ViewModel.TreeViewTemplate;
 using Projekt.Model.Reflection;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Windows;
 using log4net;
 using Ninject;
@@ -31,7 +21,6 @@ namespace Projekt.ViewModel
         private Visibility visibilityRead = Visibility.Hidden;
         private Visibility visibilitySave = Visibility.Hidden;
 
-        internal DataLayer DataLayer;
         IOpenFilePathService _openFilePathService;
         ISaveFilePathService _saveFilePathService;
         private AssemblyMetadata assemblyMetadata;
@@ -79,14 +68,6 @@ namespace Projekt.ViewModel
                 visibilitySave = value;
                 OnPropertyChanged();
             }
-        }
-
-        public void InitializeData(IDataFiller dataFiller)
-        {
-            DataLayerExternalSource dataLayerExternalSource = dataFiller.Fill();
-            DataLayer = new DataLayer(dataLayerExternalSource);
-            if (logger.IsInfoEnabled)
-                logger.Info("Data initialized");
         }
 
         private void TreeViewLoaded()

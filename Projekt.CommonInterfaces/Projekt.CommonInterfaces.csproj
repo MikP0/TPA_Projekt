@@ -43,16 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDataFiller.cs" />
     <Compile Include="IOpenFilePathService.cs" />
     <Compile Include="ISaveFilePathService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Projekt.Data\Projekt.Data.csproj">
-      <Project>{d96d7681-7b66-4439-8934-ee5af90962b5}</Project>
-      <Name>Projekt.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

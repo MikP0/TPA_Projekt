@@ -52,10 +52,6 @@
       <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
       <Name>Projekt.CommonInterfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Data\Projekt.Data.csproj">
-      <Project>{d96d7681-7b66-4439-8934-ee5af90962b5}</Project>
-      <Name>Projekt.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

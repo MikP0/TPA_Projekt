@@ -1,8 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt.CommonInterfaces;
-using Projekt.Fillers;
 using Projekt.ViewModel;
+using Projekt.Cmd;
 
 
 namespace Projekt.UnitTest.ViewModelTest
@@ -58,6 +57,27 @@ namespace Projekt.UnitTest.ViewModelTest
             WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
             workspaceViewModel.SaveFileName = "C:\\plik";
             Assert.AreEqual<String>(workspaceViewModel.SaveFileName, "C:\\plik");
+        }
+        [DataTestMethod]
+        [DataRow("C:\\plik")]
+        [DataRow("C:\\file")]
+        [DataRow("C:\\tiedosto")]
+        public void TestIOpenFilePathServiceInjection(String filePath)
+        {
+            WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
+            workspaceViewModel.InjectOpenFilePathService(CommandLineOpenFilePathService.Create(filePath));
+            workspaceViewModel.ReadDataCommand.Execute(null);
+            Assert.AreEqual<String>(filePath, workspaceViewModel.ReadFileName);
+        }
+        [DataTestMethod]
+        [DataRow("C:\\plik")]
+        [DataRow("C:\\file")]
+        [DataRow("C:\\tiedosto")]
+        public void TestISaveFilePathServiceInjection(String filePath)
+        {
+            WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
+            workspaceViewModel.InjectSaveFilePathService(CommandLineSaveFilePathService.Create(filePath));
+            Assert.IsTrue(workspaceViewModel.SaveDataCommand.CanExecute(null)); // Zmienić to później
         }
     }
 }
