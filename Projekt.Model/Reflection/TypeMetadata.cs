@@ -13,7 +13,7 @@ namespace Projekt.Model.Reflection
     {
         #region fields
         [DataMember]
-        public static Dictionary<string, TypeMetadata> typeDictionary = new Dictionary<string, TypeMetadata>();
+        public static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance; 
         [DataMember]
         public string NamespaceName { get; set; }
         [DataMember]
@@ -104,7 +104,7 @@ namespace Projekt.Model.Reflection
 
         public static void StoreType(Type type)
         {
-            if (!typeDictionary.ContainsKey(type.Name))
+            if (!dictionaryInstance.ContainsKey(type.Name))
             {
                 new TypeMetadata(type);
             }
@@ -205,9 +205,9 @@ namespace Projekt.Model.Reflection
 
         public void CreateDictionary()
         {
-            if (typeDictionary.ContainsKey(Name) == false)
+            if (dictionaryInstance.ContainsKey(Name) == false)
             {
-                typeDictionary.Add(Name, this);
+                dictionaryInstance.Add(Name, this);
             }
         }
         #endregion

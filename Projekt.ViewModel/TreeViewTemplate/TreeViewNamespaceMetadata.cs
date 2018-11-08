@@ -25,6 +25,8 @@ namespace Projekt.ViewModel.TreeViewTemplate
             }
         }
 
+        
+
         public override string ToString()
         {
             return Name;

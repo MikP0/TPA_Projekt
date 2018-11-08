@@ -12,6 +12,15 @@ namespace Projekt.ViewModel.TreeViewTemplate
     {
         public List<NamespaceMetadata> Namespaces { get; private set; }
 
+        public void Add(List<NamespaceMetadata> source, ObservableCollection<TreeViewItem> destination)
+        {
+            foreach (NamespaceMetadata @namespace in source)
+            {
+                TreeViewNamespaceMetadata temp = new TreeViewNamespaceMetadata(@namespace);
+                destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
+            }
+        }
+
         public TreeViewAssemblyMetadata(AssemblyMetadata assemblyMetadata) : base(assemblyMetadata.Name)
         {
             Namespaces = assemblyMetadata.Namespaces;

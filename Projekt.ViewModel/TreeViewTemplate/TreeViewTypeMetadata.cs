@@ -12,6 +12,24 @@ namespace Projekt.ViewModel.TreeViewTemplate
     {
         public TypeMetadata Data { get; private set; }
 
+        public void Add(List<MethodMetadata> source, ObservableCollection<TreeViewItem> destination)
+        {
+            foreach (MethodMetadata method in source)
+            {
+                TreeViewMethodMetadata temp = new TreeViewMethodMetadata(method);
+                destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
+            }
+        }
+
+        public void Add(List<PropertyMetadata> source, ObservableCollection<TreeViewItem> destination)
+        {
+            foreach (PropertyMetadata property in source)
+            {
+                TreeViewPropertyMetadata temp = new TreeViewPropertyMetadata(property);
+                destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
+            }
+        }
+
         public TreeViewTypeMetadata(TypeMetadata typeMetadata) : base(typeMetadata.Name)
         {
             Data = typeMetadata;

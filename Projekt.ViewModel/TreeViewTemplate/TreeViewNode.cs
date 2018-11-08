@@ -39,38 +39,12 @@ namespace Projekt.ViewModel.TreeViewTemplate
             return spc += spc.Length == 0 ? "" : " ";
         }
 
-        public void Add(List<PropertyMetadata> source, ObservableCollection<TreeViewItem> destination)
-        {
-            foreach (PropertyMetadata property in source)
-            {
-                TreeViewPropertyMetadata temp = new TreeViewPropertyMetadata(property);
-                destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
-            }
-        }
 
         public void Add(List<TypeMetadata> source, ObservableCollection<TreeViewItem> destination)
         {
             foreach (TypeMetadata type in source)
             {
-                TreeViewTypeMetadata temp = new TreeViewTypeMetadata(TypeMetadata.typeDictionary[type.Name]);
-                destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
-            }
-        }
-
-        public void Add(List<MethodMetadata> source, ObservableCollection<TreeViewItem> destination)
-        {
-            foreach (MethodMetadata method in source)
-            {
-                TreeViewMethodMetadata temp = new TreeViewMethodMetadata(method);
-                destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
-            }
-        }
-
-        public void Add(List<NamespaceMetadata> source, ObservableCollection<TreeViewItem> destination)
-        {
-            foreach (NamespaceMetadata @namespace in source)
-            {
-                TreeViewNamespaceMetadata temp = new TreeViewNamespaceMetadata(@namespace);
+                TreeViewTypeMetadata temp = new TreeViewTypeMetadata(TypeMetadata.dictionaryInstance[type.Name]);
                 destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
             }
         }
@@ -86,7 +60,7 @@ namespace Projekt.ViewModel.TreeViewTemplate
 
         public void Add(TypeMetadata source, ObservableCollection<TreeViewItem> destination)
         {
-            TreeViewTypeMetadata temp = new TreeViewTypeMetadata(TypeMetadata.typeDictionary[source.Name]);
+            TreeViewTypeMetadata temp = new TreeViewTypeMetadata(TypeMetadata.dictionaryInstance[source.Name]);
             destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
         }
     }
