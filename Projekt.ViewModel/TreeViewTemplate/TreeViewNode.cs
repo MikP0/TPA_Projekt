@@ -12,6 +12,8 @@ namespace Projekt.ViewModel.TreeViewTemplate
     {
         public string Name { get; protected set; }
 
+        private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance;
+
         public TreeViewNode(string name)
         {
             Name = name;
@@ -44,7 +46,7 @@ namespace Projekt.ViewModel.TreeViewTemplate
         {
             foreach (TypeMetadata type in source)
             {
-                TreeViewTypeMetadata temp = new TreeViewTypeMetadata(TypeMetadata.dictionaryInstance[type.Name]);
+                TreeViewTypeMetadata temp = new TreeViewTypeMetadata(dictionaryInstance[type.Name]);
                 destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
             }
         }
@@ -60,7 +62,7 @@ namespace Projekt.ViewModel.TreeViewTemplate
 
         public void Add(TypeMetadata source, ObservableCollection<TreeViewItem> destination)
         {
-            TreeViewTypeMetadata temp = new TreeViewTypeMetadata(TypeMetadata.dictionaryInstance[source.Name]);
+            TreeViewTypeMetadata temp = new TreeViewTypeMetadata(dictionaryInstance[source.Name]);
             destination.Add(new TreeViewItem { Name = temp.ToString(), HierarchyReference = temp });
         }
     }

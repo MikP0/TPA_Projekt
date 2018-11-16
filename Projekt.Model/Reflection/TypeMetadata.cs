@@ -13,7 +13,7 @@ namespace Projekt.Model.Reflection
     {
         #region fields
         [DataMember]
-        public static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance; 
+        private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance; 
         [DataMember]
         public string NamespaceName { get; set; }
         [DataMember]
