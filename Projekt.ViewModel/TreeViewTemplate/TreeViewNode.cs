@@ -12,7 +12,7 @@ namespace Projekt.ViewModel.TreeViewTemplate
     {
         public string Name { get; protected set; }
 
-        private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance;
+        private readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance;
 
         public TreeViewNode(string name)
         {
