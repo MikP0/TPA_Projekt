@@ -9,6 +9,7 @@ namespace Projekt.Model
     {
 
         private static readonly ILog logger = LogManager.GetLogger("ModelLogger");
+        private static readonly CustomLogger customLogger = new CustomLogger();
 
         public static void XmlSerialize<T>(T obj, string sourcePath)
         {
@@ -22,8 +23,7 @@ namespace Projekt.Model
             };
             try
             {
-                if (logger.IsInfoEnabled)
-                    logger.Info("Trying to create XmlWriter");
+                customLogger.Info("Trying to create XmlWriter");
 
                 using (XmlWriter w = XmlWriter.Create(sourcePath, settings))
                 {
@@ -32,13 +32,10 @@ namespace Projekt.Model
             }
             catch (ArgumentException e)
             {
-                if (logger.IsErrorEnabled)
-                {
                     if (sourcePath == null || sourcePath.Length == 0)
-                        logger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
+                        customLogger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
                     if (settings == null)
-                        logger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
-                }
+                        customLogger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
             }
         }
     }
