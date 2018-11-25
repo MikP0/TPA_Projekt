@@ -1,17 +1,18 @@
 ﻿using log4net;
+using Projekt.CommonInterfaces;
 using System;
 using System.Runtime.Serialization;
 using System.Xml;
 
 namespace Projekt.Model
 {
-    public static class Serialize
+    public class XmlSerialize : ISerializationService
     {
 
-        private static readonly ILog logger = LogManager.GetLogger("ModelLogger");
-        private static readonly CustomLogger customLogger = new CustomLogger();
+        private readonly ILog logger = LogManager.GetLogger("ModelLogger");
+        private readonly CustomLogger customLogger = new CustomLogger();
 
-        public static void XmlSerialize<T>(T obj, string sourcePath)
+        public void Serialize<T>(T obj, string sourcePath)
         {
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
 
@@ -36,6 +37,14 @@ namespace Projekt.Model
                         customLogger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
                     if (settings == null)
                         customLogger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
+            }
+        }
+        public T Deserialize<T>(string sourcePath)
+        {
+            using (XmlReader reader = XmlReader.Create(sourcePath))
+            {
+                DataContractSerializer deserializer = new DataContractSerializer(typeof(T));
+                return (T)deserializer.ReadObject(reader);
             }
         }
     }
