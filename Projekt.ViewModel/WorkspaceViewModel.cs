@@ -27,6 +27,8 @@ namespace Projekt.ViewModel
         IOpenFilePathService _openFilePathService { get; set; }
         [Import(typeof(ISaveFilePathService))]
         ISaveFilePathService _saveFilePathService { get; set; }
+        [Import(typeof(ISerializationService))]
+        ISerializationService _serializationService { get; set; }
         private AssemblyMetadata assemblyMetadata;
         private TreeViewAssemblyMetadata treeViewAssemblyMetadata;
 
@@ -85,7 +87,7 @@ namespace Projekt.ViewModel
             if (logger.IsInfoEnabled)
                 logger.Info("Trying to save to XML");
 
-            Serialize.XmlSerialize<AssemblyMetadata>(assemblyMetadata, SaveFileName);
+            _serializationService.Serialize(assemblyMetadata, SaveFileName);
         }
 
         public RelayCommand SaveDataCommand
@@ -147,7 +149,7 @@ namespace Projekt.ViewModel
                 if (logger.IsInfoEnabled)
                     logger.Info("Trying to read .xml file");
 
-                assemblyMetadata = Deserialize.XmlDeserialize<AssemblyMetadata>(ReadFileName);
+                assemblyMetadata = _serializationService.Deserialize<AssemblyMetadata>(ReadFileName);
                 foreach (NamespaceMetadata n in assemblyMetadata.Namespaces)
                 {
                     foreach (TypeMetadata type in n.Types)
