@@ -59,6 +59,7 @@
     <Compile Include="Reflection\StaticEnum.cs" />
     <Compile Include="Reflection\Tuple3.cs" />
     <Compile Include="Reflection\Tuple4.cs" />
+    <Compile Include="Reflection\TypeEnum.cs" />
     <Compile Include="Reflection\TypeMetadata.cs" />
     <Compile Include="Reflection\VirtualEnum.cs" />
     <Compile Include="Reflector.cs" />

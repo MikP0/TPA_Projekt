@@ -2,12 +2,12 @@
 using System.Collections.ObjectModel;
 using Projekt.Model;
 using Projekt.CommonInterfaces;
-using Projekt.ViewModel.TreeViewTemplate;
 using Projekt.Model.Reflection;
 using System.Reflection;
 using System.Windows;
 using log4net;
 using System.ComponentModel.Composition;
+using Projekt.ViewModel;
 
 namespace Projekt.ViewModel
 {
@@ -28,7 +28,7 @@ namespace Projekt.ViewModel
         [Import(typeof(ISaveFilePathService))]
         ISaveFilePathService _saveFilePathService { get; set; }
         private AssemblyMetadata assemblyMetadata;
-        private TreeViewAssemblyMetadata treeViewAssemblyMetadata;
+        private AssemblyTreeItem treeViewAssemblyMetadata;
 
         [ImportingConstructor]
         public WorkspaceViewModel()
@@ -74,7 +74,7 @@ namespace Projekt.ViewModel
 
         private void TreeViewLoaded()
         {
-            TreeViewItem rootItem = new TreeViewItem { Name = treeViewAssemblyMetadata.Name, HierarchyReference = treeViewAssemblyMetadata };
+            TreeViewItem rootItem = treeViewAssemblyMetadata;
             HierarchicalAreas.Add(rootItem);
             if (logger.IsInfoEnabled)
                 logger.Info("Treeview loaded");
@@ -168,7 +168,7 @@ namespace Projekt.ViewModel
 
             if (logger.IsInfoEnabled)
                 logger.Info("Creating tree view assembly metadata");
-            treeViewAssemblyMetadata = new TreeViewAssemblyMetadata(assemblyMetadata);
+            treeViewAssemblyMetadata = new AssemblyTreeItem(assemblyMetadata);
             TreeViewLoaded();
             ChangeControlButtonSaveVisibility = Visibility.Visible;
             if (logger.IsDebugEnabled)

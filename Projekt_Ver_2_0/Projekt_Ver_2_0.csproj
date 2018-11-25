@@ -72,6 +72,8 @@
     </Compile>
     <Compile Include="GraphicalOpenFilePathService.cs" />
     <Compile Include="GraphicalSaveFilePathService.cs" />
+    <Compile Include="ItemTypeEnumToStringConverter.cs" />
+    <Compile Include="ItemTypeToBrushConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -124,6 +126,9 @@
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>
       <Name>Projekt.ViewModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

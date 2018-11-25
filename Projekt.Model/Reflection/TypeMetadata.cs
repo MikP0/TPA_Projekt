@@ -21,7 +21,11 @@ namespace Projekt.Model.Reflection
         [DataMember]
         public List<TypeMetadata> GenericArguments { get; set; }
         [DataMember]
-        public Tuple3<AccessLevel, SealedEnum, AbstractEnum> Modifiers { get; set; }
+        public Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> Modifiers { get; set; }
+        [DataMember]
+        public bool IsGeneric { get; set; }
+        [DataMember]
+        public bool IsExternal { get; set; } = true;
         [DataMember]
         public TypeKind Type { get; set; }
         [DataMember]
@@ -82,7 +86,7 @@ namespace Projekt.Model.Reflection
         #region API
         public enum TypeKind
         {
-            Enum, Struct, Interface, Class
+            None, Enum, Struct, Interface, Class
         }
 
         #endregion
@@ -176,7 +180,7 @@ namespace Projekt.Model.Reflection
                    TypeKind.Class;
         }
 
-        static Tuple3<AccessLevel, SealedEnum, AbstractEnum> EmitModifiers(Type type)
+        static Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> EmitModifiers(Type type)
         {
             AccessLevel _access = AccessLevel.Private;
             if (type.IsPublic)
@@ -190,9 +194,13 @@ namespace Projekt.Model.Reflection
             SealedEnum _sealed = SealedEnum.NotSealed;
             if (type.IsSealed) _sealed = SealedEnum.Sealed;
             AbstractEnum _abstract = AbstractEnum.NotAbstract;
-            if (type.IsAbstract)
+            StaticEnum _static = StaticEnum.NotStatic;
+            if (type.IsAbstract) {
                 _abstract = AbstractEnum.Abstract;
-            return new Tuple<AccessLevel, SealedEnum, AbstractEnum>(_access, _sealed, _abstract);
+                _static = StaticEnum.Static;
+            }
+                
+            return new Tuple<AccessLevel, SealedEnum, AbstractEnum, StaticEnum>(_access, _sealed, _abstract, _static);
         }
 
         private static TypeMetadata EmitExtends(Type baseType)
