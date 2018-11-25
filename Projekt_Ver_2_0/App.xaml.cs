@@ -1,6 +1,7 @@
-﻿using Projekt.CommonInterfaces;
-using Projekt.IoC;
+﻿using System.ComponentModel.Composition;
 using System.Windows;
+using Projekt.CommonInterfaces;
+using Projekt.Composition;
 
 namespace Projekt_Ver_2_0
 {
@@ -11,9 +12,9 @@ namespace Projekt_Ver_2_0
     { 
         private void On_Startup(object sender, StartupEventArgs e)
         {
-            ServicesRegister.Setup();
-            ServicesRegister.Kernel.Bind<IOpenFilePathService>().ToConstant(GraphicalOpenFilePathService.Create());
-            ServicesRegister.Kernel.Bind<ISaveFilePathService>().ToConstant(GraphicalSaveFilePathService.Create());
+            Compose.Instance.Setup();
+            Compose.Instance.Container.ComposeExportedValue<IOpenFilePathService>(new GraphicalOpenFilePathService());
+            Compose.Instance.Container.ComposeExportedValue<ISaveFilePathService>(new GraphicalSaveFilePathService());
         }
     }
 }

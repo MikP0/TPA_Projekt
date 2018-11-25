@@ -1,12 +1,10 @@
 ﻿using Projekt.CommonInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.Composition;
 
 namespace Projekt_Ver_2_0
 {
+    [Export(typeof(IOpenFilePathService))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     class GraphicalOpenFilePathService : IOpenFilePathService
     {
         public static GraphicalOpenFilePathService Create()

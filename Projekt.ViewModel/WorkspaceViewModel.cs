@@ -7,10 +7,12 @@ using Projekt.Model.Reflection;
 using System.Reflection;
 using System.Windows;
 using log4net;
-using Ninject;
+using System.ComponentModel.Composition;
 
 namespace Projekt.ViewModel
 {
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     internal class WorkspaceViewModel : ViewModelBase
     {
 
@@ -21,11 +23,14 @@ namespace Projekt.ViewModel
         private Visibility visibilityRead = Visibility.Hidden;
         private Visibility visibilitySave = Visibility.Hidden;
 
-        IOpenFilePathService _openFilePathService;
-        ISaveFilePathService _saveFilePathService;
+        [Import(typeof(IOpenFilePathService))]
+        IOpenFilePathService _openFilePathService { get; set; }
+        [Import(typeof(ISaveFilePathService))]
+        ISaveFilePathService _saveFilePathService { get; set; }
         private AssemblyMetadata assemblyMetadata;
         private TreeViewAssemblyMetadata treeViewAssemblyMetadata;
 
+        [ImportingConstructor]
         public WorkspaceViewModel()
         {
             HierarchicalAreas = new ObservableCollection<TreeViewItem>();
@@ -35,17 +40,14 @@ namespace Projekt.ViewModel
             if (logger.IsInfoEnabled)
                 logger.Info("WorkspaceViewModel created");
         }
-        [Inject]
         public void InjectOpenFilePathService(IOpenFilePathService openFilePathService)
         {
             _openFilePathService = openFilePathService;
         }
-        [Inject]
         public void InjectSaveFilePathService(ISaveFilePathService saveFilePathService)
         {
             _saveFilePathService = saveFilePathService;
         }
-
         public Visibility ChangeControlButtonReadVisibility
         {
             get { return visibilityRead; }

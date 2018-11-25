@@ -65,10 +65,6 @@
       <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
       <Name>Projekt.CommonInterfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.IoC\Projekt.IoC.csproj">
-      <Project>{026257cf-4ce4-41d4-8339-ed6d28e7a563}</Project>
-      <Name>Projekt.IoC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.ViewModel\Projekt.ViewModel.csproj">
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>
       <Name>Projekt.ViewModel</Name>
