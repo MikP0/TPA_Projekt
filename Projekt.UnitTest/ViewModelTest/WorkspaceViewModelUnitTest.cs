@@ -58,14 +58,14 @@ namespace Projekt.UnitTest.ViewModelTest
             workspaceViewModel.SaveFileName = "C:\\plik";
             Assert.AreEqual<String>(workspaceViewModel.SaveFileName, "C:\\plik");
         }
-        /*[DataTestMethod]
+        [DataTestMethod]
         [DataRow("C:\\plik")]
         [DataRow("C:\\file")]
         [DataRow("C:\\tiedosto")]
         public void TestIOpenFilePathServiceInjection(String filePath)
         {
             WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
-            //workspaceViewModel.InjectOpenFilePathService(CommandLineOpenFilePathService.Create(filePath));
+            workspaceViewModel.InjectOpenFilePathService(CommandLineOpenFilePathService.Create(filePath));
             workspaceViewModel.ReadDataCommand.Execute(null);
             Assert.AreEqual<String>(filePath, workspaceViewModel.ReadFileName);
         }
@@ -76,8 +76,8 @@ namespace Projekt.UnitTest.ViewModelTest
         public void TestISaveFilePathServiceInjection(String filePath)
         {
             WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
-            //workspaceViewModel.InjectSaveFilePathService(CommandLineSaveFilePathService.Create(filePath));
+            workspaceViewModel.InjectSaveFilePathService(CommandLineSaveFilePathService.Create(filePath));
             Assert.IsTrue(workspaceViewModel.SaveDataCommand.CanExecute(null)); // Zmienić to później
-        }*/
+        }
     }
 }
