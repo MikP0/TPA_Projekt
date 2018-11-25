@@ -59,7 +59,7 @@ namespace Projekt.Cmd
         private static void ListFunc(string[] obj)
         {
             if (logger.IsInfoEnabled) {
-                logger.Info("List function invoked for item " + rootItem.Name);
+                logger.Info("List function invoked for item " + rootItem.ToString());
             }
             if(rootItem == null) {
                 if (logger.IsErrorEnabled) {
@@ -107,7 +107,7 @@ namespace Projekt.Cmd
 
         private static void PrintAndUpdate()
         {
-            Console.WriteLine(rootItem.Name);
+            Console.WriteLine(rootItem.ToString());
             if (rootItem.IsExpanded == false)
                 rootItem.IsExpanded = true;
 
@@ -119,10 +119,10 @@ namespace Projekt.Cmd
             }
             foreach (KeyValuePair<int, TreeViewItem> item in itemChildren)
             {
-                Console.WriteLine("\t[{0}]\t{1}", item.Key, item.Value.Name);
+                Console.WriteLine("\t[{0}]\t{1}", item.Key, item.Value.ToString());
             }
             if (previousItems.Count() != 0)
-                Console.WriteLine("\t[0]\t{0}", previousItems.Peek().Name);
+                Console.WriteLine("\t[0]\t{0}", previousItems.Peek().ToString());
         }
 
         private static void ReadFunc(string[] obj)
@@ -161,7 +161,7 @@ namespace Projekt.Cmd
             }
             if(logger.IsInfoEnabled)
             {
-                logger.Info("Correctly read " + rootItem.Name);
+                logger.Info("Correctly read " + rootItem.ToString());
             }
         }
 
