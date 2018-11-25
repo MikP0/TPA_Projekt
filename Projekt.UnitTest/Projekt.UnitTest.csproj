@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompositionTest\CompositionTest.cs" />
-    <Compile Include="ModelTest\CheckStringContains.cs" />
     <Compile Include="ModelTest\ReflectionUnitTest.cs" />
     <Compile Include="ModelTest\SerializeUnitTest.cs" />
     <Compile Include="ModelTest\DeserializeUnitTest.cs" />

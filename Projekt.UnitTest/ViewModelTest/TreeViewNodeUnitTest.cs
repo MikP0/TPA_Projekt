@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projekt.ViewModel;
 using Projekt.Model.Reflection;
-using Projekt.ViewModel.TreeViewTemplate;
 
 namespace Projekt.UnitTest.ViewModelTest
 {
@@ -12,24 +11,24 @@ namespace Projekt.UnitTest.ViewModelTest
         public void TestTVParameterMetadata()
         {
             TypeMetadata typeMetadata = new TypeMetadata("Int", "TestNamespace");
-            TreeViewTypeMetadata treeViewTypeMetadata = new TreeViewTypeMetadata(typeMetadata);
+            TypeTreeItem treeViewTypeMetadata = new TypeTreeItem(typeMetadata);
             ParameterMetadata parameterMetadata = new ParameterMetadata("Parameter", typeMetadata);
-            TreeViewParameterMetadata treeViewParameterMetadata = new TreeViewParameterMetadata(parameterMetadata);
+            ParameterTreeItem treeViewParameterMetadata = new ParameterTreeItem(parameterMetadata);
             Assert.AreEqual(typeMetadata, parameterMetadata.TypeMetadata);
             Assert.AreEqual("Parameter", parameterMetadata.Name);
-            Assert.AreEqual(parameterMetadata, treeViewParameterMetadata.ParameterData);
+            Assert.AreEqual(parameterMetadata, treeViewParameterMetadata.ParameterMetadata);
         }
 
         [TestMethod]
         public void TestTVPropertyMetadata()
         {
             TypeMetadata typeMetadata = new TypeMetadata("Int", "TestNamespace");
-            TreeViewTypeMetadata treeViewTypeMetadata = new TreeViewTypeMetadata(typeMetadata);
+            TypeTreeItem treeViewTypeMetadata = new TypeTreeItem(typeMetadata);
             PropertyMetadata propertyMetadata = new PropertyMetadata("Name", typeMetadata);
-            TreeViewPropertyMetadata treeViewPropertyMetadata = new TreeViewPropertyMetadata(propertyMetadata);
+            PropertyTreeItem treeViewPropertyMetadata = new PropertyTreeItem(propertyMetadata);
             Assert.AreEqual(typeMetadata, propertyMetadata.Type);
             Assert.AreEqual("Name", propertyMetadata.Name);
-            Assert.AreEqual(propertyMetadata, treeViewPropertyMetadata.Data);
+            Assert.AreEqual(propertyMetadata, treeViewPropertyMetadata.PropertyModel);
 
         }
 
@@ -37,17 +36,9 @@ namespace Projekt.UnitTest.ViewModelTest
         public void TestTVTypeMetadata()
         {
             TypeMetadata typeMetadata = new TypeMetadata("Int", "TestNamespace");
-            TreeViewTypeMetadata treeViewTypeMetadata = new TreeViewTypeMetadata(typeMetadata);
-            Assert.AreEqual(typeMetadata, treeViewTypeMetadata.Data);
-            Assert.AreEqual("Int", treeViewTypeMetadata.Name);
-        }
-
-        [TestMethod]
-        public void TestChildrenNodesInitStatus()
-        {
-            TreeViewItem treeViewNodeObject = new TreeViewItem();
-            Assert.IsNotNull(treeViewNodeObject.Children);
-            Assert.IsFalse(treeViewNodeObject.IsExpanded);
+            TypeTreeItem treeViewTypeMetadata = new TypeTreeItem(typeMetadata);
+            Assert.AreEqual(typeMetadata, treeViewTypeMetadata.TypeData);
+            StringAssert.Contains(treeViewTypeMetadata.ToString(), "Int");
         }
     }
 }
