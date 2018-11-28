@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="IOpenFilePathService.cs" />
     <Compile Include="ISaveFilePathService.cs" />
-    <Compile Include="ISerializationService.cs" />
+    <Compile Include="IDataRepositoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

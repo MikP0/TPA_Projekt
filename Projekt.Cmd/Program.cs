@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using log4net;
+using Projekt.CommonInterfaces;
+using Projekt.Composition;
 using Projekt.ViewModel;
 
 namespace Projekt.Cmd
 {
     class Program
     {
-        private static readonly WorkspaceViewModel workspaceViewModel = new WorkspaceViewModel();
+        private static WorkspaceViewModel DataContext;
         private static TreeViewItem rootItem;
         private static Dictionary<int, TreeViewItem> itemChildren = new Dictionary<int, TreeViewItem>();
         private static Stack<TreeViewItem> previousItems = new Stack<TreeViewItem>();
@@ -17,6 +20,12 @@ namespace Projekt.Cmd
         [STAThread]
         static void Main(string[] args)
         {
+            Compose.Instance.Setup();
+            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.ViewModel.dll");
+            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.Model.dll");
+            Compose.Instance.Container.ComposeExportedValue<IOpenFilePathService>(new CommandLineOpenFilePathService());
+            Compose.Instance.Container.ComposeExportedValue<ISaveFilePathService>(new CommandLineSaveFilePathService());
+            DataContext = Compose.Instance.Container.GetExportedValue<WorkspaceViewModel>();
 
             Console.WriteLine("Welcome to TPA_Projekt. Type in a command.");
 
@@ -141,13 +150,13 @@ namespace Projekt.Cmd
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
             }
-            workspaceViewModel.InjectOpenFilePathService(CommandLineOpenFilePathService.Create(obj[0]));
-            workspaceViewModel.LoadFromFileDataCommand.Execute("Load");
-            workspaceViewModel.ReadDataCommand.Execute("Read");
-            Console.WriteLine("Read: " + workspaceViewModel.ReadFileName);
+            DataContext.InjectOpenFilePathService(CommandLineOpenFilePathService.Create(obj[0]));
+            DataContext.LoadFromFileDataCommand.Execute("Load");
+            DataContext.ReadDataCommand.Execute("Read");
+            Console.WriteLine("Read: " + DataContext.ReadFileName);
             try
             {
-                rootItem = workspaceViewModel.HierarchicalAreas[0];
+                rootItem = DataContext.HierarchicalAreas[0];
             }
             catch(ArgumentOutOfRangeException e)
             {
@@ -185,8 +194,8 @@ namespace Projekt.Cmd
             if (obj.Length != 1) return;
             try
             {
-                workspaceViewModel.InjectSaveFilePathService(CommandLineSaveFilePathService.Create(obj[0]));
-                workspaceViewModel.SaveDataCommand.Execute("Save");
+                DataContext.InjectSaveFilePathService(CommandLineSaveFilePathService.Create(obj[0]));
+                DataContext.SaveDataCommand.Execute("Save");
             }
             catch (UnauthorizedAccessException e)
             {
@@ -198,10 +207,10 @@ namespace Projekt.Cmd
                 return;
             }
 
-            Console.WriteLine("Save: " + workspaceViewModel.SaveFileName);
+            Console.WriteLine("Save: " + DataContext.SaveFileName);
             if (logger.IsInfoEnabled)
             {
-                logger.Info("Correctly saved to file:\n" + workspaceViewModel.SaveFileName);
+                logger.Info("Correctly saved to file:\n" + DataContext.SaveFileName);
             }
 
         }

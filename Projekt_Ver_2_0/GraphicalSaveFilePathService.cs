@@ -3,7 +3,6 @@ using System.ComponentModel.Composition;
 
 namespace Projekt_Ver_2_0
 {
-    [Export(typeof(ISaveFilePathService))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     class GraphicalSaveFilePathService : ISaveFilePathService
     {

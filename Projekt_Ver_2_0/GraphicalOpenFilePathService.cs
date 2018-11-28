@@ -3,7 +3,6 @@ using System.ComponentModel.Composition;
 
 namespace Projekt_Ver_2_0
 {
-    [Export(typeof(IOpenFilePathService))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     class GraphicalOpenFilePathService : IOpenFilePathService
     {

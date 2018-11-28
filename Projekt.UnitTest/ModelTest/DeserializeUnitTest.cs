@@ -13,18 +13,18 @@ namespace Projekt.UnitTest.ModelTest
         public void TestDeserialization()
         {
             XmlSerialize xmlSerialize = new XmlSerialize();
-            xmlSerialize.Serialize(xmlSerialize, "plik.xml");
+            xmlSerialize.Save(xmlSerialize, "plik.xml");
 
-            XmlSerialize deserialized = xmlSerialize.Deserialize<XmlSerialize>("plik.xml");
+            XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
 
             Assert.IsNotNull(deserialized);
         }
         public void TestDeserializationContent()
         {
             XmlSerialize xmlSerialize = new XmlSerialize();
-            xmlSerialize.Serialize(xmlSerialize, "plik.xml");
+            xmlSerialize.Save(xmlSerialize, "plik.xml");
 
-            XmlSerialize deserialized = xmlSerialize.Deserialize<XmlSerialize>("plik.xml");
+            XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
 
             Assert.AreEqual(xmlSerialize.GetHashCode(), deserialized.GetHashCode());
         }

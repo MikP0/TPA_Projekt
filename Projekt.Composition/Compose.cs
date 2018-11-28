@@ -15,9 +15,17 @@ namespace Projekt.Composition
         public void Setup()
         {
             Catalog = new AggregateCatalog();
-            DirectoryCatalog localCatalog = new DirectoryCatalog(".", "Projekt.*");
-            Catalog.Catalogs.Add(localCatalog);
             Container  = new CompositionContainer(Catalog);
+        }
+        public void AddLocalAssemblyToCatalog(string assembly)
+        {
+            DirectoryCatalog localCatalog = new DirectoryCatalog(".", assembly);
+            Catalog.Catalogs.Add(localCatalog);
+        }
+        public void AddExternalAssemblyToCatalog(string path, string assembly)
+        {
+            DirectoryCatalog externalCatalog = new DirectoryCatalog(path, assembly);
+            Catalog.Catalogs.Add(externalCatalog);
         }
         private Compose()
         {

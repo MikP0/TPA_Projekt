@@ -18,7 +18,7 @@ namespace Projekt.UnitTest.ModelTest
             string path = "file.xml";
             string content = "";
 
-            xmlSerialize.Serialize(assembly, path);
+            xmlSerialize.Save(assembly, path);
             try
             {
                 content = File.ReadAllText(path);
