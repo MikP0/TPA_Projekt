@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt.CommonInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -101,16 +102,5 @@ public class CustomLogger
         }
 
         WriteLine(pretext + text);
-    }
-
-    [System.Flags]
-    private enum LogLevel
-    {
-        TRACE,
-        INFO,
-        DEBUG,
-        WARNING,
-        ERROR,
-        FATAL
     }
 }
