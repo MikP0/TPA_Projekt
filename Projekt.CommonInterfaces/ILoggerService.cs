@@ -3,7 +3,7 @@
 namespace Projekt.CommonInterfaces
 {
     [InheritedExport(typeof(ILoggerService))]
-    interface ILoggerService
+    public interface ILoggerService
     {
         void Log(string text);
         void Log(string text, LogLevel level);

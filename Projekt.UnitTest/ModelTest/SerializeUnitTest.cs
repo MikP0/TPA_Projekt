@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt.Model;
+using Projekt.XmlSerializer;
 
 namespace Projekt.UnitTest.ModelTest
 {
