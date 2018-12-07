@@ -10,3 +10,4 @@
 - [x] Usunięto zależności od pakietu Ninject
 - [x] Dodano obsługę kompozycji z wykorzystaniem MEF (Projekt.Composition)
 - [x] Dodano testy kompozycji
+- [ ] Zapis asynchroniczny do pliku i bazy danych
