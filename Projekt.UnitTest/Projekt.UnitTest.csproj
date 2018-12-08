@@ -53,9 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompositionTest\CompositionTest.cs" />
+    <Compile Include="ModelTest\ReflectionExampleDLLUnitTest.cs" />
     <Compile Include="ModelTest\ReflectionUnitTest.cs" />
-    <Compile Include="ModelTest\SerializeUnitTest.cs" />
-    <Compile Include="ModelTest\DeserializeUnitTest.cs" />
+    <Compile Include="XmlSerializerTest\DeserializeAsyncUnitTest.cs" />
+    <Compile Include="XmlSerializerTest\SerializeAsyncUnitTest.cs" />
+    <Compile Include="XmlSerializerTest\SerializeUnitTest.cs" />
+    <Compile Include="XmlSerializerTest\DeserializeUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelTest\TreeViewNodeUnitTest.cs" />
     <Compile Include="ViewModelTest\WorkspaceViewModelUnitTest.cs" />

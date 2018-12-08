@@ -1,28 +1,25 @@
-﻿using System;
-using System.Reflection;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projekt.XmlSerializer;
 
-namespace Projekt.UnitTest.ModelTest
+namespace Projekt.UnitTest.XmlSerializerTest
 {
     [TestClass]
-    public class DeserializeUnitTest
+    public class DeserializeAsyncUnitTest
     {
         [TestMethod]
-        public void TestDeserialization()
+        public void TestAsyncDeserialization()
         {
             XmlSerialize xmlSerialize = new XmlSerialize();
-            xmlSerialize.Save(xmlSerialize, "plik.xml");
+            xmlSerialize.SaveAsync(xmlSerialize, "plik.xml");
 
             XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
 
             Assert.IsNotNull(deserialized);
         }
-        public void TestDeserializationContent()
+        public void TestAsyncDeserializationContent()
         {
             XmlSerialize xmlSerialize = new XmlSerialize();
-            xmlSerialize.Save(xmlSerialize, "plik.xml");
+            xmlSerialize.SaveAsync(xmlSerialize, "plik.xml");
 
             XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
 
