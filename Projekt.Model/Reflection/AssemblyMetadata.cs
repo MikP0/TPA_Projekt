@@ -11,7 +11,10 @@ namespace Projekt.Model.Reflection
     [DataContract]
     public class AssemblyMetadata
     {
+        public AssemblyMetadata()
+        {
 
+        }
         public AssemblyMetadata(Assembly assembly)
         {
             Name = assembly.ManifestModule.Name;

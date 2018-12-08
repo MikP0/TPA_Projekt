@@ -36,7 +36,10 @@ namespace Projekt.Model.Reflection
             get { return m_TypeMetadata; }
             set { m_TypeMetadata = value; }
         }
+        public PropertyMetadata()
+        {
 
+        }
         public PropertyMetadata(string propertyName, TypeMetadata propertyType)
         {
             m_Name = propertyName;

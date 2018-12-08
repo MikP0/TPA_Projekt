@@ -10,7 +10,10 @@ namespace Projekt.Model.Reflection
     [DataContract]
     public class ParameterMetadata
     {
+        public ParameterMetadata()
+        {
 
+        }
         public ParameterMetadata(string name, TypeMetadata typeMetadata)
         {
             m_Name = name;

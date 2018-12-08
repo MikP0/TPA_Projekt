@@ -74,6 +74,10 @@
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>
       <Name>Projekt.ViewModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projekt.XmlSerializer\Projekt.XmlSerializer.csproj">
+      <Project>{0e8941e2-920f-4750-bd41-36be0d362f5a}</Project>
+      <Name>Projekt.XmlSerializer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

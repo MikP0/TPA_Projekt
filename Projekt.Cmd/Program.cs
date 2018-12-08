@@ -22,7 +22,7 @@ namespace Projekt.Cmd
         {
             Compose.Instance.Setup();
             Compose.Instance.AddLocalAssemblyToCatalog("Projekt.ViewModel.dll");
-            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.Model.dll");
+            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.XmlSerializer.dll");
             Compose.Instance.Container.ComposeExportedValue<IOpenFilePathService>(new CommandLineOpenFilePathService());
             Compose.Instance.Container.ComposeExportedValue<ISaveFilePathService>(new CommandLineSaveFilePathService());
             DataContext = Compose.Instance.Container.GetExportedValue<WorkspaceViewModel>();

@@ -34,7 +34,10 @@ namespace Projekt.Model.Reflection
         [DataMember]
         public List<ParameterMetadata> Parameters{ get; set; }
         //constructor
+        public MethodMetadata()
+        {
 
+        }
         public MethodMetadata(MethodBase method)
         {
             Name = method.Name;

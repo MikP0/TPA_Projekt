@@ -136,6 +136,7 @@
     <Compile Include="Reflection\Tuple4.cs" />
     <Compile Include="Reflection\TypeEnum.cs" />
     <Compile Include="Reflection\TypeMetadata.cs" />
+    <Compile Include="Reflection\TypeModifiers.cs" />
     <Compile Include="Reflection\VirtualEnum.cs" />
     <Compile Include="Reflector.cs" />
   </ItemGroup>

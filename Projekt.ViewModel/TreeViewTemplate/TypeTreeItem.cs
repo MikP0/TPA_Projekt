@@ -85,7 +85,7 @@ namespace Projekt.ViewModel
                 type += TypeData.Modifiers.Item4 == StaticEnum.Static ? StaticEnum.Static.ToString().ToLower() + " " : String.Empty;
 
             }
-            type += TypeData.Type != TypeMetadata.TypeKind.None ? TypeData.Type.ToString().ToLower() + " " : String.Empty;
+            type += TypeData.Type != TypeEnum.None ? TypeData.Type.ToString().ToLower() + " " : String.Empty;
             type += TypeData.Name;
             if (TypeData.IsGeneric)
                 type += " - generic type";

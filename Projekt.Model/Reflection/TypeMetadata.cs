@@ -27,7 +27,7 @@ namespace Projekt.Model.Reflection
         [DataMember]
         public bool IsExternal { get; set; } = true;
         [DataMember]
-        public TypeKind Type { get; set; }
+        public TypeEnum Type { get; set; }
         [DataMember]
         public List<Attribute> Attributes;
         [DataMember]
@@ -49,6 +49,11 @@ namespace Projekt.Model.Reflection
 
 
         #region constructors
+
+        public TypeMetadata()
+        {
+
+        }
 
         public TypeMetadata(string typeName, string namespaceName)
         {
@@ -79,14 +84,6 @@ namespace Projekt.Model.Reflection
             Type = GetTypeKind(type);
             //m_Attributes = type.GetCustomAttributes(false).Cast<Attribute>().ToList();
             Fields = EmitFields(type.GetFields()).ToList();
-        }
-
-        #endregion
-
-        #region API
-        public enum TypeKind
-        {
-            None, Enum, Struct, Interface, Class
         }
 
         #endregion
@@ -172,12 +169,12 @@ namespace Projekt.Model.Reflection
                    select EmitReference(currentInterface);
         }
 
-        private static TypeKind GetTypeKind(Type type)
+        private static TypeEnum GetTypeKind(Type type)
         {
-            return type.IsEnum ? TypeKind.Enum :
-                   type.IsValueType ? TypeKind.Struct :
-                   type.IsInterface ? TypeKind.Interface :
-                   TypeKind.Class;
+            return type.IsEnum ? TypeEnum.Enum :
+                   type.IsValueType ? TypeEnum.Struct :
+                   type.IsInterface ? TypeEnum.Interface :
+                   TypeEnum.Class;
         }
 
         static Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> EmitModifiers(Type type)

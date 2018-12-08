@@ -10,6 +10,10 @@ namespace Projekt.Model.Reflection
     [DataContract]
     public class NamespaceMetadata
     {
+        public NamespaceMetadata()
+        {
+
+        }
         internal NamespaceMetadata(string name, List<Type> types)
         {
             m_Name = name;

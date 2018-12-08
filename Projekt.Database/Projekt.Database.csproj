@@ -37,6 +37,12 @@
     <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
     </Reference>
@@ -83,8 +89,12 @@
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -111,11 +121,14 @@
   <ItemGroup>
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="DatabaseModel\DatabaseAssemblyModel.cs" />
+    <Compile Include="DatabaseModel\DatabaseLogModel.cs" />
     <Compile Include="DatabaseModel\DatabaseMethodModel.cs" />
     <Compile Include="DatabaseModel\DatabaseNamespaceModel.cs" />
     <Compile Include="DatabaseModel\DatabaseParameterModel.cs" />
     <Compile Include="DatabaseModel\DatabasePropertyModel.cs" />
+    <Compile Include="DatabaseModel\DatabaseTypeDictionary.cs" />
     <Compile Include="DatabaseModel\DatabaseTypeModel.cs" />
+    <Compile Include="DatabaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +139,10 @@
     <ProjectReference Include="..\Projekt.Logger\Projekt.Logger.csproj">
       <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
       <Name>Projekt.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
+      <Project>{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}</Project>
+      <Name>Projekt.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
