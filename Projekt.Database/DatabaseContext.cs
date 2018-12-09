@@ -8,8 +8,7 @@ namespace Projekt.Database
         private const string connectionString = @"data source=(LocalDb)\MSSQLLocalDB;initial catalog=DBData.TPAContext;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         public DatabaseContext() : base()
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
