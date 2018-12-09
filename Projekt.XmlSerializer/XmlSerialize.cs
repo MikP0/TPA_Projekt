@@ -78,16 +78,16 @@ namespace Projekt.XmlSerializer
                 return (T)deserializer.ReadObject(reader);
             }
         }
-        public Task<T> ReadAsync<T>(string sourcePath)
+        public T ReadAsync<T>(string sourcePath)
         {
-            using (StringReader reader = new StringReader(sourcePath))
+            XmlReaderSettings settings = new XmlReaderSettings
             {
-                using (XmlReader xmlReader = XmlReader.Create(reader))
-                {
-                    DataContractSerializer serializer = new DataContractSerializer(typeof(T));
-                    T theObject = (T)serializer.ReadObject(xmlReader);
-                    return Task.FromResult(theObject);
-                }
+                Async = true
+            };
+            using (XmlReader reader = XmlReader.Create(sourcePath, settings))
+            {
+                DataContractSerializer deserializer = new DataContractSerializer(typeof(T));
+                return (T)deserializer.ReadObject(reader);
             }
         }
     }

@@ -12,7 +12,7 @@ namespace Projekt.UnitTest.XmlSerializerTest
             XmlSerialize xmlSerialize = new XmlSerialize();
             xmlSerialize.SaveAsync(xmlSerialize, "plik.xml");
 
-            XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
+            XmlSerialize deserialized = xmlSerialize.ReadAsync<XmlSerialize>("plik.xml");
 
             Assert.IsNotNull(deserialized);
         }
@@ -21,7 +21,7 @@ namespace Projekt.UnitTest.XmlSerializerTest
             XmlSerialize xmlSerialize = new XmlSerialize();
             xmlSerialize.SaveAsync(xmlSerialize, "plik.xml");
 
-            XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
+            var deserialized = xmlSerialize.ReadAsync<XmlSerialize>("plik.xml");
 
             Assert.AreEqual(xmlSerialize.GetHashCode(), deserialized.GetHashCode());
         }
