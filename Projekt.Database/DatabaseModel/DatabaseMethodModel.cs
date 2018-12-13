@@ -22,7 +22,7 @@ namespace Projekt.Database.DatabaseModel
         public string Name { get; set; }
 
         public bool Extension { get; set; }
-        public Tuple4<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum> Modifiers { get; set; }
+        public MethodModifiers Modifiers { get; set; }
 
         public virtual DatabaseTypeModel ReturnType { get; set; }
         public virtual ICollection<DatabaseTypeModel> GenericArguments { get; set; }
