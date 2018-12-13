@@ -14,7 +14,6 @@ namespace Projekt.Database
         {
             optionsBuilder.UseSqlServer(connectionString);
         }
-        
         public virtual DbSet<DatabaseAssemblyModel> AssemblyModel { get; set; }
         public virtual DbSet<DatabaseMethodModel> MethodModel { get; set; }
         public virtual DbSet<DatabaseNamespaceModel> NamespaceModel { get; set; }

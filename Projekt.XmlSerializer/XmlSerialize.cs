@@ -11,7 +11,6 @@ using Projekt.XmlSerializer.XMLModel;
 namespace Projekt.XmlSerializer
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [Export(typeof(IDataRepositoryService))]
     public class XmlSerialize : IDataRepositoryService
     {
 

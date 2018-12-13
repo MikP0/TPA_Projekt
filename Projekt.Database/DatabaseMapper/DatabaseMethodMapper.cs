@@ -12,12 +12,12 @@ namespace Projekt.Database.DatabaseMapper
             methodModel.Name = model.Name;
             methodModel.Extension = model.Extension;
             if (model.GenericArguments != null)
-                methodModel.GenericArguments = model.GenericArguments.Select(g => DatabaseTypeMapper.EmitType((DatabaseTypeModel)g)).ToList();
+                methodModel.GenericArguments = model.GenericArguments.Select(g => DatabaseTypeMapper.EmitType(g)).ToList();
             methodModel.Modifiers = model.Modifiers;
             if (model.Parameters != null)
-                methodModel.Parameters = model.Parameters.Select(p => new DatabaseParameterMapper().MapToUpper((DatabaseParameterModel)p)).ToList();
+                methodModel.Parameters = model.Parameters.Select(p => new DatabaseParameterMapper().MapToUpper(p)).ToList();
             if (model.ReturnType != null)
-                methodModel.ReturnType = DatabaseTypeMapper.EmitType((DatabaseTypeModel)model.ReturnType);
+                methodModel.ReturnType = DatabaseTypeMapper.EmitType(model.ReturnType);
             return methodModel;
         }
         public DatabaseMethodModel MapToLower(MethodMetadata model)
