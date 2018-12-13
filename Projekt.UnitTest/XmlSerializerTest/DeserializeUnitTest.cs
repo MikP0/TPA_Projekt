@@ -6,7 +6,7 @@ namespace Projekt.UnitTest.XmlSerializerTest
     [TestClass]
     public class DeserializeUnitTest
     {
-        [TestMethod]
+        /*[TestMethod]
         public void TestDeserialization()
         {
             XmlSerialize xmlSerialize = new XmlSerialize();
@@ -24,6 +24,6 @@ namespace Projekt.UnitTest.XmlSerializerTest
             XmlSerialize deserialized = xmlSerialize.Read<XmlSerialize>("plik.xml");
 
             Assert.AreEqual(xmlSerialize.GetHashCode(), deserialized.GetHashCode());
-        }
+        }*/
     }
 }

@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Projekt.UnitTest.XmlSerializerTest
 {
-    [TestClass]
+    /*[TestClass]
     public class SerializeAsyncUnitTest
     {
         [TestMethod]
@@ -31,5 +31,5 @@ namespace Projekt.UnitTest.XmlSerializerTest
             StringAssert.Contains(content, "Projekt.Model");
             StringAssert.Contains(content, "string");
         }
-    }
+    }*/
 }

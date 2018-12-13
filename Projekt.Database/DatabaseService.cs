@@ -13,6 +13,7 @@ namespace Projekt.Database
         {
             using (DatabaseContext context = new DatabaseContext())
             {
+                context.Database.EnsureCreated();
                 DatabaseAssemblyModel assemblyModel = (DatabaseAssemblyModel)_object;
                 context.AssemblyModel.Add(assemblyModel);
                 context.SaveChanges();

@@ -23,7 +23,6 @@ namespace Projekt.Database.DatabaseModel
 
         public bool Extension { get; set; }
         public MethodModifiers Modifiers { get; set; }
-
         public virtual DatabaseTypeModel ReturnType { get; set; }
         public virtual ICollection<DatabaseTypeModel> GenericArguments { get; set; }
         public virtual ICollection<DatabaseParameterModel> Parameters { get; set; }

@@ -10,7 +10,7 @@ namespace Projekt.UnitTest.XmlSerializerTest
     [TestClass]
     public class SerializeUnitTest
     {
-        [TestMethod]
+        /*[TestMethod]
         public void TestSerialization()
         {
             Assembly assembly = Assembly.Load("Projekt.Model");
@@ -29,7 +29,7 @@ namespace Projekt.UnitTest.XmlSerializerTest
 
             StringAssert.Contains(content, "Projekt.Model");
             StringAssert.Contains(content, "string");
-        }
+        }*/
 
     }
 }

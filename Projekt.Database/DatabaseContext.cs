@@ -5,7 +5,7 @@ namespace Projekt.Database
 {
     public class DatabaseContext : DbContext
     {
-        private const string connectionString = @"data source=(LocalDb)\MSSQLLocalDB;initial catalog=DBData.TPAContext;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private const string connectionString = @"data source=(LocalDb)\MSSQLLocalDB;initial catalog=Projekt.Database.DatabaseContext;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         public DatabaseContext() : base()
         {
 
