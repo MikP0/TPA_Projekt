@@ -8,10 +8,12 @@ using System.Windows;
 using log4net;
 using System.ComponentModel.Composition;
 using Projekt.ViewModel;
+using Projekt.Composition;
+using Projekt.Reflection;
 
 namespace Projekt.ViewModel
 {
-    [Export]
+    [Export(typeof(WorkspaceViewModel))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     internal class WorkspaceViewModel : ViewModelBase
     {
@@ -27,8 +29,8 @@ namespace Projekt.ViewModel
         IOpenFilePathService _openFilePathService { get; set; }
         [Import(typeof(ISaveFilePathService))]
         ISaveFilePathService _saveFilePathService { get; set; }
-        [Import(typeof(IDataRepositoryService))]
-        IDataRepositoryService _DataRepositoryService { get; set; }
+        [Import(typeof(IReflectionService))]
+        IReflectionService _reflectionService { get; set; }
         private AssemblyMetadata assemblyMetadata;
         private AssemblyTreeItem treeViewAssemblyMetadata;
 
@@ -87,7 +89,7 @@ namespace Projekt.ViewModel
             if (logger.IsInfoEnabled)
                 logger.Info("Trying to save to XML");
 
-            _DataRepositoryService.Save(assemblyMetadata, SaveFileName);
+            _reflectionService.Save(assemblyMetadata, SaveFileName);
         }
 
         public RelayCommand SaveDataCommand
@@ -149,7 +151,7 @@ namespace Projekt.ViewModel
                 if (logger.IsInfoEnabled)
                     logger.Info("Trying to read .xml file");
 
-                assemblyMetadata = _DataRepositoryService.Read(ReadFileName);
+                assemblyMetadata = _reflectionService.Read(ReadFileName);
                 foreach (NamespaceMetadata n in assemblyMetadata.Namespaces)
                 {
                     foreach (TypeMetadata type in n.Types)

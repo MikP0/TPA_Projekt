@@ -8,7 +8,7 @@ using Projekt.CommonInterfaces;
 
 namespace Projekt.XmlSerializer
 {
-    [PartCreationPolicy(CreationPolicy.NonShared)]
+    /*[PartCreationPolicy(CreationPolicy.NonShared)]
     public class XmlSerialize : IDataRepositoryService
     {
 
@@ -90,5 +90,5 @@ namespace Projekt.XmlSerializer
                 return (IAssemblyModel)deserializer.ReadObject(reader);
             }
         }
-    }
+    }*/
 }
