@@ -10,8 +10,8 @@ namespace Projekt.Database.DatabaseMapper
 {
     public class DatabaseTypeMapper
     {
-        private static readonly DatabaseTypeDictionary databaseTypeDictionary = DatabaseTypeDictionary.Instance;
-        private static readonly TypeDictionary typeDictionary = TypeDictionary.Instance;
+        private static readonly Dictionary<string, DatabaseTypeModel> databaseTypeDictionary = new Dictionary<string, DatabaseTypeModel>();
+        private static readonly Dictionary<string, TypeMetadata> typeDictionary = new Dictionary<string, TypeMetadata>();
 
         public static DatabaseTypeModel EmitDBType(TypeMetadata model)
         {
