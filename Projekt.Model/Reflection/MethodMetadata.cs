@@ -26,7 +26,7 @@ namespace Projekt.Model.Reflection
         [DataMember]
         public List<TypeMetadata> GenericArguments { get; set; }
         [DataMember]
-        public Tuple4<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum> Modifiers { get; set; }
+        public MethodModifiers Modifiers { get; set; }
         [DataMember]
         public TypeMetadata ReturnType { get; set; }
         [DataMember]
@@ -73,7 +73,7 @@ namespace Projekt.Model.Reflection
         {
             return method.IsDefined(typeof(ExtensionAttribute), true);
         }
-        private static Tuple4<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum> EmitModifiers(MethodBase method)
+        private static MethodModifiers EmitModifiers(MethodBase method)
         {
             AccessLevel _access = AccessLevel.Private;
             if (method.IsPublic)
@@ -91,7 +91,14 @@ namespace Projekt.Model.Reflection
             VirtualEnum _virtual = VirtualEnum.NotVirtual;
             if (method.IsVirtual)
                 _virtual = VirtualEnum.Virtual;
-            return new Tuple<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum>(_access, _abstract, _static, _virtual);
+
+            return new MethodModifiers()
+            {
+                AbstractEnum = _abstract,
+                StaticEnum = _static,
+                VirtualEnum = _virtual,
+                AccessLevel = _access
+            };
         }
         #endregion
 

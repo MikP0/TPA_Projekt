@@ -75,24 +75,8 @@ namespace Projekt.ViewModel
         }
         public override string ToString()
         {
-            string type = String.Empty;
-            if (TypeData.Modifiers != null)
-            {
 
-                type += TypeData.Modifiers.Item1.ToString().ToLower() + " ";
-                type += TypeData.Modifiers.Item2 == SealedEnum.Sealed ? SealedEnum.Sealed.ToString().ToLower() + " " : String.Empty;
-                type += TypeData.Modifiers.Item3 == AbstractEnum.Abstract ? AbstractEnum.Abstract.ToString().ToLower() + " " : String.Empty;
-                type += TypeData.Modifiers.Item4 == StaticEnum.Static ? StaticEnum.Static.ToString().ToLower() + " " : String.Empty;
-
-            }
-            type += TypeData.Type != TypeEnum.None ? TypeData.Type.ToString().ToLower() + " " : String.Empty;
-            type += TypeData.Name;
-            if (TypeData.IsGeneric)
-                type += " - generic type";
-            else if (TypeData.IsExternal)
-                type += " - external assembly: " + TypeData.NamespaceName;
-
-            return type;
+            return TypeData.ToString();
         }
     }
 }

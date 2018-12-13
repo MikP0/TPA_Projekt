@@ -13,7 +13,7 @@ namespace Projekt.Model.Reflection
     {
         #region fields
         [DataMember]
-        private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance; 
+        private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance;
         [DataMember]
         public string NamespaceName { get; set; }
         [DataMember]
@@ -21,7 +21,8 @@ namespace Projekt.Model.Reflection
         [DataMember]
         public List<TypeMetadata> GenericArguments { get; set; }
         [DataMember]
-        public Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> Modifiers { get; set; }
+        //public Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> Modifiers { get; set; }
+        public TypeModifiers Modifiers { get; set; }
         [DataMember]
         public bool IsGeneric { get; set; }
         [DataMember]
@@ -177,7 +178,7 @@ namespace Projekt.Model.Reflection
                    TypeEnum.Class;
         }
 
-        static Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> EmitModifiers(Type type)
+        static TypeModifiers EmitModifiers(Type type)
         {
             AccessLevel _access = AccessLevel.Private;
             if (type.IsPublic)
@@ -196,8 +197,14 @@ namespace Projekt.Model.Reflection
                 _abstract = AbstractEnum.Abstract;
                 _static = StaticEnum.Static;
             }
-                
-            return new Tuple<AccessLevel, SealedEnum, AbstractEnum, StaticEnum>(_access, _sealed, _abstract, _static);
+
+            return new TypeModifiers()
+            {
+                AbstractEnum = _abstract,
+                StaticEnum = _static,
+                SealedEnum = _sealed,
+                AccessLevel = _access
+            };
         }
 
         private static TypeMetadata EmitExtends(Type baseType)

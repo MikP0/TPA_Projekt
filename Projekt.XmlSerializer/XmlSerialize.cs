@@ -1,94 +1,60 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
 using Projekt.CommonInterfaces;
+using Projekt.XmlSerializer.XMLModel;
 
 namespace Projekt.XmlSerializer
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export(typeof(IDataRepositoryService))]
     public class XmlSerialize : IDataRepositoryService
     {
 
-        //private readonly ILog logger = LogManager.GetLogger("ModelLogger");
-        private readonly CustomLogger customLogger = new CustomLogger();
-
-        public void Save(IAssemblyModel obj, string sourcePath)
+        public void Save(IAssemblyModel _object, string path)
         {
-            DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
-
-            XmlWriterSettings settings = new XmlWriterSettings
+            XMLAssemblyModel assembly = (XMLAssemblyModel)_object;
+            List<Type> knownTypes = new List<Type>
             {
-                Indent = true,
-                IndentChars = " ",
-                NewLineChars = "\r\n"
+                typeof(XMLTypeModel),
+                typeof(XMLNamespaceModel),
+                typeof(XMLMethodModel),
+                typeof(XMLParameterModel),
+                typeof(XMLPropertyModel)
             };
-            try
-            {
-                customLogger.Info("Trying to create XmlWriter");
 
-                using (XmlWriter w = XmlWriter.Create(sourcePath, settings))
-                {
-                    serializer.WriteObject(w, obj);
-                }
-            }
-            catch (ArgumentException e)
+            DataContractSerializer dataContractSerializer =
+                new DataContractSerializer(typeof(XMLAssemblyModel), knownTypes);
+
+            using (FileStream fileStream = new FileStream(path, FileMode.Create))
             {
-                if (sourcePath == null || sourcePath.Length == 0)
-                    customLogger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
-                if (settings == null)
-                    customLogger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
+                dataContractSerializer.WriteObject(fileStream, assembly);
             }
         }
-        public void SaveAsync(IAssemblyModel obj, string sourcePath)
-        {
-            DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
 
-            XmlWriterSettings settings = new XmlWriterSettings
+        public IAssemblyModel Read(string path)
+        {
+            XMLAssemblyModel model;
+            List<Type> knownTypes = new List<Type>
             {
-                Indent = true,
-                IndentChars = " ",
-                NewLineChars = "\r\n",
-                Async = true
+                typeof(XMLTypeModel),
+                typeof(XMLNamespaceModel),
+                typeof(XMLMethodModel),
+                typeof(XMLParameterModel),
+                typeof(XMLPropertyModel)
             };
-            try
-            {
-                customLogger.Info("Trying to create XmlWriter");
 
-                using (XmlWriter w = XmlWriter.Create(sourcePath, settings))
-                {
-                    serializer.WriteObject(w, obj);
-                }
-            }
-            catch (ArgumentException e)
+            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(XMLAssemblyModel), knownTypes);
+            using (FileStream fileStream = new FileStream(path, FileMode.Open))
             {
-                if (sourcePath == null || sourcePath.Length == 0)
-                    customLogger.Error("Error occured when creating XmlWriter! SourcePath is not specified\n" + e);
-                if (settings == null)
-                    customLogger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
+                model = (XMLAssemblyModel)dataContractSerializer.ReadObject(fileStream);
             }
-        }
-        public IAssemblyModel Read(string sourcePath)
-        {
-            using (XmlReader reader = XmlReader.Create(sourcePath))
-            {
-                DataContractSerializer deserializer = new DataContractSerializer(typeof(IAssemblyModel));
-                return (IAssemblyModel)deserializer.ReadObject(reader);
-            }
-        }
-        public IAssemblyModel ReadAsync(string sourcePath)
-        {
-            XmlReaderSettings settings = new XmlReaderSettings
-            {
-                Async = true
-            };
-            using (XmlReader reader = XmlReader.Create(sourcePath, settings))
-            {
-                DataContractSerializer deserializer = new DataContractSerializer(typeof(IAssemblyModel));
-                return (IAssemblyModel)deserializer.ReadObject(reader);
-            }
+
+            return model;
         }
     }
 }

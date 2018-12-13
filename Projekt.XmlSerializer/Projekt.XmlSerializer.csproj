@@ -43,6 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XMLMapper\XMLAssemblyMapper.cs" />
+    <Compile Include="XMLMapper\XMLMethodMapper.cs" />
+    <Compile Include="XMLMapper\XMLNamespaceMapper.cs" />
+    <Compile Include="XMLMapper\XMLParameterMapper.cs" />
+    <Compile Include="XMLMapper\XMLPropertyMapper.cs" />
+    <Compile Include="XMLMapper\XMLTypeMapper.cs" />
+    <Compile Include="XMLModel\XMLAssemblyModel.cs" />
+    <Compile Include="XMLModel\XMLMethodModel.cs" />
+    <Compile Include="XMLModel\XMLNamespaceModel.cs" />
+    <Compile Include="XMLModel\XMLParameterModel.cs" />
+    <Compile Include="XMLModel\XMLPropertyModel.cs" />
+    <Compile Include="XMLModel\XMLTypeModel.cs" />
     <Compile Include="XmlSerialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +67,11 @@
       <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
       <Name>Projekt.Logger</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
+      <Project>{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}</Project>
+      <Name>Projekt.Model</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
