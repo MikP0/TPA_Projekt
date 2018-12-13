@@ -5,7 +5,7 @@ namespace Projekt.CommonInterfaces
     [InheritedExport(typeof(IDataRepositoryService))]
     public interface IDataRepositoryService
     {
-        void Save<T>(T _object, string path);
-        T Read<T>(string path);
+        void Save(IAssemblyModel _object, string path);
+        IAssemblyModel Read(string path);
     }
 }

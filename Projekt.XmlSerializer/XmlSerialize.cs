@@ -15,7 +15,7 @@ namespace Projekt.XmlSerializer
         //private readonly ILog logger = LogManager.GetLogger("ModelLogger");
         private readonly CustomLogger customLogger = new CustomLogger();
 
-        public void Save<T>(T obj, string sourcePath)
+        public void Save(IAssemblyModel obj, string sourcePath)
         {
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
 
@@ -42,7 +42,7 @@ namespace Projekt.XmlSerializer
                     customLogger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
             }
         }
-        public void SaveAsync<T>(T obj, string sourcePath)
+        public void SaveAsync(IAssemblyModel obj, string sourcePath)
         {
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
 
@@ -70,15 +70,15 @@ namespace Projekt.XmlSerializer
                     customLogger.Error("Error occured when creating XmlWriter! Settings not specified\n" + e);
             }
         }
-        public T Read<T>(string sourcePath)
+        public IAssemblyModel Read(string sourcePath)
         {
             using (XmlReader reader = XmlReader.Create(sourcePath))
             {
-                DataContractSerializer deserializer = new DataContractSerializer(typeof(T));
-                return (T)deserializer.ReadObject(reader);
+                DataContractSerializer deserializer = new DataContractSerializer(typeof(IAssemblyModel));
+                return (IAssemblyModel)deserializer.ReadObject(reader);
             }
         }
-        public T ReadAsync<T>(string sourcePath)
+        public IAssemblyModel ReadAsync(string sourcePath)
         {
             XmlReaderSettings settings = new XmlReaderSettings
             {
@@ -86,8 +86,8 @@ namespace Projekt.XmlSerializer
             };
             using (XmlReader reader = XmlReader.Create(sourcePath, settings))
             {
-                DataContractSerializer deserializer = new DataContractSerializer(typeof(T));
-                return (T)deserializer.ReadObject(reader);
+                DataContractSerializer deserializer = new DataContractSerializer(typeof(IAssemblyModel));
+                return (IAssemblyModel)deserializer.ReadObject(reader);
             }
         }
     }

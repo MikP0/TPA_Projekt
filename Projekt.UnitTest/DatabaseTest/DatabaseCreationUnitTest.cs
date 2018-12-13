@@ -10,7 +10,7 @@ namespace Projekt.UnitTest.DatabaseTest
     [TestClass]
     public class DatabaseCreationUnitTest
     {
-        private Reflector reflector { get; set; }
+        /*private Reflector reflector { get; set; }
         [TestInitialize]
         public void Setup()
         {
@@ -70,6 +70,6 @@ namespace Projekt.UnitTest.DatabaseTest
             Assert.IsNotNull(databasePropertyModel.Name);
             Assert.IsNotNull(databasePropertyModel.Type);
             Assert.IsNotNull(databasePropertyModel.TypeProperties);
-        }
+        }*/
     }
 }

@@ -30,7 +30,7 @@ namespace Projekt.UnitTest.DatabaseTest
             reflector.Reflect(assembly);
 
             DatabaseAssemblyModel databaseAssemblyModel = new DatabaseAssemblyModel();
-            databaseAssemblyModel.MapToLower(reflector.AssemblyModel);
+            //databaseAssemblyModel = reflector.AssemblyModel;
             assemblyMetadatas.Add(databaseAssemblyModel);
         }
         [TestMethod]

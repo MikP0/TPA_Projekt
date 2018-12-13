@@ -149,7 +149,7 @@ namespace Projekt.ViewModel
                 if (logger.IsInfoEnabled)
                     logger.Info("Trying to read .xml file");
 
-                assemblyMetadata = _DataRepositoryService.Read<AssemblyMetadata>(ReadFileName);
+                assemblyMetadata = _DataRepositoryService.Read(ReadFileName);
                 foreach (NamespaceMetadata n in assemblyMetadata.Namespaces)
                 {
                     foreach (TypeMetadata type in n.Types)

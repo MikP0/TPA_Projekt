@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Projekt.CommonInterfaces
 {
-    public interface IDatabaseMapper<TUpper, TLower>
+    public interface IAssemblyModel
     {
-        TUpper MapToUpper(TLower model);
-        TLower MapToLower(TUpper model);
+        string Name { get; set; }
     }
 }

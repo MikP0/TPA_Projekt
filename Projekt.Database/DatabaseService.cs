@@ -1,25 +1,28 @@
 ﻿using Projekt.CommonInterfaces;
 using System.ComponentModel.Composition;
-using Microsoft.EntityFrameworkCore;
 using Projekt.Database.DatabaseModel;
 using Projekt.Model.Reflection;
 using System.Linq;
+using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Projekt.Database
 {
-    /*[PartCreationPolicy(CreationPolicy.NonShared)]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     class DatabaseService : IDataRepositoryService
     {
-        public void Save<T>(T _object, string path)
+        public void Save(IAssemblyModel _object, string path)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                DatabaseAssemblyModel assemblyModel = new DatabaseAssemblyModel().MapToLower(_object);
+                context.Database.EnsureDeletedAsync();
+                context.Database.EnsureCreatedAsync();
+                DatabaseAssemblyModel assemblyModel = (DatabaseAssemblyModel)_object;
                 context.AssemblyModel.Add(assemblyModel);
                 context.SaveChanges();
             }
         }
-        public T Read<T>(string path)
+        public IAssemblyModel Read(string path)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
@@ -59,8 +62,8 @@ namespace Projekt.Database
                     .Load();
 
                 DatabaseAssemblyModel databaseAssemblyModel = context.AssemblyModel.Include(a => a.NamespaceModels).ToList()[0];
-                return databaseAssemblyModel?.MapToUpper(databaseAssemblyModel);
+                return databaseAssemblyModel;
             }
         }
-    }*/
+    }
 }
