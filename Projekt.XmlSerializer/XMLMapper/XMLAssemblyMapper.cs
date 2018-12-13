@@ -14,7 +14,11 @@ namespace Projekt.XmlSerializer.XMLMapper
     {
         public IAssemblyModel MapToLower(AssemblyMetadata model)
         {
-            throw new NotImplementedException();
+            XMLAssemblyModel assemblyModel = new XMLAssemblyModel();
+            assemblyModel.Name = model.Name;
+            if (model.Namespaces != null)
+                assemblyModel.NamespaceModels = model.Namespaces.Select(n => new XMLNamespaceMapper().MapToLower(n)).ToList();
+            return assemblyModel;
         }
 
         public AssemblyMetadata MapToUpper(IAssemblyModel model)
