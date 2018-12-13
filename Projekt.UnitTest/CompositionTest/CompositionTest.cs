@@ -11,15 +11,6 @@ namespace Projekt.UnitTest.CompositionTest
     public class CompositionTest
     {
         [TestMethod]
-        public void TestWorkspaceViewModelExport()
-        {
-            Compose.Instance.Setup();
-
-            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.*");
-
-            Assert.IsNotNull(Compose.Instance.Container.GetExportedValue<WorkspaceViewModel>());
-        }
-        [TestMethod]
         public void TestAddLocalAssemblyToCatalog()
         {
             Compose.Instance.Setup();

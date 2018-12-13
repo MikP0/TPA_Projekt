@@ -31,14 +31,5 @@ namespace Projekt.UnitTest.ViewModelTest
             Assert.AreEqual(propertyMetadata, treeViewPropertyMetadata.PropertyModel);
 
         }
-
-        [TestMethod]
-        public void TestTVTypeMetadata()
-        {
-            TypeMetadata typeMetadata = new TypeMetadata("Int", "TestNamespace");
-            TypeTreeItem treeViewTypeMetadata = new TypeTreeItem(typeMetadata);
-            Assert.AreEqual(typeMetadata, treeViewTypeMetadata.TypeData);
-            StringAssert.Contains(treeViewTypeMetadata.ToString(), "Int");
-        }
     }
 }
