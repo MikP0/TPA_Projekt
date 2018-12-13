@@ -32,7 +32,7 @@ namespace Projekt.Database.DatabaseModel
         public DatabaseTypeModel BaseType { get; set; }
         public TypeEnum Type { get; set; }
         public DatabaseTypeModel DeclaringType { get; set; }
-        public Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> Modifiers { get; set; }
+        public TypeModifiers Modifiers { get; set; }
         public int? NamespaceId { get; set; }
         public virtual ICollection<DatabaseMethodModel> Constructors { get; set; }
 

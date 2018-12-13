@@ -50,7 +50,7 @@ namespace Projekt.Database.DatabaseMapper
             typeModel.IsGeneric = model.IsGeneric;
             typeModel.Type = model.Type;
             typeModel.NamespaceName = model.NamespaceName;
-            typeModel.Modifiers = model.Modifiers ?? new Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum>();
+            typeModel.Modifiers = model.Modifiers ?? new TypeModifiers();
 
             typeModel.BaseType = EmitType((DatabaseTypeModel)model.BaseType);
             typeModel.DeclaringType = EmitType((DatabaseTypeModel)model.DeclaringType);
