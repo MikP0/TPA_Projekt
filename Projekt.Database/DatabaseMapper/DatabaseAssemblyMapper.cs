@@ -2,10 +2,12 @@
 using Projekt.Database.DatabaseModel;
 using Projekt.Model;
 using Projekt.Model.Reflection;
+using System.ComponentModel.Composition;
 using System.Linq;
 
 namespace Projekt.Database.DatabaseMapper
 {
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class DatabaseAssemblyMapper : IModelMapper
     {
         public IAssemblyModel MapToLower(AssemblyMetadata model)

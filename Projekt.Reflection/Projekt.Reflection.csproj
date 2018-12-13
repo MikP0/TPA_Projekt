@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92D5DF6D-7B1E-41E3-9DEF-F25A12EB265E}</ProjectGuid>
+    <ProjectGuid>{C80F5983-DF17-445F-A13F-64ABEB3447CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Projekt.ViewModel</RootNamespace>
-    <AssemblyName>Projekt.ViewModel</AssemblyName>
+    <RootNamespace>Projekt.Reflection</RootNamespace>
+    <AssemblyName>Projekt.Reflection</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,17 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,18 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBuildable.cs" />
+    <Compile Include="ReflectionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelayCommand.cs" />
-    <Compile Include="TreeViewTemplate\AssemblyTreeItem.cs" />
-    <Compile Include="TreeViewTemplate\MethodTreeItem.cs" />
-    <Compile Include="TreeViewTemplate\NamespaceTreeItem.cs" />
-    <Compile Include="TreeViewTemplate\ParameterTreeItem.cs" />
-    <Compile Include="TreeViewTemplate\PropertyTreeItem.cs" />
-    <Compile Include="TreeViewTemplate\TreeViewItem.cs" />
-    <Compile Include="TreeViewTemplate\TypeTreeItem.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="WorkspaceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
@@ -71,18 +54,17 @@
       <Project>{1B9606BD-3633-4268-AC1D-2072EC3296ED}</Project>
       <Name>Projekt.Composition</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projekt.Database\Projekt.Database.csproj">
+      <Project>{376CAF6B-2B77-4678-ABAC-FBB230C27E7B}</Project>
+      <Name>Projekt.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
       <Name>Projekt.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Reflection\Projekt.Reflection.csproj">
-      <Project>{C80F5983-DF17-445F-A13F-64ABEB3447CA}</Project>
-      <Name>Projekt.Reflection</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

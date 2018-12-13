@@ -1,22 +1,18 @@
 ﻿using Projekt.CommonInterfaces;
 using System.ComponentModel.Composition;
 using Projekt.Database.DatabaseModel;
-using Projekt.Model.Reflection;
 using System.Linq;
-using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Projekt.Database
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    class DatabaseService : IDataRepositoryService
+    public class DatabaseService : IDataRepositoryService
     {
         public void Save(IAssemblyModel _object, string path)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.Database.EnsureDeletedAsync();
-                context.Database.EnsureCreatedAsync();
                 DatabaseAssemblyModel assemblyModel = (DatabaseAssemblyModel)_object;
                 context.AssemblyModel.Add(assemblyModel);
                 context.SaveChanges();
