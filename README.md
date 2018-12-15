@@ -10,4 +10,9 @@
 - [x] Usunięto zależności od pakietu Ninject
 - [x] Dodano obsługę kompozycji z wykorzystaniem MEF (Projekt.Composition)
 - [x] Dodano testy kompozycji
+- [x] Dodano Custom Loggera
+- [ ] Działająca baza danych
 - [ ] Zapis asynchroniczny do pliku i bazy danych
+- [ ] Testy jednostkowe w oddzielnych DLL'kach dla każdego komponentu
+- [ ] Komponenty mają być od siebie niezależne
+- [ ] Data Transfer Graph (--> Prezentacja TPA)
