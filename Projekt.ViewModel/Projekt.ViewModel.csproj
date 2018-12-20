@@ -72,10 +72,6 @@
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
       <Name>Projekt.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Reflection\Projekt.Reflection.csproj">
-      <Project>{C80F5983-DF17-445F-A13F-64ABEB3447CA}</Project>
-      <Name>Projekt.Reflection</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

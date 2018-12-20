@@ -1,34 +1,34 @@
-﻿using Projekt.CommonInterfaces;
-using Projekt.Composition;
-using Projekt.Database;
+﻿using Projekt.Composition;
+using Projekt.Logic.Mapper;
 using Projekt.Model;
 using Projekt.Model.Reflection;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 
-namespace Projekt.Reflection
+namespace Projekt.Logic
 {
+    [Export(typeof(ReflectionService))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    public class ReflectionService : IReflectionService
+    public class ReflectionService 
     {
         public ReflectionService()
         {
             DataRepository = Compose.Instance.Container.GetExportedValue<IDataRepositoryService>();
-            Mapper = Compose.Instance.Container.GetExportedValue<IModelMapper>();
+            assemblyModel = Compose.Instance.Container.GetExportedValue<AssemblyModel>();
         }
 
         public IDataRepositoryService DataRepository { get; set; }
-        public IModelMapper Mapper { get; set; }
+        public AssemblyModel assemblyModel { get; set; }
 
         public void Save(AssemblyMetadata model, string path)
         {
-            DataRepository.Save(Mapper.MapToLower(model), path);
+            DataRepository.Save(AssemblyModelMapper.MapDown(model, assemblyModel.GetType()), path);
         }
 
         public AssemblyMetadata Read(string path)
         {
-            return Mapper.MapToUpper(DataRepository.Read(path));
+            return AssemblyModelMapper.MapUp(DataRepository.Read(path));
         }
     }
 }

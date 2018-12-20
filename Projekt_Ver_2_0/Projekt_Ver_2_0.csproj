@@ -204,10 +204,6 @@
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
       <Name>Projekt.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Reflection\Projekt.Reflection.csproj">
-      <Project>{c80f5983-df17-445f-a13f-64abeb3447ca}</Project>
-      <Name>Projekt.Reflection</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.ViewModel\Projekt.ViewModel.csproj">
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>
       <Name>Projekt.ViewModel</Name>

@@ -9,7 +9,6 @@ using log4net;
 using System.ComponentModel.Composition;
 using Projekt.ViewModel;
 using Projekt.Composition;
-using Projekt.Reflection;
 
 namespace Projekt.ViewModel
 {
