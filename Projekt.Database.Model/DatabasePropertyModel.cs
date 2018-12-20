@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Projekt.Model;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Projekt.Database.DatabaseModel
+namespace Projekt.Database.Model
 {
-    [Table("ParameterModel")]
-    public class DatabaseParameterModel
+    [Table("PropertyModel")]
+    public class DatabasePropertyModel : ParameterModel
     {
-        public DatabaseParameterModel()
+        public DatabasePropertyModel()
         {
             MethodParameters = new HashSet<DatabaseMethodModel>();
             TypeFields = new HashSet<DatabaseTypeModel>();
@@ -16,9 +17,10 @@ namespace Projekt.Database.DatabaseModel
 
         [Required]
         [StringLength(150)]
-        public string Name { get; set; }
+        public override string Name { get; set; }
 
-        public DatabaseTypeModel Type { get; set; }
+        public new DatabaseTypeModel Type { get; set; }
+
         public virtual ICollection<DatabaseMethodModel> MethodParameters { get; set; }
         public virtual ICollection<DatabaseTypeModel> TypeFields { get; set; }
     }

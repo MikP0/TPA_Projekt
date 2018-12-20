@@ -1,8 +1,10 @@
 ﻿using Projekt.CommonInterfaces;
 using System.ComponentModel.Composition;
-using Projekt.Database.DatabaseModel;
+using Projekt.Database.Model;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Projekt.Model;
+using System;
 
 namespace Projekt.Database
 {
@@ -11,9 +13,9 @@ namespace Projekt.Database
     {
         public void Save(AssemblyModel _object, string path)
         {
+            ClearDB();
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.Database.EnsureCreated();
                 DatabaseAssemblyModel assemblyModel = (DatabaseAssemblyModel)_object;
                 context.AssemblyModel.Add(assemblyModel);
                 context.SaveChanges();
@@ -23,10 +25,9 @@ namespace Projekt.Database
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.ParameterModel
-                    .Include(p => p.Type)
-                    .Include(p => p.TypeFields)
-                    .Include(p => p.MethodParameters)
+                //context.Configuration.ProxyCreationEnabled = false;
+                context.NamespaceModel
+                    .Include(n => n.Types)
                     .Load();
                 context.TypeModel
                     .Include(t => t.Constructors)
@@ -42,6 +43,13 @@ namespace Projekt.Database
                     .Include(t => t.TypeImplementedInterfaces)
                     .Include(t => t.TypeNestedTypes)
                     .Include(t => t.MethodGenericArguments)
+                    .Include(t => t.TypeBaseTypes)
+                    .Include(t => t.TypeDeclaringTypes)
+                    .Load();
+                context.ParameterModel
+                    .Include(p => p.Type)
+                    .Include(p => p.TypeFields)
+                    .Include(p => p.MethodParameters)
                     .Load();
                 context.MethodModel
                     .Include(m => m.GenericArguments)
@@ -52,14 +60,29 @@ namespace Projekt.Database
                     .Load();
                 context.PropertyModel
                     .Include(p => p.Type)
-                    .Include(p => p.TypeProperties)
-                    .Load();
-                context.NamespaceModel
-                    .Include(n => n.Types)
+                    //.Include(p => p.TypeProperties)
                     .Load();
 
-                DatabaseAssemblyModel databaseAssemblyModel = context.AssemblyModel.Include(a => a.NamespaceModels).ToList()[0];
-                return databaseAssemblyModel;
+
+                DatabaseAssemblyModel dbAssemblyModel = context.AssemblyModel
+                    .Include(a => a.NamespaceModels)
+                    .ToList().FirstOrDefault();
+                if (dbAssemblyModel == null)
+                    throw new ArgumentException("Database is empty");
+                return dbAssemblyModel;
+            }
+        }
+        private void ClearDB()
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                context.Database.ExecuteSqlCommand("DELETE FROM ParameterModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM PropertyModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM MethodModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM TypeModel ");
+                context.Database.ExecuteSqlCommand("DELETE FROM NamespaceModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM AssemblyModel WHERE ID != -1");
+                context.SaveChanges();
             }
         }
     }

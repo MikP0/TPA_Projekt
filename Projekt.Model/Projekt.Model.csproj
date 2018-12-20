@@ -133,7 +133,6 @@
     <Compile Include="Reflection\AbstractEnum.cs" />
     <Compile Include="Reflection\AccessLevel.cs" />
     <Compile Include="Reflection\AssemblyMetadata.cs" />
-    <Compile Include="Reflection\MethodModifiers.cs" />
     <Compile Include="Reflection\TypeDictionary.cs" />
     <Compile Include="Reflection\ExtensionMethods.cs" />
     <Compile Include="Reflection\MethodMetadata.cs" />
