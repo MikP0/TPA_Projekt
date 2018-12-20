@@ -196,6 +196,10 @@
       <Project>{376caf6b-2b77-4678-abac-fbb230c27e7b}</Project>
       <Name>Projekt.Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projekt.Logger\Projekt.Logger.csproj">
+      <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
+      <Name>Projekt.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
       <Name>Projekt.Model</Name>

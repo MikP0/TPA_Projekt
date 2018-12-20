@@ -3,7 +3,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Projekt.UnitTest.DatabaseTest
+namespace Projekt.Database.UnitTest
 {
     public static class DbSetExtensions
     {

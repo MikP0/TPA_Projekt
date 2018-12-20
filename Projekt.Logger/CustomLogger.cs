@@ -1,17 +1,15 @@
 ﻿using Projekt.CommonInterfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.Composition;
 
+[PartCreationPolicy(CreationPolicy.NonShared)]
 public class CustomLogger : ILoggerService
 {
     private const string FILE_EXT = ".log";
     private readonly string datetimeFormat;
     private readonly string logFilename;
 
-
+    [ImportingConstructor]
     public CustomLogger()
     {
         datetimeFormat = "yyyy-MM-dd HH:mm:ss.fff";
@@ -20,7 +18,7 @@ public class CustomLogger : ILoggerService
         string logHeader = logFilename + " is created.";
         if (!System.IO.File.Exists(logFilename))
         {
-            Log(System.DateTime.Now.ToString(datetimeFormat) + " " + logHeader);
+            Log(DateTime.Now.ToString(datetimeFormat) + " " + logHeader);
         }
     }
 

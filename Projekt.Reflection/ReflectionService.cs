@@ -18,6 +18,7 @@ namespace Projekt.Reflection
             DataRepository = Compose.Instance.Container.GetExportedValue<IDataRepositoryService>();
             Mapper = Compose.Instance.Container.GetExportedValue<IModelMapper>();
         }
+        [Import()]
         public IDataRepositoryService DataRepository { get; set; }
         public IModelMapper Mapper { get; set; }
 
