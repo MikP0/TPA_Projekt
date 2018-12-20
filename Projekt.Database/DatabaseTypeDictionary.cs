@@ -1,4 +1,4 @@
-﻿using Projekt.Database.DatabaseModel;
+﻿using Projekt.Database.Model;
 using System;
 using System.Collections.Generic;
 
