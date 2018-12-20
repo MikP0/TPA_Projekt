@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Runtime.Serialization;
-using System.Threading.Tasks;
-using System.Xml;
-using Projekt.CommonInterfaces;
 using Projekt.Model;
 using Projekt.XmlSerializer.Model;
 
@@ -18,17 +14,8 @@ namespace Projekt.XmlSerializer
         public void Save(AssemblyModel _object, string path)
         {
             XMLAssemblyModel assembly = (XMLAssemblyModel)_object;
-            List<Type> knownTypes = new List<Type>
-            {
-                typeof(XMLTypeModel),
-                typeof(XMLNamespaceModel),
-                typeof(XMLMethodModel),
-                typeof(XMLParameterModel),
-                typeof(XMLPropertyModel)
-            };
-
             DataContractSerializer dataContractSerializer =
-                new DataContractSerializer(typeof(XMLAssemblyModel), knownTypes);
+                new DataContractSerializer(typeof(XMLAssemblyModel));
 
             using (FileStream fileStream = new FileStream(path, FileMode.Create))
             {
@@ -39,16 +26,9 @@ namespace Projekt.XmlSerializer
         public AssemblyModel Read(string path)
         {
             XMLAssemblyModel model;
-            List<Type> knownTypes = new List<Type>
-            {
-                typeof(XMLTypeModel),
-                typeof(XMLNamespaceModel),
-                typeof(XMLMethodModel),
-                typeof(XMLParameterModel),
-                typeof(XMLPropertyModel)
-            };
-
-            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(XMLAssemblyModel), knownTypes);
+            if (!File.Exists(path))
+                throw new ArgumentException("File not exist");
+            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(XMLAssemblyModel));
             using (FileStream fileStream = new FileStream(path, FileMode.Open))
             {
                 model = (XMLAssemblyModel)dataContractSerializer.ReadObject(fileStream);
