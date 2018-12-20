@@ -49,12 +49,6 @@
     <Compile Include="XMLMapper\XMLParameterMapper.cs" />
     <Compile Include="XMLMapper\XMLPropertyMapper.cs" />
     <Compile Include="XMLMapper\XMLTypeMapper.cs" />
-    <Compile Include="XMLModel\XMLAssemblyModel.cs" />
-    <Compile Include="XMLModel\XMLMethodModel.cs" />
-    <Compile Include="XMLModel\XMLNamespaceModel.cs" />
-    <Compile Include="XMLModel\XMLParameterModel.cs" />
-    <Compile Include="XMLModel\XMLPropertyModel.cs" />
-    <Compile Include="XMLModel\XMLTypeModel.cs" />
     <Compile Include="XmlSerialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +64,10 @@
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}</Project>
       <Name>Projekt.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projekt.XmlSerializer.Model\Projekt.XmlSerializer.Model.csproj">
+      <Project>{6496172E-234A-4791-AA5C-831999ADFCEC}</Project>
+      <Name>Projekt.XmlSerializer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

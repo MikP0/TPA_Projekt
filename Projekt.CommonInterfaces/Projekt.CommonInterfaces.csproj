@@ -48,7 +48,6 @@
     <Compile Include="ILoggerService.cs" />
     <Compile Include="IOpenFilePathService.cs" />
     <Compile Include="ISaveFilePathService.cs" />
-    <Compile Include="IDataRepositoryService.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

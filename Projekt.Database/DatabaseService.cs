@@ -9,7 +9,7 @@ namespace Projekt.Database
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class DatabaseService : IDataRepositoryService
     {
-        public void Save(IAssemblyModel _object, string path)
+        public void Save(AssemblyModel _object, string path)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
@@ -19,7 +19,7 @@ namespace Projekt.Database
                 context.SaveChanges();
             }
         }
-        public IAssemblyModel Read(string path)
+        public AssemblyModel Read(string path)
         {
             using (DatabaseContext context = new DatabaseContext())
             {

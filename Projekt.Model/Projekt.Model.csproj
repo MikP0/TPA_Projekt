@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyModel.cs" />
+    <Compile Include="IDataRepositoryService.cs" />
     <Compile Include="IModelMapper.cs" />
     <Compile Include="IReflectionService.cs" />
     <Compile Include="MethodModel.cs" />

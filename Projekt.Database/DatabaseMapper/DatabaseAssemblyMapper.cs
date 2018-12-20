@@ -10,7 +10,7 @@ namespace Projekt.Database.DatabaseMapper
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class DatabaseAssemblyMapper : IModelMapper
     {
-        public IAssemblyModel MapToLower(AssemblyMetadata model)
+        public AssemblyModel MapToLower(AssemblyMetadata model)
         {
             DatabaseAssemblyModel assemblyModel = new DatabaseAssemblyModel();
             assemblyModel.Name = model.Name;
@@ -19,7 +19,7 @@ namespace Projekt.Database.DatabaseMapper
             return assemblyModel;
         }
 
-        public AssemblyMetadata MapToUpper(IAssemblyModel model)
+        public AssemblyMetadata MapToUpper(CommonInterfaces.AssemblyModel model)
         {
             AssemblyMetadata assemblyModel = new AssemblyMetadata();
             assemblyModel.Name = model.Name;

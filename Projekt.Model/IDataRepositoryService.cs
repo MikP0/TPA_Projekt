@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.Composition;
 
-namespace Projekt.CommonInterfaces
+namespace Projekt.Model
 {
     [InheritedExport(typeof(IDataRepositoryService))]
     public interface IDataRepositoryService
     {
-        void Save(IAssemblyModel _object, string path);
-        IAssemblyModel Read(string path);
+        void Save(AssemblyModel _object, string path);
+        AssemblyModel Read(string path);
     }
 }

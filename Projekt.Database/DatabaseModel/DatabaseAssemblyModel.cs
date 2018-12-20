@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Projekt.Database.DatabaseModel
 {
     [Table("AssemblyModel")]
-    public class DatabaseAssemblyModel : IAssemblyModel
+    public class DatabaseAssemblyModel : AssemblyModel
     {
         public int Id { get; set; }
         [Required]

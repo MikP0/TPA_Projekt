@@ -6,7 +6,8 @@ using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
 using Projekt.CommonInterfaces;
-using Projekt.XmlSerializer.XMLModel;
+using Projekt.Model;
+using Projekt.XmlSerializer.Model;
 
 namespace Projekt.XmlSerializer
 {
@@ -14,7 +15,7 @@ namespace Projekt.XmlSerializer
     public class XmlSerialize : IDataRepositoryService
     {
 
-        public void Save(IAssemblyModel _object, string path)
+        public void Save(AssemblyModel _object, string path)
         {
             XMLAssemblyModel assembly = (XMLAssemblyModel)_object;
             List<Type> knownTypes = new List<Type>
@@ -35,7 +36,7 @@ namespace Projekt.XmlSerializer
             }
         }
 
-        public IAssemblyModel Read(string path)
+        public AssemblyModel Read(string path)
         {
             XMLAssemblyModel model;
             List<Type> knownTypes = new List<Type>
