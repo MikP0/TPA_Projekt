@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.Composition.UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.ViewModel.UnitTest", "Projekt.ViewModel.UnitTest\Projekt.ViewModel.UnitTest.csproj", "{EAA51324-943B-4CD1-9B91-72AE44346508}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.Model.UnitTest", "Projekt.Model.UnitTest\Projekt.Model.UnitTest.csproj", "{327E4555-07B7-4E0E-9670-E8B9B3928648}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -252,12 +254,28 @@ Global
 		{EAA51324-943B-4CD1-9B91-72AE44346508}.Release|x64.Build.0 = Release|Any CPU
 		{EAA51324-943B-4CD1-9B91-72AE44346508}.Release|x86.ActiveCfg = Release|Any CPU
 		{EAA51324-943B-4CD1-9B91-72AE44346508}.Release|x86.Build.0 = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|ARM.Build.0 = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|x64.Build.0 = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Debug|x86.Build.0 = Debug|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|ARM.ActiveCfg = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|ARM.Build.0 = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|x64.ActiveCfg = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|x64.Build.0 = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|x86.ActiveCfg = Release|Any CPU
+		{327E4555-07B7-4E0E-9670-E8B9B3928648}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AC72EEAB-6204-4387-970D-85FAA8C49F08}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {AC72EEAB-6204-4387-970D-85FAA8C49F08}
 	EndGlobalSection
 EndGlobal

@@ -2,9 +2,8 @@
 using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt.Model;
 
-namespace Projekt.UnitTest.ModelTest
+namespace Projekt.Model.UnitTest
 {
     [TestClass]
     public class ReflectionExampleDLLUnitTest
@@ -14,7 +13,7 @@ namespace Projekt.UnitTest.ModelTest
         public void Startup()
         {
             string testDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string solutionDir = testDir.Substring(0, testDir.LastIndexOf("Projekt.UnitTest"));
+            string solutionDir = testDir.Substring(0, testDir.LastIndexOf("Projekt.Model.UnitTest"));
             PathToExampleDll = solutionDir + "Projekt.Example.dll";
         }
         [TestMethod]

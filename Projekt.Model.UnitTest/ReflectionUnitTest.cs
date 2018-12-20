@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt.Model;
 using Projekt.Model.Reflection;
-namespace Projekt.UnitTest.ModelTest
+
+namespace Projekt.Model.UnitTest
 {
     [TestClass]
     public class ReflectionUnitTest
@@ -43,13 +42,11 @@ namespace Projekt.UnitTest.ModelTest
             Assert.IsNotNull(reflector.AssemblyModel);
             foreach (NamespaceMetadata namespaceMetadata in reflector.AssemblyModel.Namespaces)
             {
-                foreach(TypeMetadata typeMetadata in namespaceMetadata.Types)
+                foreach (TypeMetadata typeMetadata in namespaceMetadata.Types)
                 {
-                    Trace.WriteLine(typeMetadata.Name);
                     Assert.IsNotNull(typeMetadata.Name);
                 }
             }
         }
-        
     }
 }
