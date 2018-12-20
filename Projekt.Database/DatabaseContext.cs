@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Projekt.Database.DatabaseModel;
+using Projekt.Database.Model;
 
 namespace Projekt.Database
 {

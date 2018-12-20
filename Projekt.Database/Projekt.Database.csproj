@@ -150,20 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext.cs" />
-    <Compile Include="DatabaseMapper\DatabaseMethodMapper.cs" />
-    <Compile Include="DatabaseMapper\DatabaseAssemblyMapper.cs" />
-    <Compile Include="DatabaseMapper\DatabaseNamespaceMapper.cs" />
-    <Compile Include="DatabaseMapper\DatabaseParameterMapper.cs" />
-    <Compile Include="DatabaseMapper\DatabasePropertyMapper.cs" />
-    <Compile Include="DatabaseMapper\DatabaseTypeMapper.cs" />
-    <Compile Include="DatabaseModel\DatabaseAssemblyModel.cs" />
-    <Compile Include="DatabaseModel\DatabaseLogModel.cs" />
-    <Compile Include="DatabaseModel\DatabaseMethodModel.cs" />
-    <Compile Include="DatabaseModel\DatabaseNamespaceModel.cs" />
-    <Compile Include="DatabaseModel\DatabaseParameterModel.cs" />
-    <Compile Include="DatabaseModel\DatabasePropertyModel.cs" />
-    <Compile Include="DatabaseModel\DatabaseTypeDictionary.cs" />
-    <Compile Include="DatabaseModel\DatabaseTypeModel.cs" />
     <Compile Include="DatabaseService.cs" />
     <Compile Include="DatabaseTypeDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,12 +159,12 @@
       <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
       <Name>Projekt.CommonInterfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Logger\Projekt.Logger.csproj">
-      <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
-      <Name>Projekt.Logger</Name>
+    <ProjectReference Include="..\Projekt.Database.Model\Projekt.Database.Model.csproj">
+      <Project>{5dd8f92a-549e-47a9-a4f5-1ef51cf7dae6}</Project>
+      <Name>Projekt.Database.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
-      <Project>{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}</Project>
+      <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
       <Name>Projekt.Model</Name>
     </ProjectReference>
   </ItemGroup>
