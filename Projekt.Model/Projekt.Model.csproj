@@ -120,9 +120,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyModel.cs" />
     <Compile Include="IModelMapper.cs" />
     <Compile Include="IReflectionService.cs" />
+    <Compile Include="MethodModel.cs" />
+    <Compile Include="MethodModifiers.cs" />
+    <Compile Include="NamespaceModel.cs" />
+    <Compile Include="ParameterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyModel.cs" />
     <Compile Include="Reflection\AbstractEnum.cs" />
     <Compile Include="Reflection\AccessLevel.cs" />
     <Compile Include="Reflection\AssemblyMetadata.cs" />
@@ -142,6 +148,7 @@
     <Compile Include="Reflection\TypeModifiers.cs" />
     <Compile Include="Reflection\VirtualEnum.cs" />
     <Compile Include="Reflector.cs" />
+    <Compile Include="TypeModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">

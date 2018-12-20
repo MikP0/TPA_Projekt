@@ -2,18 +2,19 @@
 using System;
 using System.ComponentModel.Composition;
 
-[PartCreationPolicy(CreationPolicy.NonShared)]
+[PartCreationPolicy(CreationPolicy.Shared)]
 public class CustomLogger : ILoggerService
 {
     private const string FILE_EXT = ".log";
     private readonly string datetimeFormat;
-    private readonly string logFilename;
+    private string logFilename;
 
     [ImportingConstructor]
     public CustomLogger()
     {
         datetimeFormat = "yyyy-MM-dd HH:mm:ss.fff";
-        logFilename = System.Reflection.Assembly.GetCallingAssembly().GetName().Name + FILE_EXT;
+
+        logFilename = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + FILE_EXT;
 
         string logHeader = logFilename + " is created.";
         if (!System.IO.File.Exists(logFilename))
