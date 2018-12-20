@@ -130,7 +130,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompositionTest\CompositionTest.cs" />
     <Compile Include="DatabaseTest\DatabaseCreationUnitTest.cs" />
     <Compile Include="DatabaseTest\DatabaseModelUnitTest.cs" />
     <Compile Include="DatabaseTest\DbSetExtension.cs" />

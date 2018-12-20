@@ -1,14 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt.Composition;
-using Projekt.ViewModel;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Projekt.UnitTest.CompositionTest
+namespace Projekt.Composition.UnitTest
 {
     [TestClass]
-    public class CompositionTest
+    public class ComposeTest
     {
         [TestMethod]
         public void TestAddLocalAssemblyToCatalog()
