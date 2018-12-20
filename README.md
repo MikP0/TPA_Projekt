@@ -15,4 +15,4 @@
 - [ ] Zapis asynchroniczny do pliku i bazy danych
 - [ ] Testy jednostkowe w oddzielnych DLL'kach dla każdego komponentu
 - [ ] Komponenty mają być od siebie niezależne
-- [ ] Data Transfer Graph (--> Prezentacja TPA)
+- [x] Data Transfer Graph (--> Prezentacja TPA)
