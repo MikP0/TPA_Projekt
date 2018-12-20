@@ -1,7 +1,6 @@
 ﻿using Projekt.CommonInterfaces;
 using Projekt.Composition;
 using Projekt.Database;
-using Projekt.Database.DatabaseMapper;
 using Projekt.Model;
 using Projekt.Model.Reflection;
 using System.Collections.Generic;
@@ -18,7 +17,7 @@ namespace Projekt.Reflection
             DataRepository = Compose.Instance.Container.GetExportedValue<IDataRepositoryService>();
             Mapper = Compose.Instance.Container.GetExportedValue<IModelMapper>();
         }
-        [Import()]
+
         public IDataRepositoryService DataRepository { get; set; }
         public IModelMapper Mapper { get; set; }
 

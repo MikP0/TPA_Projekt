@@ -7,7 +7,7 @@ namespace Projekt.Model
     [InheritedExport(typeof(IModelMapper))]
     public interface IModelMapper
     {
-        AssemblyMetadata MapToUpper(CommonInterfaces.AssemblyModel model);
+        AssemblyMetadata MapToUpper(AssemblyModel model);
         AssemblyModel MapToLower(AssemblyMetadata model);
     }
 }
