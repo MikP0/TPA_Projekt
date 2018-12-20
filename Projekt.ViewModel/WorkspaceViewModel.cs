@@ -9,6 +9,7 @@ using log4net;
 using System.ComponentModel.Composition;
 using Projekt.ViewModel;
 using Projekt.Composition;
+using Projekt.Logic;
 
 namespace Projekt.ViewModel
 {
@@ -26,8 +27,8 @@ namespace Projekt.ViewModel
         IOpenFilePathService _openFilePathService { get; set; }
         [Import(typeof(ISaveFilePathService))]
         ISaveFilePathService _saveFilePathService { get; set; }
-        [Import(typeof(IReflectionService))]
-        IReflectionService _reflectionService { get; set; }
+        [Import(typeof(ReflectionService))]
+        ReflectionService _reflectionService { get; set; }
         [Import(typeof(ILoggerService))]
         ILoggerService _logger { get; set; }
         private AssemblyMetadata assemblyMetadata;

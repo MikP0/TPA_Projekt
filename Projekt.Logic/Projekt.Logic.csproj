@@ -48,7 +48,7 @@
     <Compile Include="Mapper\NamespaceModelMapper.cs" />
     <Compile Include="Mapper\ParameterModelMapper.cs" />
     <Compile Include="Mapper\PropertyModelMapper.cs" />
-    <Compile Include="Mapper\ReflectionService.cs" />
+    <Compile Include="ReflectionService.cs" />
     <Compile Include="Mapper\TypeModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

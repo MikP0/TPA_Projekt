@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model
 {
-    [InheritedExport(typeof(AssemblyModel))]
     public abstract class AssemblyModel
     {
         public virtual string Name { get; set; }
