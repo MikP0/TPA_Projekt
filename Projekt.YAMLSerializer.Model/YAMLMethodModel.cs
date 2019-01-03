@@ -9,25 +9,18 @@ using System.Threading.Tasks;
 
 namespace Projekt.YAMLSerializer.Model
 {
-    [DataContract(IsReference = true)]
-    public class XMLMethodModel : MethodModel
+    public class YAMLMethodModel : MethodModel
     {
-        [DataMember]
         public override string Name { get; set; }
 
-        [DataMember]
-        public new List<XMLTypeModel> GenericArguments { get; set; }
+        public new List<YAMLTypeModel> GenericArguments { get; set; }
 
-        [DataMember]
         public override Projekt.Model.MethodModifiers Modifiers { get; set; }
 
-        [DataMember]
-        public new XMLTypeModel ReturnType { get; set; }
+        public new YAMLTypeModel ReturnType { get; set; }
 
-        [DataMember]
         public override bool Extension { get; set; }
 
-        [DataMember]
-        public new List<XMLParameterModel> Parameters { get; set; }
+        public new List<YAMLParameterModel> Parameters { get; set; }
     }
 }

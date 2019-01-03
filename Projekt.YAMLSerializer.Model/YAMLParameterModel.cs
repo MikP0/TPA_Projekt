@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace Projekt.YAMLSerializer.Model
 {
-    [DataContract(IsReference = true)]
-    public class XMLPropertyModel : PropertyModel
+    public class YAMLParameterModel : ParameterModel
     {
-        [DataMember]
         public override string Name { get; set; }
 
-        [DataMember]
-        public new XMLTypeModel Type { get; set; }
+        public new YAMLTypeModel Type { get; set; }
+
     }
 }

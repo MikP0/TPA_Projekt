@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projekt.XmlSerializer.Model
+namespace Projekt.YAMLSerializer.Model
 {
     [DataContract(IsReference = true)]
     public class XMLParameterModel : ParameterModel
