@@ -19,8 +19,7 @@ namespace Projekt.JSONSerializer
             string name = JsonConvert.SerializeObject(assembly, Formatting.Indented,
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
 
-            using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter(path, false))
+            using (StreamWriter file = new StreamWriter(path, true))
             {
                 file.Write(name);
             }

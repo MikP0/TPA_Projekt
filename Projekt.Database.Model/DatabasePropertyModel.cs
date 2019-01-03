@@ -6,12 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Projekt.Database.Model
 {
     [Table("PropertyModel")]
-    public class DatabasePropertyModel : ParameterModel
+    public class DatabasePropertyModel : PropertyModel
     {
         public DatabasePropertyModel()
         {
-            MethodParameters = new HashSet<DatabaseMethodModel>();
-            TypeFields = new HashSet<DatabaseTypeModel>();
+            TypeProperties = new HashSet<DatabaseTypeModel>();
         }
         public int Id { get; set; }
 
@@ -21,7 +20,6 @@ namespace Projekt.Database.Model
 
         public new DatabaseTypeModel Type { get; set; }
 
-        public virtual ICollection<DatabaseMethodModel> MethodParameters { get; set; }
-        public virtual ICollection<DatabaseTypeModel> TypeFields { get; set; }
+        public virtual ICollection<DatabaseTypeModel> TypeProperties { get; set; }
     }
 }

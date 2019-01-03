@@ -2,9 +2,9 @@
 using System.ComponentModel.Composition;
 using Projekt.Database.Model;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using Projekt.Model;
 using System;
+using System.Data.Entity;
 
 namespace Projekt.Database
 {
@@ -25,7 +25,8 @@ namespace Projekt.Database
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                //context.Configuration.ProxyCreationEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+
                 context.NamespaceModel
                     .Include(n => n.Types)
                     .Load();
@@ -60,7 +61,7 @@ namespace Projekt.Database
                     .Load();
                 context.PropertyModel
                     .Include(p => p.Type)
-                    //.Include(p => p.TypeProperties)
+                    .Include(p => p.TypeProperties)
                     .Load();
 
 
