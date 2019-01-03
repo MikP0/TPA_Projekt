@@ -8,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model
 {
-    [DataContract(IsReference = true)]
     public abstract class TypeModel
     {
-        [DataMember]
+
         public virtual string Name { get; set; }
-        [DataMember]
+
         public virtual string AssemblyName { get; set; }
-        [DataMember]
+
         public virtual bool IsExternal { get; set; }
-        [DataMember]
+
         public virtual bool IsGeneric { get; set; }
         public virtual TypeModel BaseType { get; set; }
         public virtual List<TypeModel> GenericArguments { get; set; }
-        [DataMember]
+
         public virtual TypeModifiers Modifiers { get; set; }
-        [DataMember]
+
         public virtual TypeEnum Type { get; set; }
         public virtual List<TypeModel> ImplementedInterfaces { get; set; }
         public virtual List<TypeModel> NestedTypes { get; set; }

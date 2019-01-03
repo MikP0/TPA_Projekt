@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model
 {
-    [DataContract(IsReference = true)]
     public abstract class NamespaceModel
     {
-        [DataMember]
         public virtual string Name { get; set; }
         public virtual List<TypeModel> Types { get; set; }
     }

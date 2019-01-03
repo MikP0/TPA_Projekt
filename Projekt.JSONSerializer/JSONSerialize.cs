@@ -20,7 +20,7 @@ namespace Projekt.JSONSerializer
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
 
             using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter(path, true))
+                new System.IO.StreamWriter(path, false))
             {
                 file.Write(name);
             }

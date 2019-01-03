@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model
 {
-    [DataContract(IsReference = true)]
     public abstract class ParameterModel
     {
-        [DataMember]
         public virtual string Name { get; set; }
         public virtual TypeModel Type { get; set; }
     }
