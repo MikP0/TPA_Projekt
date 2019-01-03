@@ -20,6 +20,7 @@ namespace Projekt_Ver_2_0
             Compose.Instance.AddLocalAssemblyToCatalog(Projekt_Ver_2_0.Properties.Settings.Default.DatabaseService);
             Compose.Instance.AddLocalAssemblyToCatalog(Projekt_Ver_2_0.Properties.Settings.Default.DatabaseModel);
             Compose.Instance.AddLocalAssemblyToCatalog(Projekt_Ver_2_0.Properties.Settings.Default.LoggerService);
+            Compose compose = Compose.Instance;
             Compose.Instance.Container.ComposeExportedValue<IOpenFilePathService>(new GraphicalOpenFilePathService());
             Compose.Instance.Container.ComposeExportedValue<ISaveFilePathService>(new GraphicalSaveFilePathService());
         }
