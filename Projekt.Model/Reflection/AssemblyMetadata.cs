@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model.Reflection
 {
-    [DataContract]
     public class AssemblyMetadata
     {
         public AssemblyMetadata()
@@ -24,11 +23,8 @@ namespace Projekt.Model.Reflection
                           orderby _group.Key
                           select new NamespaceMetadata(_group.Key, _group.ToList())).ToList();
         }
-
-        [DataMember]
         public string Name { get; set; }
 
-        [DataMember]
         public List<NamespaceMetadata> Namespaces { get; set; }
         public override string ToString()
         {

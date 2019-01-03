@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model.Reflection
 {
-    [DataContract]
     public class PropertyMetadata
     {
 
@@ -20,17 +19,13 @@ namespace Projekt.Model.Reflection
         }
 
         #region private
-        [DataMember]
         private string m_Name;
-        [DataMember]
         public string Name
         {
             get { return m_Name; }
             set { m_Name = value;  }
         }
-        [DataMember]
         private TypeMetadata m_TypeMetadata;
-        [DataMember]
         public TypeMetadata Type
         {
             get { return m_TypeMetadata; }

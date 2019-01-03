@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model.Reflection
 {
-    [DataContract]
     public class NamespaceMetadata
     {
         public NamespaceMetadata()
@@ -20,16 +19,12 @@ namespace Projekt.Model.Reflection
             Types = (from type in types orderby type.Name select new TypeMetadata(type)).ToList();
         }
 
-        [DataMember]
         private string m_Name;
-        [DataMember]
         public string Name
         {
             get { return m_Name; }
             set { m_Name = value; }
         }
-
-        [DataMember]
         public List<TypeMetadata> Types { get; set; }
 
     }

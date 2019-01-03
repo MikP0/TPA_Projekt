@@ -2,48 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projekt.Model.Reflection
 {
-    [DataContract]
     public class TypeMetadata
     {
         #region fields
-        [DataMember]
         private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance;
-        [DataMember]
         public string NamespaceName { get; set; }
-        [DataMember]
         public TypeMetadata BaseType { get; set; }
-        [DataMember]
         public List<TypeMetadata> GenericArguments { get; set; }
-        [DataMember]
         //public Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> Modifiers { get; set; }
         public TypeModifiers Modifiers { get; set; }
-        [DataMember]
         public bool IsGeneric { get; set; }
-        [DataMember]
         public bool IsExternal { get; set; } = true;
-        [DataMember]
         public TypeEnum Type { get; set; }
-        [DataMember]
         public List<Attribute> Attributes;
-        [DataMember]
         public List<TypeMetadata> ImplementedInterfaces { get; set; }
-        [DataMember]
         public List<TypeMetadata> NestedTypes { get; set; }
-        [DataMember]
         public List<PropertyMetadata> Properties { get; set; }
-        [DataMember]
         public TypeMetadata DeclaringType { get; set; }
-        [DataMember]
         public List<MethodMetadata> Methods { get; set; }
-        [DataMember]
         public List<MethodMetadata> Constructors { get; set; }
-        [DataMember]
         public List<ParameterMetadata> Fields { get; set; }
 
         #endregion
@@ -91,9 +71,7 @@ namespace Projekt.Model.Reflection
 
         #region internals
         //vars
-        [DataMember]
         private string m_typeName;
-        [DataMember]
         public string Name
         {
             get { return m_typeName; }

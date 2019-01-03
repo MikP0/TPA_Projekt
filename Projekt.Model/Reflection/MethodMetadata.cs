@@ -9,29 +9,21 @@ using System.Threading.Tasks;
 
 namespace Projekt.Model.Reflection
 {
-    [DataContract]
     public class MethodMetadata
     {
 
         #region private
         //vars
-        [DataMember]
         private string m_Name;
-        [DataMember]
         public string Name
         {
             get { return m_Name; }
             set { m_Name = value; }
         }
-        [DataMember]
         public List<TypeMetadata> GenericArguments { get; set; }
-        [DataMember]
         public MethodModifiers Modifiers { get; set; }
-        [DataMember]
         public TypeMetadata ReturnType { get; set; }
-        [DataMember]
         public bool Extension { get; set; }
-        [DataMember]
         public List<ParameterMetadata> Parameters{ get; set; }
         //constructor
         public MethodMetadata()
