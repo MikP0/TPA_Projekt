@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using Projekt.Model;
 using Projekt.YAMLSerializer.Model;
 
-namespace Projekt.YAMLSerializer
+namespace Projekt.XMLSerializer
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class XmlSerialize : IDataRepositoryService

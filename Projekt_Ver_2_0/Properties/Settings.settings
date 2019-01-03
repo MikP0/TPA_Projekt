@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="DatabaseService" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Projekt.YAMLSerializer.dll</Value>
+      <Value Profile="(Default)">Projekt.JSONSerializer.dll</Value>
     </Setting>
     <Setting Name="LoggerService" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Projekt.Logger.dll</Value>
     </Setting>
     <Setting Name="DatabaseModel" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Projekt.YAMLSerializer.Model.dll</Value>
+      <Value Profile="(Default)">Projekt.JSONSerializer.Model.dll</Value>
     </Setting>
   </Settings>
 </SettingsFile>

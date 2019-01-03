@@ -25,7 +25,7 @@ namespace Projekt_Ver_2_0.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.YAMLSerializer.dll")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.JSONSerializer.dll")]
         public string DatabaseService {
             get {
                 return ((string)(this["DatabaseService"]));
@@ -43,7 +43,7 @@ namespace Projekt_Ver_2_0.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.YAMLSerializer.Model.dll")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.JSONSerializer.Model.dll")]
         public string DatabaseModel {
             get {
                 return ((string)(this["DatabaseModel"]));

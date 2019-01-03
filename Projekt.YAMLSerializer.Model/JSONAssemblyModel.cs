@@ -1,5 +1,4 @@
 ﻿using Projekt.Model;
-using Projekt.YAMLSerializer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -10,13 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Markup;
 using System.Xml;
 
-namespace Projekt.YamlSerializer.Model
+namespace Projekt.YAMLSerializer.Model
 {
 
     [Export(typeof(AssemblyModel))]
-    public class YAMLAssemblyModel : AssemblyModel
+    public class JSONAssemblyModel : AssemblyModel
     {
-
         public override string Name { get; set; }
 
         public new List<YAMLNamespaceModel> NamespaceModels { get; set; }

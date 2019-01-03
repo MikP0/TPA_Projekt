@@ -144,7 +144,7 @@ namespace Projekt.ViewModel
                     _logger.Log("Trying to read .dll file", LogLevel.INFO);
                 assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(ReadFileName));
             }
-            else if (ReadFileName.Contains(".xml"))
+            else if (ReadFileName.Contains(".json"))
             {
                 if (_logger != null)
                     _logger.Log("Trying to read .xml file", LogLevel.INFO);

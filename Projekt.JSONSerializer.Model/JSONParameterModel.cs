@@ -5,16 +5,14 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using YamlDotNet.Serialization;
 
-namespace Projekt.YAMLSerializer.Model
+namespace Projekt.JSONSerializer.Model
 {
-    public class YAMLPropertyModel : PropertyModel
+    public class JSONParameterModel : ParameterModel
     {
-        [YamlMember]
         public override string Name { get; set; }
 
-        [YamlMember]
-        public new YAMLTypeModel Type { get; set; }
+        public new JSONTypeModel Type { get; set; }
+
     }
 }

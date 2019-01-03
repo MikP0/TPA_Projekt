@@ -1,4 +1,5 @@
 ﻿using Projekt.Model;
+using Projekt.YAMLSerializer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
+using YamlDotNet.Serialization.TypeInspectors;
 
 namespace Projekt.YAMLSerializer
 {
@@ -15,18 +18,39 @@ namespace Projekt.YAMLSerializer
     {
         public AssemblyModel Read(string path)
         {
-            throw new NotImplementedException();
+        
 
+            string text = System.IO.File.ReadAllText(path);
+
+            var input = new StringReader(text);
+            var deserializer = new DeserializerBuilder().WithNamingConvention(new PascalCaseNamingConvention())
+    .WithTypeInspector(inner => inner, s => s.InsteadOf<YamlAttributesTypeInspector>())
+    .WithTypeInspector(
+        inner => new YamlAttributesTypeInspector(inner),
+        s => s.Before<NamingConventionTypeInspector>()
+    )
+    .Build();
+
+            YAMLAssemblyModel assemblyModel = deserializer.Deserialize<YAMLAssemblyModel>(input);
+
+            return assemblyModel;
         }
 
         public void Save(AssemblyModel _object, string path)
         {
-            var serializer = new Serializer();
+            
+            var serializer = new SerializerBuilder().WithNamingConvention(new PascalCaseNamingConvention())
+    .WithTypeInspector(inner => inner, s => s.InsteadOf<YamlAttributesTypeInspector>())
+    .WithTypeInspector(
+        inner => new YamlAttributesTypeInspector(inner),
+        s => s.Before<NamingConventionTypeInspector>()
+    ).Build();
+            var yaml = serializer.Serialize(_object);
 
-            using (TextWriter writer = File.CreateText(path))
+            if (!File.Exists(path))
             {
-                serializer.Serialize(writer, _object);
-            }            
+                File.WriteAllText(path, yaml);
+            }
         }
     }
 }

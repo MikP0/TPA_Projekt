@@ -49,12 +49,17 @@
     <Compile Include="YamlSerialize.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}</Project>
       <Name>Projekt.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projekt.YAMLSerializer.Model\Projekt.YAMLSerializer.Model.csproj">
+      <Project>{9703FA76-E237-40E7-B431-023AD0B881B8}</Project>
+      <Name>Projekt.YAMLSerializer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
