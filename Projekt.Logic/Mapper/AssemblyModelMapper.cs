@@ -25,11 +25,11 @@ namespace Projekt.Logic.Mapper
             return assemblyModel;
         }
 
-        public static AssemblyModel MapDown(AssemblyMetadata model, Type assemblyModelType)
+        public static AssemblyModel MapDown(AssemblyMetadata model, AssemblyModel assemblyModelType)
         {
-            object assemblyModel = Activator.CreateInstance(assemblyModelType);
-            PropertyInfo nameProperty = assemblyModelType.GetProperty("Name");
-            PropertyInfo namespaceModelsProperty = assemblyModelType.GetProperty("NamespaceModels",
+            AssemblyModel assemblyModel = assemblyModelType;// Activator.CreateInstance(assemblyModelType);
+            PropertyInfo nameProperty = assemblyModelType.GetType().GetProperty("Name");
+            PropertyInfo namespaceModelsProperty = assemblyModelType.GetType().GetProperty("NamespaceModels",
                 BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
             nameProperty?.SetValue(assemblyModel, model.Name);
             namespaceModelsProperty?.SetValue(

@@ -23,7 +23,7 @@ namespace Projekt.Logic
 
         public void Save(AssemblyMetadata model, string path)
         {
-            DataRepository.Save(AssemblyModelMapper.MapDown(model, assemblyModel.GetType()), path);
+            DataRepository.Save(AssemblyModelMapper.MapDown(model, assemblyModel), path);
         }
 
         public AssemblyMetadata Read(string path)
