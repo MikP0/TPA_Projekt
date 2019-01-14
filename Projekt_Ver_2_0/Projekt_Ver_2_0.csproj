@@ -205,9 +205,9 @@
       <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
       <Name>Projekt.Logger</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
-      <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
-      <Name>Projekt.Model</Name>
+    <ProjectReference Include="..\Projekt.Logic\Projekt.Logic.csproj">
+      <Project>{9069d2a2-4c3d-47a2-b3f9-d08918af2efa}</Project>
+      <Name>Projekt.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Projekt.ViewModel\Projekt.ViewModel.csproj">
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>

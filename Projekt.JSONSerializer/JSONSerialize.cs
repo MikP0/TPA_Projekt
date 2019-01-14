@@ -2,14 +2,12 @@
 using Projekt.JSONSerializer.Model;
 using Projekt.Model;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projekt.JSONSerializer
 {
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class JSONSerialize : IDataRepositoryService
     {
         public void Save(AssemblyModel _object, string path)
