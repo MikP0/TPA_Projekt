@@ -36,6 +36,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: InternalsVisibleTo("Projekt.UnitTest")]
-
-//Log4net load config
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
