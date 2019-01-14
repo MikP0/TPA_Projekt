@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAssemblyModel.cs" />
     <Compile Include="ILoggerService.cs" />
     <Compile Include="IOpenFilePathService.cs" />
     <Compile Include="ISaveFilePathService.cs" />
