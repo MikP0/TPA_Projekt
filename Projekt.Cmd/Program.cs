@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using log4net;
 using Projekt.CommonInterfaces;
 using Projekt.Composition;
 using Projekt.ViewModel;
@@ -15,7 +14,9 @@ namespace Projekt.Cmd
         private static TreeViewItem rootItem;
         private static Dictionary<int, TreeViewItem> itemChildren = new Dictionary<int, TreeViewItem>();
         private static Stack<TreeViewItem> previousItems = new Stack<TreeViewItem>();
-        private static readonly ILog logger = LogManager.GetLogger("CmdLogger");
+
+        [Import(typeof(ILoggerService))]
+        private static ILoggerService logger { get; set; }
 
         [STAThread]
         static void Main(string[] args)
@@ -25,9 +26,12 @@ namespace Projekt.Cmd
             Compose.Instance.AddLocalAssemblyToCatalog("Projekt.XmlSerializer.dll");
             Compose.Instance.Container.ComposeExportedValue<IOpenFilePathService>(new CommandLineOpenFilePathService());
             Compose.Instance.Container.ComposeExportedValue<ISaveFilePathService>(new CommandLineSaveFilePathService());
+            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.Logger.dll");
             DataContext = Compose.Instance.Container.GetExportedValue<WorkspaceViewModel>();
 
             Console.WriteLine("Welcome to TPA_Projekt. Type in a command.");
+
+
 
             while (true)
             {
@@ -67,13 +71,13 @@ namespace Projekt.Cmd
 
         private static void ListFunc(string[] obj)
         {
-            if (logger.IsInfoEnabled) {
-                logger.Info("List function invoked for item " + rootItem.ToString());
-            }
+
+            logger.Log("List function invoked for item " + rootItem.ToString(), LogLevel.INFO);
+
             if(rootItem == null) {
-                if (logger.IsErrorEnabled) {
-                    logger.Warn("List function invoked but no rootItem is specified.");
-                }
+
+                logger.Log("List function invoked but no rootItem is specified.", LogLevel.WARNING);
+
                 Console.WriteLine("You have to read object first.");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
@@ -99,10 +103,9 @@ namespace Projekt.Cmd
                     PrintAndUpdate();
                 }
                 else {
-                    if (logger.IsWarnEnabled)
-                    {
-                        logger.Warn("User provided wrong argument for list function.");
-                    }
+
+                    logger.Log("User provided wrong argument for list function.", LogLevel.WARNING);
+
                     Console.WriteLine("Wrong argument!");
                 }
                 
@@ -136,16 +139,12 @@ namespace Projekt.Cmd
 
         private static void ReadFunc(string[] obj)
         {
-            if(logger.IsInfoEnabled)
-            {
-                logger.Info("Read function invoked.");
-            }
+            logger.Log("Read function invoked.", LogLevel.INFO);
+
             if (obj.Length != 1)
             {
-                if(logger.IsWarnEnabled)
-                {
-                    logger.Warn("No PATH argument provided to Read function");
-                }
+                logger.Log("No PATH argument provided to Read function", LogLevel.WARNING);
+
                 Console.WriteLine("You have to provide PATH to .dll file");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
@@ -160,32 +159,27 @@ namespace Projekt.Cmd
             }
             catch(ArgumentOutOfRangeException e)
             {
-                if (logger.IsWarnEnabled)
-                {
-                    logger.Warn("Wrong PATH argument provided to Read function\n" + e);
-                }
+
+                logger.Log("Wrong PATH argument provided to Read function\n" + e, LogLevel.WARNING);
+
                 Console.WriteLine("You have to provide correct PATH to .dll file. Your PATH is wrong or file doesn't exist.");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
             }
-            if(logger.IsInfoEnabled)
-            {
-                logger.Info("Correctly read " + rootItem.ToString());
-            }
+
+                logger.Log("Correctly read " + rootItem.ToString(), LogLevel.INFO);
         }
 
         private static void SaveFunc(string[] obj)
         {
-            if(logger.IsInfoEnabled)
-            {
-                logger.Info("Save function invoked");
-            }
+
+            logger.Log("Save function invoked", LogLevel.INFO);
+
             if (rootItem == null)
             {
-                if(logger.IsWarnEnabled)
-                {
-                    logger.Warn("Save function invoked but no object has been read");
-                }
+
+                logger.Log("Save function invoked but no object has been read", LogLevel.WARNING);
+
                 Console.WriteLine("You have to read object first.");
                 Console.WriteLine("If you're having issues with the program type 'help' for more instructions.");
                 return;
@@ -199,28 +193,24 @@ namespace Projekt.Cmd
             }
             catch (UnauthorizedAccessException e)
             {
-                if (logger.IsErrorEnabled)
-                {
-                    logger.Error("Unauthorized access !! \n" + e);
-                }
+
+                logger.Log("Unauthorized access !! \n" + e, LogLevel.ERROR);
+
                 Console.WriteLine("Unauthorized access! Probably wrong PATH or you don't have enough privilages to save it in desired destination");
                 return;
             }
 
             Console.WriteLine("Save: " + DataContext.SaveFileName);
-            if (logger.IsInfoEnabled)
-            {
-                logger.Info("Correctly saved to file:\n" + DataContext.SaveFileName);
-            }
+
+            logger.Log("Correctly saved to file:\n" + DataContext.SaveFileName, LogLevel.INFO);
 
         }
 
         public static void HelpFunc(string[] args)
         {
-            if (logger.IsDebugEnabled)
-            {
-                logger.Debug("Help function invoked");
-            }
+
+            logger.Log("Help function invoked", LogLevel.DEBUG);
+
             Console.WriteLine("============================= HELP =============================");
             Console.WriteLine("\nUsage:\t[OPTION] ARGUMENT\n");
             Console.WriteLine("Options:");
@@ -233,10 +223,9 @@ namespace Projekt.Cmd
         }
         public static void ExitFunc(string[] args)
         {
-            if (logger.IsInfoEnabled)
-            {
-                logger.Debug("Exit function enabled. Program will shut down....");
-            }
+
+            logger.Log("Exit function enabled. Program will shut down....", LogLevel.INFO);
+
             System.Environment.Exit(1);
         }
     }

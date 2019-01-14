@@ -40,6 +40,3 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Projekt.Cmd")]
 [assembly: InternalsVisibleTo("Projekt_Ver_2_0")]
 [assembly: InternalsVisibleTo("Projekt.ViewModel.UnitTest")]
-
-//Log4net load config
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
