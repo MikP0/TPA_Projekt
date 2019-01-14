@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt.Model;
+using Projekt.Logic;
 
 namespace Projekt.Logic.UnitTest
 {

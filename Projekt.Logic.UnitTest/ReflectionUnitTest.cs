@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projekt.Logic.Model;
-using Projekt.Model;
+using Projekt.Logic;
 using System.Reflection;
 
 namespace Projekt.Logic.UnitTest

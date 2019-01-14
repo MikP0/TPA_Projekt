@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Moq;
+﻿using Moq;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Projekt.Database.UnitTest

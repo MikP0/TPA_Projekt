@@ -39,5 +39,13 @@ namespace Projekt.JSONSerializer
 
             return model;
         }
+
+        public string RepositoryServiceType
+        {
+            get
+            {
+                return "JSON";
+            }
+        }
     }
 }

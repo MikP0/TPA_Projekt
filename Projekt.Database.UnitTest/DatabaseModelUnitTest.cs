@@ -1,28 +1,34 @@
-﻿using System;
+﻿using System.IO;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Projekt.Database.Model;
+using Moq;
+using Projekt.Logic.Mapper;
+using System.Linq;
+using Projekt.Logic.Model;
+using Projekt.Model;
+using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace Projekt.Database.UnitTest
 {
     [TestClass]
     public class DatabaseModelUnitTest
     {
-        /*private Reflector reflector { get; set; }
         private List<DatabaseAssemblyModel> assemblyMetadatas { get; set; }
         [TestInitialize]
         public void Setup()
         {
-            string testDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string solutionDir = testDir.Substring(0, testDir.LastIndexOf("Projekt.UnitTest"));
-            string PathToExampleDll = solutionDir + "Projekt.Example.dll";
             assemblyMetadatas = new List<DatabaseAssemblyModel>();
+            string testDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string solutionDir = testDir.Substring(0, testDir.LastIndexOf("Projekt.Database.UnitTest"));
+            string PathToExampleDll = solutionDir + "Projekt.TestDLL\\TPA.ApplicationArchitecture.dll";
 
-            Assembly assembly = Assembly.LoadFile(PathToExampleDll);
-
-            reflector = new Reflector();
-            reflector.Reflect(assembly);
+            DatabaseService databaseService = new DatabaseService();
+            AssemblyMetadata assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(PathToExampleDll));
 
             DatabaseAssemblyModel databaseAssemblyModel = new DatabaseAssemblyModel();
-            //databaseAssemblyModel = reflector.AssemblyModel;
+            AssemblyModel model = AssemblyModelMapper.MapDown(assemblyMetadata, databaseAssemblyModel);
             assemblyMetadatas.Add(databaseAssemblyModel);
         }
         [TestMethod]
@@ -31,17 +37,17 @@ namespace Projekt.Database.UnitTest
             Mock<DatabaseContext> mockContext = new Mock<DatabaseContext>();
             var assemblyMetadataDbSet = assemblyMetadatas.GetQueryableMockDbSet();
 
-            foreach (var assemblyMetadata in assemblyMetadatas)
+            foreach (DatabaseAssemblyModel assemblyMetadata in assemblyMetadatas)
             {
                 assemblyMetadataDbSet.Add(assemblyMetadata);
             }
 
             mockContext.Setup(context => context.AssemblyModel).Returns(assemblyMetadataDbSet);
 
-            var dbContext = mockContext.Object;
-            var assemblyData = dbContext.AssemblyModel;
+            DatabaseContext dbContext = mockContext.Object;
+            DbSet<DatabaseAssemblyModel> assemblyData = dbContext.AssemblyModel;
 
             Assert.AreEqual(1, assemblyData.Count());
-        }*/
+        }
     }
 }

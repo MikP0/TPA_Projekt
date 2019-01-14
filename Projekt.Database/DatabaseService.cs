@@ -73,17 +73,24 @@ namespace Projekt.Database
                 return dbAssemblyModel;
             }
         }
+        public string RepositoryServiceType
+        {
+            get
+            {
+                return "Database";
+            }
+        }
         private void ClearDB()
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                //context.Database.ExecuteSqlCommand("DELETE FROM ParameterModel WHERE ID != -1");
-                //context.Database.ExecuteSqlCommand("DELETE FROM PropertyModel WHERE ID != -1");
-                //context.Database.ExecuteSqlCommand("DELETE FROM MethodModel WHERE ID != -1");
-                //context.Database.ExecuteSqlCommand("DELETE FROM TypeModel ");
-                //context.Database.ExecuteSqlCommand("DELETE FROM NamespaceModel WHERE ID != -1");
-                //context.Database.ExecuteSqlCommand("DELETE FROM AssemblyModel WHERE ID != -1");
-                //context.SaveChanges();
+                context.Database.ExecuteSqlCommand("DELETE FROM ParameterModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM PropertyModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM MethodModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM TypeModel ");
+                context.Database.ExecuteSqlCommand("DELETE FROM NamespaceModel WHERE ID != -1");
+                context.Database.ExecuteSqlCommand("DELETE FROM AssemblyModel WHERE ID != -1");
+                context.SaveChanges();
             }
         }
     }

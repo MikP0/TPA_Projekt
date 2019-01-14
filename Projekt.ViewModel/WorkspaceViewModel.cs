@@ -80,13 +80,6 @@ namespace Projekt.ViewModel
                 _logger.Log("Treeview loaded", LogLevel.INFO);
         }
 
-        private void SaveToXmlFile()
-        {
-            if (_logger != null)
-                _logger.Log("Trying to save to XML", LogLevel.INFO);
-            _reflectionService.Save(assemblyMetadata, SaveFileName);
-        }
-
         public RelayCommand SaveDataCommand
         {
             get;
@@ -109,8 +102,11 @@ namespace Projekt.ViewModel
             if (_logger != null)
                 _logger.Log("Saving started", LogLevel.INFO);
             ButtonSave = "Save Clicked";
-            _SaveFileName = _saveFilePathService.FilePath("");
-            SaveToXmlFile();
+            if(!_reflectionService.DataRepository.RepositoryServiceType.Contains("Database"))
+                _SaveFileName = _saveFilePathService.FilePath("");
+            if (_logger != null)
+                _logger.Log("Trying to save to XML", LogLevel.INFO);
+            _reflectionService.Save(assemblyMetadata, SaveFileName);
         }
         private string _ButtonSave;
         public String ButtonSave
@@ -131,7 +127,10 @@ namespace Projekt.ViewModel
         {
             if (_logger != null)
                 _logger.Log("Read Button clicked", LogLevel.INFO);
-            _ReadFileName = _openFilePathService.FilePath("");
+            if (_reflectionService.DataRepository.RepositoryServiceType.Contains("Database"))
+                _ReadFileName = ".database";
+            else
+                _ReadFileName = _openFilePathService.FilePath("");
             ButtonRead = "Read Clicked";
 
             if (ReadFileName.Contains(".dll"))
@@ -153,11 +152,14 @@ namespace Projekt.ViewModel
                     }
                 }
             }
+            else if (ReadFileName.Contains(".database"))
+                assemblyMetadata = _reflectionService.Read(ReadFileName);
             else
             {
-                if (_logger != null) { 
-                _logger.Log("Error reading file: " + ReadFileName, LogLevel.ERROR);
-                _logger.Log("File type not supported!", LogLevel.ERROR);
+                if (_logger != null)
+                {
+                    _logger.Log("Error reading file: " + ReadFileName, LogLevel.ERROR);
+                    _logger.Log("File type not supported!", LogLevel.ERROR);
                 }
                 return;
             }

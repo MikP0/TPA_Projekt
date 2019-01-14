@@ -1,7 +1,7 @@
 ﻿using Projekt.Logic.Model;
 using System.Reflection;
 
-namespace Projekt.Model
+namespace Projekt.Logic
 {
     public class Reflector
     {
