@@ -1,12 +1,10 @@
-﻿using Projekt.Model;
-using Projekt.Model.Reflection;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using Projekt.Logic.Model;
+using Projekt.Model;
 
 namespace Projekt.Logic.Mapper
 {

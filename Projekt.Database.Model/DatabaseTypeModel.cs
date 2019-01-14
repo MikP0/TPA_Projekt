@@ -1,5 +1,5 @@
 ﻿using Projekt.Model;
-using Projekt.Model.Reflection;
+using Projekt.Model.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

@@ -1,7 +1,7 @@
 ﻿using Projekt.Composition;
 using Projekt.Logic.Mapper;
 using Projekt.Model;
-using Projekt.Model.Reflection;
+using Projekt.Logic.Model;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -12,13 +12,9 @@ namespace Projekt.Logic
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class ReflectionService 
     {
-        public ReflectionService()
-        {
-            DataRepository = Compose.Instance.Container.GetExportedValue<IDataRepositoryService>();
-            assemblyModel = Compose.Instance.Container.GetExportedValue<AssemblyModel>();
-        }
-
+        [Import(typeof(IDataRepositoryService))]
         public IDataRepositoryService DataRepository { get; set; }
+        [Import(typeof(AssemblyModel))]
         public AssemblyModel assemblyModel { get; set; }
 
         public void Save(AssemblyMetadata model, string path)

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Projekt.Logic.Model;
 using System.Collections.ObjectModel;
-using Projekt.Model;
-using Projekt.Model.Reflection;
+
 
 namespace Projekt.ViewModel
 {

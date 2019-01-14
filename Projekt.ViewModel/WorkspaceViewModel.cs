@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Projekt.Model;
-using Projekt.CommonInterfaces;
-using Projekt.Model.Reflection;
 using System.Reflection;
 using System.Windows;
-using log4net;
 using System.ComponentModel.Composition;
-using Projekt.ViewModel;
-using Projekt.Composition;
 using Projekt.Logic;
+using Projekt.CommonInterfaces;
+using Projekt.Logic.Model;
 
 namespace Projekt.ViewModel
 {

@@ -1,4 +1,4 @@
-﻿using Projekt.Model.Reflection;
+﻿using Projekt.Logic.Model;
 using System.Collections.ObjectModel;
 
 

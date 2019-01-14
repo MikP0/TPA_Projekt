@@ -1,11 +1,6 @@
 ﻿using Projekt.Model;
-using Projekt.Model.Reflection;
-using System;
+using Projekt.Model.Enums;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projekt.JSONSerializer.Model
 {

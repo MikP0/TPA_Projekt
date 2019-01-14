@@ -1,4 +1,4 @@
-﻿using Projekt.Model.Reflection;
+﻿using Projekt.Model.Enums;
 
 namespace Projekt.Model
 {

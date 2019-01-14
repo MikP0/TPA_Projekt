@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Projekt.Model.Enums;
 
-namespace Projekt.Model.Reflection
+namespace Projekt.Model
 {
     public class TypeModifiers
     {

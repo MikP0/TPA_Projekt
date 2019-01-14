@@ -48,9 +48,18 @@
     <Compile Include="Mapper\NamespaceModelMapper.cs" />
     <Compile Include="Mapper\ParameterModelMapper.cs" />
     <Compile Include="Mapper\PropertyModelMapper.cs" />
+    <Compile Include="Model\AssemblyMetadata.cs" />
+    <Compile Include="Model\ExtensionMethods.cs" />
+    <Compile Include="Model\MethodMetadata.cs" />
+    <Compile Include="Model\NamespaceMetadata.cs" />
+    <Compile Include="Model\ParameterMetadata.cs" />
+    <Compile Include="Model\PropertyMetadata.cs" />
+    <Compile Include="Model\TypeDictionary.cs" />
+    <Compile Include="Model\TypeMetadata.cs" />
     <Compile Include="ReflectionService.cs" />
     <Compile Include="Mapper\TypeModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflector.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projekt.Composition\Projekt.Composition.csproj">

@@ -1,14 +1,6 @@
-﻿using Projekt.Model;
-using Projekt.JSONSerializer.Model;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Markup;
-using System.Xml;
+using Projekt.Model;
 
 namespace Projekt.JSONSerializer.Model
 {
