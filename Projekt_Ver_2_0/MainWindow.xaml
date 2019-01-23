@@ -9,10 +9,10 @@
         Title="Projekt" Height="350" Width="525">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Lightblue">
-            <Button Content="{Binding ButtonRead}" Command="{Binding ReadDataCommand}" Margin="1 1 10 1" Visibility="{Binding ChangeControlButtonReadVisibility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+            <Button Content="{Binding ButtonRead}" Command="{Binding ReadDataCommand}" Margin="1 1 10 1">
 
             </Button>
-            <Button Content="{Binding ButtonSave}" Command="{Binding SaveDataCommand}" Margin="1 1 10 1" Visibility="{Binding ChangeControlButtonSaveVisibility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+            <Button Content="{Binding ButtonSave}" Command="{Binding SaveDataCommand}" Margin="1 1 10 1" >
 
             </Button>
             <Button Content="{Binding ButtonLoadFromFile}" Command="{Binding LoadFromFileDataCommand}">

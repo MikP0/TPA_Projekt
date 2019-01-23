@@ -11,15 +11,15 @@ namespace Projekt.Logic.Model
         {
 
         }
+
         public AssemblyMetadata(Assembly assembly)
         {
             Name = assembly.ManifestModule.Name;
-            Namespaces = (from Type _type in assembly.GetTypes()
-                          where _type.GetVisible()
-                          group _type by _type.GetNamespace() into _group
-                          orderby _group.Key
-                          select new NamespaceMetadata(_group.Key, _group.ToList())).ToList();
+            Type[] types = assembly.GetTypes();
+            Namespaces = types.GroupBy(t => t.Namespace).OrderBy(t => t.Key)
+                .Select(t => new NamespaceMetadata(t.Key, t.ToList())).ToList();
         }
+
         public string Name { get; set; }
 
         public List<NamespaceMetadata> Namespaces { get; set; }

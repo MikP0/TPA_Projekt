@@ -21,7 +21,7 @@ namespace Projekt.JSONSerializer.UnitTest
             string solutionDir = testDir.Substring(0, testDir.LastIndexOf("Projekt.JSONSerializer.UnitTest"));
             string PathToExampleDll = solutionDir + "Projekt.TestDLL\\TPA.ApplicationArchitecture.dll";
 
-            AssemblyMetadata assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(PathToExampleDll));
+            AssemblyMetadata assemblyMetadata = new AssemblyMetadata(Assembly.ReflectionOnlyLoadFrom(PathToExampleDll));
 
             JSONAssemblyModel jsonAssemblyModel = new JSONAssemblyModel();
             assemblyModel = AssemblyModelMapper.MapDown(assemblyMetadata, jsonAssemblyModel);
@@ -32,6 +32,10 @@ namespace Projekt.JSONSerializer.UnitTest
         {
             JSONSerialize jsonSerialize = new JSONSerialize();
 
+            if (File.Exists(@"test.json"))
+            {
+                File.Delete(@"test.json");
+            }
             string jsonFileName = "test.json";
 
             jsonSerialize.Save(assemblyModel, jsonFileName);

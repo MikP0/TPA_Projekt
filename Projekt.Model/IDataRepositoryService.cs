@@ -7,6 +7,5 @@ namespace Projekt.Model
     {
         void Save(AssemblyModel _object, string path);
         AssemblyModel Read(string path);
-        string RepositoryServiceType { get; }
     }
 }

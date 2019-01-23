@@ -1,0 +1,1733 @@
+{
+  "$id": "1",
+  "Name": "TPA.ApplicationArchitecture.dll",
+  "NamespaceModels": [
+    {
+      "$id": "2",
+      "Name": "TPA.ApplicationArchitecture.Data",
+      "Types": [
+        {
+          "$id": "3",
+          "Name": "AbstractClass",
+          "AssemblyName": "AbstractClass",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "4",
+            "AbstractEnum": 1,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 1
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [
+            {
+              "$id": "5",
+              "Name": "Property1",
+              "Type": {
+                "$id": "6",
+                "Name": "String",
+                "AssemblyName": "String",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "7",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              }
+            }
+          ],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "8",
+              "Name": "get_Property1",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "9",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "10",
+              "Name": "set_Property1",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "11",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$id": "12",
+                "Name": "Void",
+                "AssemblyName": "Void",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "13",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "14",
+                  "Name": "value",
+                  "Type": {
+                    "$ref": "6"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "15",
+              "Name": "AbstractMethod",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "16",
+                "AbstractEnum": 1,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "17",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "18",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "19",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "20",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$id": "21",
+                "Name": "Boolean",
+                "AssemblyName": "Boolean",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "22",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "23",
+                  "Name": "obj",
+                  "Type": {
+                    "$id": "24",
+                    "Name": "Object",
+                    "AssemblyName": "Object",
+                    "IsExternal": true,
+                    "IsGeneric": false,
+                    "BaseType": null,
+                    "GenericArguments": null,
+                    "Modifiers": {
+                      "$id": "25",
+                      "AbstractEnum": null,
+                      "AccessLevel": null,
+                      "SealedEnum": null,
+                      "StaticEnum": null
+                    },
+                    "Type": 0,
+                    "ImplementedInterfaces": null,
+                    "NestedTypes": null,
+                    "Properties": null,
+                    "DeclaringType": null,
+                    "Methods": null,
+                    "Constructors": null,
+                    "Fields": null
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "26",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "27",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$id": "28",
+                "Name": "Int32",
+                "AssemblyName": "Int32",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "29",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "30",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "31",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$id": "32",
+                "Name": "Type",
+                "AssemblyName": "Type",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "33",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [],
+          "Fields": []
+        },
+        {
+          "$id": "34",
+          "Name": "ClassWithAttribute",
+          "AssemblyName": "ClassWithAttribute",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "35",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 0
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "36",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "37",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "38",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "39",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "40",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "41",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "42",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "43",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "44",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [
+            {
+              "$id": "45",
+              "Name": ".ctor",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "46",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": null,
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Fields": [
+            {
+              "$id": "47",
+              "Name": "FieldWithAttribute",
+              "Type": {
+                "$id": "48",
+                "Name": "Single",
+                "AssemblyName": "Single",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "49",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              }
+            }
+          ]
+        },
+        {
+          "$id": "50",
+          "Name": "DerivedClass",
+          "AssemblyName": "DerivedClass",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": {
+            "$ref": "3"
+          },
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "51",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 0
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [
+            {
+              "$id": "52",
+              "Name": "Property1",
+              "Type": {
+                "$ref": "6"
+              }
+            }
+          ],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "53",
+              "Name": "AbstractMethod",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "54",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "55",
+              "Name": "get_Property1",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "56",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "57",
+              "Name": "set_Property1",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "58",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "59",
+                  "Name": "value",
+                  "Type": {
+                    "$ref": "6"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "60",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "61",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "62",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "63",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "64",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "65",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "66",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "67",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "68",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [
+            {
+              "$id": "69",
+              "Name": ".ctor",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "70",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": null,
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Fields": [
+            {
+              "$id": "71",
+              "Name": "FieldInDerivedClass",
+              "Type": {
+                "$ref": "28"
+              }
+            }
+          ]
+        },
+        {
+          "$id": "72",
+          "Name": "GenericClass`1",
+          "AssemblyName": "GenericClass`1",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": [
+            {
+              "$id": "73",
+              "Name": "T",
+              "AssemblyName": "T",
+              "IsExternal": true,
+              "IsGeneric": false,
+              "BaseType": null,
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "74",
+                "AbstractEnum": null,
+                "AccessLevel": null,
+                "SealedEnum": null,
+                "StaticEnum": null
+              },
+              "Type": 0,
+              "ImplementedInterfaces": null,
+              "NestedTypes": null,
+              "Properties": null,
+              "DeclaringType": null,
+              "Methods": null,
+              "Constructors": null,
+              "Fields": null
+            }
+          ],
+          "Modifiers": {
+            "$id": "75",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 0
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [
+            {
+              "$id": "76",
+              "Name": "GenericProperty",
+              "Type": {
+                "$ref": "73"
+              }
+            }
+          ],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "77",
+              "Name": "get_GenericProperty",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "78",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "73"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "79",
+              "Name": "set_GenericProperty",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "80",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "81",
+                  "Name": "value",
+                  "Type": {
+                    "$ref": "73"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "82",
+              "Name": "GenericMethod",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "83",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "73"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "84",
+                  "Name": "arg",
+                  "Type": {
+                    "$ref": "73"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "85",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "86",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "87",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "88",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "89",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "90",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "91",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "92",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "93",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [
+            {
+              "$id": "94",
+              "Name": ".ctor",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "95",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": null,
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Fields": [
+            {
+              "$id": "96",
+              "Name": "GenericList",
+              "Type": {
+                "$id": "97",
+                "Name": "List`1",
+                "AssemblyName": "List`1",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": [
+                  {
+                    "$ref": "73"
+                  }
+                ],
+                "Modifiers": {
+                  "$id": "98",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              }
+            },
+            {
+              "$id": "99",
+              "Name": "GenericField",
+              "Type": {
+                "$ref": "73"
+              }
+            }
+          ]
+        },
+        {
+          "$id": "100",
+          "Name": "IExample",
+          "AssemblyName": "IExample",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "101",
+            "AbstractEnum": 1,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 1
+          },
+          "Type": 3,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "102",
+              "Name": "MethodA",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "103",
+                "AbstractEnum": 1,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "104",
+              "Name": "MethodB",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "105",
+                "AbstractEnum": 1,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "48"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [],
+          "Fields": []
+        },
+        {
+          "$id": "106",
+          "Name": "ImplementationOfIExample",
+          "AssemblyName": "ImplementationOfIExample",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "107",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 0
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [
+            {
+              "$ref": "100"
+            }
+          ],
+          "NestedTypes": [],
+          "Properties": [],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "108",
+              "Name": "MethodA",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "109",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "110",
+              "Name": "MethodB",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "111",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "48"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "112",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "113",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "114",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "115",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "116",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "117",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "118",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "119",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "120",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [
+            {
+              "$id": "121",
+              "Name": ".ctor",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "122",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": null,
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Fields": []
+        },
+        {
+          "$id": "123",
+          "Name": "OuterClass",
+          "AssemblyName": "OuterClass",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "124",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 0
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "125",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "126",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "127",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "128",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "129",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "130",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "131",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "132",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "133",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [
+            {
+              "$id": "134",
+              "Name": ".ctor",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "135",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": null,
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Fields": []
+        },
+        {
+          "$id": "136",
+          "Name": "StaticClass",
+          "AssemblyName": "StaticClass",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "137",
+            "AbstractEnum": 1,
+            "AccessLevel": 0,
+            "SealedEnum": 0,
+            "StaticEnum": 1
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [
+            {
+              "$id": "138",
+              "Name": "StaticProperty",
+              "Type": {
+                "$ref": "28"
+              }
+            }
+          ],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "139",
+              "Name": "get_StaticProperty",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "140",
+                "AbstractEnum": 0,
+                "StaticEnum": 1,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "141",
+              "Name": "set_StaticProperty",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "142",
+                "AbstractEnum": 0,
+                "StaticEnum": 1,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "143",
+                  "Name": "value",
+                  "Type": {
+                    "$ref": "28"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "144",
+              "Name": "StaticMethod1",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "145",
+                "AbstractEnum": 0,
+                "StaticEnum": 1,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "146",
+              "Name": "StaticMethod2",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "147",
+                "AbstractEnum": 0,
+                "StaticEnum": 1,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "48"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "148",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "149",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "150",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "151",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "152",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "153",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "154",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "155",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "156",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [],
+          "Fields": [
+            {
+              "$id": "157",
+              "Name": "StaticField",
+              "Type": {
+                "$ref": "28"
+              }
+            }
+          ]
+        },
+        {
+          "$id": "158",
+          "Name": "Structure",
+          "AssemblyName": "Structure",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "159",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 0,
+            "StaticEnum": 0
+          },
+          "Type": 2,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "160",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "161",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "162",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "163",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "164",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "165",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "166",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "167",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "168",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [],
+          "Fields": [
+            {
+              "$id": "169",
+              "Name": "FieldA",
+              "Type": {
+                "$ref": "28"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$id": "170",
+      "Name": "TPA.ApplicationArchitecture.Data.CircularReference",
+      "Types": [
+        {
+          "$id": "171",
+          "Name": "ClassA",
+          "AssemblyName": "ClassA",
+          "IsExternal": true,
+          "IsGeneric": false,
+          "BaseType": null,
+          "GenericArguments": null,
+          "Modifiers": {
+            "$id": "172",
+            "AbstractEnum": 0,
+            "AccessLevel": 0,
+            "SealedEnum": 1,
+            "StaticEnum": 0
+          },
+          "Type": 4,
+          "ImplementedInterfaces": [],
+          "NestedTypes": [],
+          "Properties": [
+            {
+              "$id": "173",
+              "Name": "ClassB",
+              "Type": {
+                "$id": "174",
+                "Name": "ClassB",
+                "AssemblyName": "ClassB",
+                "IsExternal": true,
+                "IsGeneric": false,
+                "BaseType": null,
+                "GenericArguments": null,
+                "Modifiers": {
+                  "$id": "175",
+                  "AbstractEnum": null,
+                  "AccessLevel": null,
+                  "SealedEnum": null,
+                  "StaticEnum": null
+                },
+                "Type": 0,
+                "ImplementedInterfaces": null,
+                "NestedTypes": null,
+                "Properties": null,
+                "DeclaringType": null,
+                "Methods": null,
+                "Constructors": null,
+                "Fields": null
+              }
+            }
+          ],
+          "DeclaringType": null,
+          "Methods": [
+            {
+              "$id": "176",
+              "Name": "get_ClassB",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "177",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "174"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "178",
+              "Name": "set_ClassB",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "179",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "12"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "180",
+                  "Name": "value",
+                  "Type": {
+                    "$ref": "174"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "181",
+              "Name": "ToString",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "182",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "6"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "183",
+              "Name": "Equals",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "184",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "21"
+              },
+              "Extension": false,
+              "Parameters": [
+                {
+                  "$id": "185",
+                  "Name": "obj",
+                  "Type": {
+                    "$ref": "24"
+                  }
+                }
+              ]
+            },
+            {
+              "$id": "186",
+              "Name": "GetHashCode",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "187",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 1,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "28"
+              },
+              "Extension": false,
+              "Parameters": []
+            },
+            {
+              "$id": "188",
+              "Name": "GetType",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "189",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": {
+                "$ref": "32"
+              },
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Constructors": [
+            {
+              "$id": "190",
+              "Name": ".ctor",
+              "GenericArguments": null,
+              "Modifiers": {
+                "$id": "191",
+                "AbstractEnum": 0,
+                "StaticEnum": 0,
+                "VirtualEnum": 0,
+                "AccessLevel": 0
+              },
+              "ReturnType": null,
+              "Extension": false,
+              "Parameters": []
+            }
+          ],
+          "Fields": []
+        },
+        {
+          "$ref": "174"
+        }
+      ]
+    }
+  ]
+}

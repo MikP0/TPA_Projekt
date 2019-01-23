@@ -13,6 +13,7 @@ namespace Projekt.Logic.Model
         #region fields
         private static readonly TypeDictionary dictionaryInstance = TypeDictionary.Instance;
         public string NamespaceName { get; set; }
+        public string AssemblyName { get; set; }
         public TypeMetadata BaseType { get; set; }
         public List<TypeMetadata> GenericArguments { get; set; }
         //public Tuple4<AccessLevel, SealedEnum, AbstractEnum, StaticEnum> Modifiers { get; set; }
@@ -53,7 +54,7 @@ namespace Projekt.Logic.Model
         public TypeMetadata(Type type)
         {
             Name = type.Name;
-
+            AssemblyName = type.AssemblyQualifiedName;
             CreateDictionary();
 
             DeclaringType = EmitDeclaringType(type.DeclaringType);
@@ -202,6 +203,27 @@ namespace Projekt.Logic.Model
             {
                 dictionaryInstance.Add(Name, this);
             }
+        }
+
+        public override string ToString()
+        {
+            string type = String.Empty;
+            if (Modifiers != null)
+            {
+                type += Modifiers.AccessLevel.ToString().ToLower() + " ";
+                type += Modifiers.SealedEnum == SealedEnum.Sealed ? SealedEnum.Sealed.ToString().ToLower() + " " : String.Empty;
+                type += Modifiers.AbstractEnum == AbstractEnum.Abstract ? AbstractEnum.Abstract.ToString().ToLower() + " " : String.Empty;
+                type += Modifiers.StaticEnum == StaticEnum.Static ? StaticEnum.Static.ToString().ToLower() + " " : String.Empty;
+
+            }
+            type += Type != TypeEnum.None ? Type.ToString().ToLower() + " " : String.Empty;
+            type += Name;
+            if (IsGeneric)
+                type += " :: Generic type";
+            else if (IsExternal)
+                type += " :: External assembly: " + AssemblyName;
+
+            return type;
         }
         #endregion
 

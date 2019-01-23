@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -61,7 +62,7 @@ namespace Projekt.Logic.Model
         }
         private static bool EmitExtension(MethodBase method)
         {
-            return method.IsDefined(typeof(ExtensionAttribute), true);
+            return method.CustomAttributes.Where(x => x.AttributeType == typeof(ExtensionAttribute)).Count() == 1; //method.IsDefined(typeof(ExtensionAttribute), true);
         }
         private static MethodModifiers EmitModifiers(MethodBase method)
         {
@@ -89,6 +90,18 @@ namespace Projekt.Logic.Model
                 VirtualEnum = _virtual,
                 AccessLevel = _access
             };
+        }
+        public override string ToString()
+        {
+            string type = String.Empty;
+            type += Modifiers.AccessLevel.ToString().ToLower() + " ";
+            type += Modifiers.AbstractEnum == AbstractEnum.Abstract ? AbstractEnum.Abstract.ToString().ToLower() + " " : String.Empty;
+            type += Modifiers.StaticEnum == StaticEnum.Static ? StaticEnum.Static.ToString().ToLower() + " " : String.Empty;
+            type += Modifiers.VirtualEnum == VirtualEnum.Virtual ? VirtualEnum.Virtual.ToString().ToLower() + " " : String.Empty;
+            type += ReturnType != null ? ReturnType.Name + " " : String.Empty;
+            type += Name;
+            type += Extension ? " :Extension method" : String.Empty;
+            return type;
         }
         #endregion
 

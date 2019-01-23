@@ -14,7 +14,6 @@ namespace Projekt.ViewModel
             Namespaces = assembly.Namespaces;
         }
 
-
         protected override void BuildTreeView(ObservableCollection<TreeViewItem> children)
         {
             if (Namespaces != null)

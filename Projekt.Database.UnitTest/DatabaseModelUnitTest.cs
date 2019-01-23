@@ -25,7 +25,7 @@ namespace Projekt.Database.UnitTest
             string PathToExampleDll = solutionDir + "Projekt.TestDLL\\TPA.ApplicationArchitecture.dll";
 
             DatabaseService databaseService = new DatabaseService();
-            AssemblyMetadata assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(PathToExampleDll));
+            AssemblyMetadata assemblyMetadata = new AssemblyMetadata(Assembly.ReflectionOnlyLoadFrom(PathToExampleDll));
 
             DatabaseAssemblyModel databaseAssemblyModel = new DatabaseAssemblyModel();
             AssemblyModel model = AssemblyModelMapper.MapDown(assemblyMetadata, databaseAssemblyModel);

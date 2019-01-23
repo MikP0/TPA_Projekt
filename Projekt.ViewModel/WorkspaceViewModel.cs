@@ -16,9 +16,6 @@ namespace Projekt.ViewModel
 
         public ObservableCollection<TreeViewItem> HierarchicalAreas { get; set; }
 
-        private Visibility visibilityRead = Visibility.Hidden;
-        private Visibility visibilitySave = Visibility.Hidden;
-
         [Import(typeof(IOpenFilePathService))]
         IOpenFilePathService _openFilePathService { get; set; }
         [Import(typeof(ISaveFilePathService))]
@@ -48,29 +45,7 @@ namespace Projekt.ViewModel
         {
             _saveFilePathService = saveFilePathService;
         }
-        public Visibility ChangeControlButtonReadVisibility
-        {
-            get { return visibilityRead; }
-            set
-            {
-                if(_logger != null)
-                    _logger.Log("Setting ReadButton visibility", LogLevel.INFO);
-                visibilityRead = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Visibility ChangeControlButtonSaveVisibility
-        {
-            get { return visibilitySave; }
-            set
-            {
-                if (_logger != null)
-                    _logger.Log("Setting SaveButton visibility", LogLevel.INFO);
-                visibilitySave = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         private void TreeViewLoaded()
         {
@@ -102,8 +77,8 @@ namespace Projekt.ViewModel
             if (_logger != null)
                 _logger.Log("Saving started", LogLevel.INFO);
             ButtonSave = "Save Clicked";
-            if(!_reflectionService.DataRepository.RepositoryServiceType.Contains("Database"))
-                _SaveFileName = _saveFilePathService.FilePath("");
+            _SaveFileName = Properties.Settings.Default.SaveFileName;
+
             if (_logger != null)
                 _logger.Log("Trying to save to XML", LogLevel.INFO);
             _reflectionService.Save(assemblyMetadata, SaveFileName);
@@ -127,23 +102,17 @@ namespace Projekt.ViewModel
         {
             if (_logger != null)
                 _logger.Log("Read Button clicked", LogLevel.INFO);
-            if (_reflectionService.DataRepository.RepositoryServiceType.Contains("Database"))
-                _ReadFileName = ".database";
-            else
-                _ReadFileName = _openFilePathService.FilePath("");
+
+            _ReadFileName = Properties.Settings.Default.ReadFileName;
+            _logger.Log("NAZWA PLIKU:" + _ReadFileName, LogLevel.INFO);
             ButtonRead = "Read Clicked";
 
-            if (ReadFileName.Contains(".dll"))
+            assemblyMetadata = _reflectionService.Read(ReadFileName);
+
+            if (ReadFileName.Contains(".json"))
             {
                 if (_logger != null)
-                    _logger.Log("Trying to read .dll file", LogLevel.INFO);
-                assemblyMetadata = new AssemblyMetadata(Assembly.LoadFrom(ReadFileName));
-            }
-            else if (ReadFileName.Contains(".json"))
-            {
-                if (_logger != null)
-                    _logger.Log("Trying to read .xml file", LogLevel.INFO);
-                assemblyMetadata = _reflectionService.Read(ReadFileName);
+                    _logger.Log("Trying to read .json file", LogLevel.INFO);
                 foreach (NamespaceMetadata n in assemblyMetadata.Namespaces)
                 {
                     foreach (TypeMetadata type in n.Types)
@@ -152,25 +121,11 @@ namespace Projekt.ViewModel
                     }
                 }
             }
-            else if (ReadFileName.Contains(".database"))
-                assemblyMetadata = _reflectionService.Read(ReadFileName);
-            else
-            {
-                if (_logger != null)
-                {
-                    _logger.Log("Error reading file: " + ReadFileName, LogLevel.ERROR);
-                    _logger.Log("File type not supported!", LogLevel.ERROR);
-                }
-                return;
-            }
 
             if (_logger != null)
                 _logger.Log("Creating tree view assembly metadata", LogLevel.INFO);
             treeViewAssemblyMetadata = new AssemblyTreeItem(assemblyMetadata);
             TreeViewLoaded();
-            ChangeControlButtonSaveVisibility = Visibility.Visible;
-            if (_logger != null)
-                _logger.Log("Save button set to visible",LogLevel.DEBUG);
         }
         private string _ButtonRead;
         public String ButtonRead
@@ -189,13 +144,21 @@ namespace Projekt.ViewModel
         #region ButtonLoadFromFile
         public void ChangeButtonLoadFromFile()
         {
+            _ReadFileName = _openFilePathService.FilePath("");
+
             ButtonLoadFromFile = "Loaded from file";
             if (_logger != null)
                 _logger.Log("LoadFromFile invoked", LogLevel.INFO);
 
-            ChangeControlButtonReadVisibility = Visibility.Visible;
-            if (_logger != null)
-                _logger.Log("Read button is now visible", LogLevel.INFO);
+            if (ReadFileName.Contains(".dll"))
+            {
+                if (_logger != null)
+                    _logger.Log("Trying to read .dll file", LogLevel.INFO);
+                assemblyMetadata = new AssemblyMetadata(Assembly.ReflectionOnlyLoadFrom(ReadFileName));
+            }
+
+            treeViewAssemblyMetadata = new AssemblyTreeItem(assemblyMetadata);
+            TreeViewLoaded();
         }
         private String _ButtonLoadFromFile;
         public String ButtonLoadFromFile
