@@ -170,22 +170,6 @@
       <Project>{1b9606bd-3633-4268-ac1d-2072ec3296ed}</Project>
       <Name>Projekt.Composition</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Database.Model\Projekt.Database.Model.csproj">
-      <Project>{5dd8f92a-549e-47a9-a4f5-1ef51cf7dae6}</Project>
-      <Name>Projekt.Database.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Database\Projekt.Database.csproj">
-      <Project>{376caf6b-2b77-4678-abac-fbb230c27e7b}</Project>
-      <Name>Projekt.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.JSONSerializer.Model\Projekt.JSONSerializer.Model.csproj">
-      <Project>{aa3f29fa-ae47-4067-b3d3-a718f920688e}</Project>
-      <Name>Projekt.JSONSerializer.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.JSONSerializer\Projekt.JSONSerializer.csproj">
-      <Project>{c5f34377-97d2-4abd-94c4-7a1f3fdb11da}</Project>
-      <Name>Projekt.JSONSerializer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.Logger\Projekt.Logger.csproj">
       <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
       <Name>Projekt.Logger</Name>

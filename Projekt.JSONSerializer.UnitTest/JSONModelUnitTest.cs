@@ -32,14 +32,13 @@ namespace Projekt.JSONSerializer.UnitTest
         {
             JSONSerialize jsonSerialize = new JSONSerialize();
 
-            if (File.Exists(@"test.json"))
+            if (File.Exists(JSONSerializer.Properties.Settings.Default.SaveFileName))
             {
-                File.Delete(@"test.json");
+                File.Delete(JSONSerializer.Properties.Settings.Default.SaveFileName);
             }
-            string jsonFileName = "test.json";
 
-            jsonSerialize.Save(assemblyModel, jsonFileName);
-            AssemblyModel newAssemblyModel = jsonSerialize.Read(jsonFileName);
+            jsonSerialize.Save(assemblyModel);
+            AssemblyModel newAssemblyModel = jsonSerialize.Read();
 
             Assert.IsTrue(newAssemblyModel.Name.Equals(assemblyModel.Name));
         }
