@@ -53,10 +53,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
-      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
-      <Name>Projekt.CommonInterfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.Composition\Projekt.Composition.csproj">
       <Project>{1B9606BD-3633-4268-AC1D-2072EC3296ED}</Project>
       <Name>Projekt.Composition</Name>

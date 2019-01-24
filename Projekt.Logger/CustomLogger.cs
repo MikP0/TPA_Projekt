@@ -1,4 +1,4 @@
-﻿using Projekt.CommonInterfaces;
+﻿using Projekt.Composition;
 using System;
 using System.ComponentModel.Composition;
 

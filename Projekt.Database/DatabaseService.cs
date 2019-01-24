@@ -1,5 +1,4 @@
-﻿using Projekt.CommonInterfaces;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using Projekt.Database.Model;
 using System.Linq;
 using Projekt.Model;

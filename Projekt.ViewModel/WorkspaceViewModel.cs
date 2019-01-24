@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Reflection;
-using System.Windows;
 using System.ComponentModel.Composition;
 using Projekt.Logic;
-using Projekt.CommonInterfaces;
+using Projekt.Composition;
 using Projekt.Logic.Model;
 
 namespace Projekt.ViewModel

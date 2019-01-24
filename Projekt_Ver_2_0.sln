@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.ViewModel", "Projek
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.Model", "Projekt.Model\Projekt.Model.csproj", "{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.CommonInterfaces", "Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj", "{85EE73DB-B8D7-4213-A147-AAD7072AC44F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt.Cmd", "Projekt.Cmd\Projekt.Cmd.csproj", "{098A4DB8-480B-4F6F-B45F-D4071D0AACCE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{92D5DF6D-7B1E-41E3-9DEF-F25A12EB265E} = {92D5DF6D-7B1E-41E3-9DEF-F25A12EB265E}
@@ -100,22 +98,6 @@ Global
 		{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}.Release|x64.Build.0 = Release|Any CPU
 		{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}.Release|x86.ActiveCfg = Release|Any CPU
 		{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}.Release|x86.Build.0 = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|ARM.Build.0 = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|x64.Build.0 = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Debug|x86.Build.0 = Debug|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|ARM.ActiveCfg = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|ARM.Build.0 = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|x64.ActiveCfg = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|x64.Build.0 = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|x86.ActiveCfg = Release|Any CPU
-		{85EE73DB-B8D7-4213-A147-AAD7072AC44F}.Release|x86.Build.0 = Release|Any CPU
 		{098A4DB8-480B-4F6F-B45F-D4071D0AACCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{098A4DB8-480B-4F6F-B45F-D4071D0AACCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{098A4DB8-480B-4F6F-B45F-D4071D0AACCE}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -329,7 +311,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AC72EEAB-6204-4387-970D-85FAA8C49F08}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {AC72EEAB-6204-4387-970D-85FAA8C49F08}
 	EndGlobalSection
 EndGlobal

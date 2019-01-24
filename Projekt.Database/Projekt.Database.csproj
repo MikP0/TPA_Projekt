@@ -145,10 +145,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
-      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
-      <Name>Projekt.CommonInterfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.Database.Model\Projekt.Database.Model.csproj">
       <Project>{5dd8f92a-549e-47a9-a4f5-1ef51cf7dae6}</Project>
       <Name>Projekt.Database.Model</Name>

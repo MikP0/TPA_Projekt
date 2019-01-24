@@ -4,7 +4,6 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using Projekt.Composition;
 using Projekt.ViewModel;
-using Projekt.CommonInterfaces;
 
 namespace Projekt.Cmd
 {

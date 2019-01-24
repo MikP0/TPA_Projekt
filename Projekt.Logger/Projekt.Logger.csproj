@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
-      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
-      <Name>Projekt.CommonInterfaces</Name>
+    <ProjectReference Include="..\Projekt.Composition\Projekt.Composition.csproj">
+      <Project>{1b9606bd-3633-4268-ac1d-2072ec3296ed}</Project>
+      <Name>Projekt.Composition</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
