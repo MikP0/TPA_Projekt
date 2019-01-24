@@ -72,10 +72,6 @@
       <Project>{9069D2A2-4C3D-47A2-B3F9-D08918AF2EFA}</Project>
       <Name>Projekt.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
-      <Project>{11cfccfe-f415-44f0-bf06-fdd31f2bc589}</Project>
-      <Name>Projekt.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

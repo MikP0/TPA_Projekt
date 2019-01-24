@@ -1,10 +1,7 @@
-﻿using Projekt.Composition;
-using Projekt.Logic.Mapper;
+﻿using Projekt.Logic.Mapper;
 using Projekt.Model;
 using Projekt.Logic.Model;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
 
 namespace Projekt.Logic
 {

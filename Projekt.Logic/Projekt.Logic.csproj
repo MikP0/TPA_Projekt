@@ -62,10 +62,6 @@
     <Compile Include="Reflector.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.Composition\Projekt.Composition.csproj">
-      <Project>{1B9606BD-3633-4268-AC1D-2072EC3296ED}</Project>
-      <Name>Projekt.Composition</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.Model\Projekt.Model.csproj">
       <Project>{11CFCCFE-F415-44F0-BF06-FDD31F2BC589}</Project>
       <Name>Projekt.Model</Name>
