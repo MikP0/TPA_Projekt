@@ -1,8 +1,5 @@
-﻿using Projekt.CommonInterfaces;
-using Projekt.Composition;
+﻿using Projekt.Composition;
 using Projekt.ViewModel;
-using System.ComponentModel.Composition;
-using System.Linq;
 using System.Windows;
 
 namespace Projekt_Ver_2_0

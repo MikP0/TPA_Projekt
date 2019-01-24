@@ -162,21 +162,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projekt.CommonInterfaces\Projekt.CommonInterfaces.csproj">
-      <Project>{85ee73db-b8d7-4213-a147-aad7072ac44f}</Project>
-      <Name>Projekt.CommonInterfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Projekt.Composition\Projekt.Composition.csproj">
       <Project>{1b9606bd-3633-4268-ac1d-2072ec3296ed}</Project>
       <Name>Projekt.Composition</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Logger\Projekt.Logger.csproj">
-      <Project>{c99cd111-caa9-4096-b612-20d7f135cadd}</Project>
-      <Name>Projekt.Logger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projekt.Logic\Projekt.Logic.csproj">
-      <Project>{9069d2a2-4c3d-47a2-b3f9-d08918af2efa}</Project>
-      <Name>Projekt.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Projekt.ViewModel\Projekt.ViewModel.csproj">
       <Project>{92d5df6d-7b1e-41e3-9def-f25a12eb265e}</Project>

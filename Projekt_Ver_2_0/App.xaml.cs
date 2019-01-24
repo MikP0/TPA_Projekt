@@ -13,14 +13,13 @@ namespace Projekt_Ver_2_0
         private void On_Startup(object sender, StartupEventArgs e)
         {
             Compose.Instance.Setup();
-            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.Logic.dll");
-            Compose.Instance.AddLocalAssemblyToCatalog(Projekt.ViewModel.Properties.Settings.Default.DatabaseModel);
-            Compose.Instance.AddLocalAssemblyToCatalog(Projekt.ViewModel.Properties.Settings.Default.DatabaseService);
-            Compose.Instance.AddLocalAssemblyToCatalog(Projekt.ViewModel.Properties.Settings.Default.LoggerService);
+            Compose.Instance.AddProjectAssemblyToCatalog("Projekt.Logic.dll");
+            Compose.Instance.AddProjectAssemblyToCatalog(Projekt.ViewModel.Properties.Settings.Default.DatabaseModel);
+            Compose.Instance.AddProjectAssemblyToCatalog(Projekt.ViewModel.Properties.Settings.Default.DatabaseService);
+            Compose.Instance.AddProjectAssemblyToCatalog(Projekt.ViewModel.Properties.Settings.Default.LoggerService);
             Compose.Instance.Container.ComposeExportedValue<IOpenFilePathService>(new GraphicalOpenFilePathService());
             Compose.Instance.Container.ComposeExportedValue<ISaveFilePathService>(new GraphicalSaveFilePathService());
-            Compose.Instance.AddLocalAssemblyToCatalog("Projekt.ViewModel.dll");
-            Compose compose = Compose.Instance;
+            Compose.Instance.AddProjectAssemblyToCatalog("Projekt.ViewModel.dll");
         }
     }
 }

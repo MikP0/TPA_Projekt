@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Primitives;
+using System.IO;
 using System.Reflection;
 
 namespace Projekt.Composition
@@ -22,6 +21,11 @@ namespace Projekt.Composition
             DirectoryCatalog localCatalog = new DirectoryCatalog(".", assembly);
             Catalog.Catalogs.Add(localCatalog);
         }
+        public void AddProjectAssemblyToCatalog(string assembly)
+        {
+            DirectoryCatalog projectCatalog = new DirectoryCatalog(GetSolutionPath(assembly), assembly);
+            Catalog.Catalogs.Add(projectCatalog);
+        }
         public void AddExternalAssemblyToCatalog(string path, string assembly)
         {
             DirectoryCatalog externalCatalog = new DirectoryCatalog(path, assembly);
@@ -30,6 +34,14 @@ namespace Projekt.Composition
         private Compose()
         {
 
+        }
+        private string GetSolutionPath(string LibraryName)
+        {
+            int index = LibraryName.LastIndexOf(".");
+            string LibraryNameWithout = LibraryName.Substring(0, index);
+            string AssemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string SolutionDir = AssemblyDir.Substring(0, AssemblyDir.LastIndexOf("Projekt_Ver_2_0"));
+            return (SolutionDir + LibraryNameWithout + "\\bin\\Debug");
         }
     }
 }
