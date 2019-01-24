@@ -29,5 +29,7 @@ namespace Projekt.Logic.Model
         {
             return this.Name;
         }
+
+
     }
 }

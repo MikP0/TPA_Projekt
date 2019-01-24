@@ -5,7 +5,7 @@ namespace Projekt.Database
 {
     public class DatabaseContext : DbContext
     {
-        private const string connectionString = @"data source=(LocalDb)\MSSQLLocalDB;initial catalog=Projekt.Database.DatabaseContext;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private const string connectionString = @"Server=tcp:mikpo.database.windows.net,1433;Initial Catalog=TPADB;Persist Security Info=True;User ID=mikpo@mikpo.database.windows.net;Password=MikSzym123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
         public DatabaseContext() : base(connectionString)
         {
 

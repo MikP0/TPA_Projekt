@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="ReadFileName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\\Users\\Szymon\\Desktop\\zserializowaneDane.json</Value>
+      <Value Profile="(Default)">zserializowaneDane.json</Value>
     </Setting>
     <Setting Name="SaveFileName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\\Users\\Szymon\\Desktop\\zserializowaneDane.json</Value>
+      <Value Profile="(Default)">zserializowaneDane.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>
