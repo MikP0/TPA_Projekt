@@ -1,4 +1,4 @@
-﻿using Projekt.CommonInterfaces;
+﻿using Projekt.ViewModel;
 using System.ComponentModel.Composition;
 
 namespace Projekt_Ver_2_0

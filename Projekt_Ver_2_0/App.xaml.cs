@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows;
-using Projekt.CommonInterfaces;
+using Projekt.ViewModel;
 using Projekt.Composition;
 
 namespace Projekt_Ver_2_0

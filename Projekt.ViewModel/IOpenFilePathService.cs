@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 
-namespace Projekt.CommonInterfaces
+namespace Projekt.ViewModel
 {
     [InheritedExport(typeof(IOpenFilePathService))]
     public interface IOpenFilePathService

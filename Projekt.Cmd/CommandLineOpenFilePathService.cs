@@ -1,4 +1,4 @@
-﻿using Projekt.CommonInterfaces;
+﻿using Projekt.ViewModel;
 using System;
 
 namespace Projekt.Cmd

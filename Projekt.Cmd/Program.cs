@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using Projekt.CommonInterfaces;
 using Projekt.Composition;
 using Projekt.ViewModel;
+using Projekt.CommonInterfaces;
 
 namespace Projekt.Cmd
 {
