@@ -11,7 +11,7 @@ namespace Projekt.Database
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class DatabaseService : IDataRepositoryService
     {
-        public void Save(AssemblyModel _object, string path)
+        public void Save(AssemblyModel _object)
         {
             ClearDB();
             using (DatabaseContext context = new DatabaseContext())
@@ -21,7 +21,7 @@ namespace Projekt.Database
                 context.SaveChanges();
             }
         }
-        public AssemblyModel Read(string path)
+        public AssemblyModel Read()
         {
             using (DatabaseContext context = new DatabaseContext())
             {

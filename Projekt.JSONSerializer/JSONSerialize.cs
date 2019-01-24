@@ -10,27 +10,31 @@ namespace Projekt.JSONSerializer
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class JSONSerialize : IDataRepositoryService
     {
-        public void Save(AssemblyModel _object, string path)
+        public void Save(AssemblyModel _object)
         {
 
             JSONAssemblyModel assembly = (JSONAssemblyModel)_object;
             string name = JsonConvert.SerializeObject(assembly, Formatting.Indented,
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
-
-            using (StreamWriter file = new StreamWriter(path, true))
+            
+            if (string.IsNullOrEmpty(Properties.Settings.Default.ReadFileName))
+                throw new ArgumentException("Variable ReadFileName in application settings is empty");
+            using (StreamWriter file = new StreamWriter(Properties.Settings.Default.ReadFileName, true))
             {
                 file.Write(name);
             }
 
         }
 
-        public AssemblyModel Read(string path)
+        public AssemblyModel Read()
         {
             JSONAssemblyModel model;
-            if (!File.Exists(path))
+            if (string.IsNullOrEmpty(Properties.Settings.Default.ReadFileName))
+                throw new ArgumentException("Variable ReadFileName in application settings is empty");
+            if (!File.Exists(Properties.Settings.Default.ReadFileName))
                 throw new ArgumentException("File not exist");
             using (System.IO.StreamReader file =
-                new System.IO.StreamReader(path, true))
+                new System.IO.StreamReader(Properties.Settings.Default.ReadFileName, true))
             {
                 var reader = file.ReadToEnd();
                 model = JsonConvert.DeserializeObject<JSONAssemblyModel>(reader,
@@ -38,14 +42,6 @@ namespace Projekt.JSONSerializer
             }
 
             return model;
-        }
-
-        public string RepositoryServiceType
-        {
-            get
-            {
-                return "JSON";
-            }
         }
     }
 }

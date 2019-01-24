@@ -5,7 +5,7 @@ namespace Projekt.Model
     [InheritedExport(typeof(IDataRepositoryService))]
     public interface IDataRepositoryService
     {
-        void Save(AssemblyModel _object, string path);
-        AssemblyModel Read(string path);
+        void Save(AssemblyModel _object);
+        AssemblyModel Read();
     }
 }

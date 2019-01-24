@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.ViewModel.Properties {
+namespace Projekt.JSONSerializer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
-    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -25,28 +25,19 @@ namespace Projekt.ViewModel.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.JSONSerializer.dll")]
-        public string DatabaseService {
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\Szymon\\\\Desktop\\\\zserializowaneDane.json")]
+        public string ReadFileName {
             get {
-                return ((string)(this["DatabaseService"]));
+                return ((string)(this["ReadFileName"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.Logger.dll")]
-        public string LoggerService {
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\Szymon\\\\Desktop\\\\zserializowaneDane.json")]
+        public string SaveFileName {
             get {
-                return ((string)(this["LoggerService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Projekt.JSONSerializer.Model.dll")]
-        public string DatabaseModel {
-            get {
-                return ((string)(this["DatabaseModel"]));
+                return ((string)(this["SaveFileName"]));
             }
         }
     }

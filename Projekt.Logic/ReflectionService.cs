@@ -17,14 +17,14 @@ namespace Projekt.Logic
         [Import(typeof(AssemblyModel))]
         public AssemblyModel assemblyModel { get; set; }
 
-        public void Save(AssemblyMetadata model, string path)
+        public void Save(AssemblyMetadata model)
         {
-            DataRepository.Save(AssemblyModelMapper.MapDown(model, assemblyModel), path);
+            DataRepository.Save(AssemblyModelMapper.MapDown(model, assemblyModel));
         }
 
-        public AssemblyMetadata Read(string path)
+        public AssemblyMetadata Read()
         {
-            return AssemblyModelMapper.MapUp(DataRepository.Read(path));
+            return AssemblyModelMapper.MapUp(DataRepository.Read());
         }
     }
 }

@@ -77,11 +77,10 @@ namespace Projekt.ViewModel
             if (_logger != null)
                 _logger.Log("Saving started", LogLevel.INFO);
             ButtonSave = "Save Clicked";
-            _SaveFileName = Properties.Settings.Default.SaveFileName;
 
             if (_logger != null)
                 _logger.Log("Trying to save to XML", LogLevel.INFO);
-            _reflectionService.Save(assemblyMetadata, SaveFileName);
+            _reflectionService.Save(assemblyMetadata);
         }
         private string _ButtonSave;
         public String ButtonSave
@@ -103,11 +102,9 @@ namespace Projekt.ViewModel
             if (_logger != null)
                 _logger.Log("Read Button clicked", LogLevel.INFO);
 
-            _ReadFileName = Properties.Settings.Default.ReadFileName;
-            _logger.Log("NAZWA PLIKU:" + _ReadFileName, LogLevel.INFO);
             ButtonRead = "Read Clicked";
 
-            assemblyMetadata = _reflectionService.Read(ReadFileName);
+            assemblyMetadata = _reflectionService.Read();
 
             if (ReadFileName.Contains(".json"))
             {
